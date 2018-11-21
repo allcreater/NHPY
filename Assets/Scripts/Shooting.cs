@@ -26,7 +26,10 @@ public class Shooting : MonoBehaviour
         if (Input.GetAxis("Fire1") > 0.0f && reloadingTimer > reloadTime)
         {
             var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+            
+            //TODO investigate the reason of exception and Unity crash
+            var velocity = GetComponentInParent<Rigidbody>()?.velocity ?? Vector3.zero;
+            bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed + velocity;
 
             reloadingTimer = 0.0f;
         }
