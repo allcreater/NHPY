@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
         if (m_moveDirection.sqrMagnitude > 0.0)
         {
             var newRotation = Quaternion.LookRotation(m_moveDirection.normalized, Vector3.up);
-            Debug.Log(m_moveDirection.normalized);//newRotation.eulerAngles);
             rigidbody.MoveRotation(Quaternion.Lerp(rigidbody.rotation, newRotation, Time.fixedDeltaTime * 10.0f));
         }
     }

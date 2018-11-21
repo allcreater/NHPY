@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(gameObject.tag);
         if (!tags.Contains(gameObject.tag))
             return;
 

@@ -9,26 +9,30 @@ public class Shooting : MonoBehaviour
     public float reloadTime = 0.5f;
 
     private float reloadingTimer = 0.0f;
+
+    private Vector3 m_prevPos;
     // Use this for initialization
     void Start () 
     {
-        
-    }
-
-    private void Awake()
-    {
-        
+        m_prevPos = transform.position;
     }
 
     // Update is called once per frame
     void Update ()
     {
+
+    }
+
+    void FixedUpdate()
+    {
+        //V = dx/dt. We can not just ask rigid body because it's position could be manually changed, also not every shooter could have rigidbody
+        var pos = transform.position;
+        var velocity = (pos - m_prevPos) / Time.fixedDeltaTime;
+        m_prevPos = pos;
+
         if (Input.GetAxis("Fire1") > 0.0f && reloadingTimer > reloadTime)
         {
             var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
-            
-            //TODO investigate the reason of exception and Unity crash
-            var velocity = GetComponentInParent<Rigidbody>()?.velocity ?? Vector3.zero;
             bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed + velocity;
 
             reloadingTimer = 0.0f;
