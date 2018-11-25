@@ -27,7 +27,7 @@ public class Shooting : MonoBehaviour
 
     void ShootTo(Vector3 direction)
     {
-        Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
+        //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
         if (reloadingTimer > reloadTime)
         {
