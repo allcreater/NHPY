@@ -8,6 +8,8 @@ public class PlayerControl : MonoBehaviour
 {
     public GameObject controlledObject;
 
+    public Vector3 actualDirection;
+
     // Use this for initialization
     void Start ()
     {
@@ -22,12 +24,14 @@ public class PlayerControl : MonoBehaviour
 
         var camera = GetComponent<Camera>();
 
+        var mouseDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("RightJoystickX"), 0.0f, CrossPlatformInputManager.GetAxisRaw("RightJoystickY"));
+        if (mouseDir.magnitude > 0.01)
+            actualDirection = mouseDir.normalized;
+
         if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
         {
-            var mouseDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("Mouse X"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Mouse Y"));
             //var shootDirection = (camera.ScreenToWorldPoint(mousePos) - controlledObject.transform.position).normalized;
-            Debug.Log(mouseDir.normalized);
-            controlledObject.BroadcastMessage("ShootTo", mouseDir);
+            controlledObject.BroadcastMessage("ShootTo", actualDirection);
             
         }
     }
