@@ -14,13 +14,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    void MoveTo(Vector3 direction)
+    {
+        m_moveDirection = Vector3.ClampMagnitude(direction, 1.0f);
     }
 
     private void Update()
     {
-        m_moveDirection = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
+        animator.SetFloat("Speed", m_moveDirection.magnitude);
     }
 
     private void FixedUpdate ()
