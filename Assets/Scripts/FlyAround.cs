@@ -8,7 +8,7 @@ public class FlyAround : MonoBehaviour
     public float desiredDistance = 1.0f;
     public float reactionSpeed = 2.0f;
 
-    private Vector3 lookTo;
+    private Vector3 lookTo = new Vector3(0, 1, 0);
 
     // Use this for initialization
     void Start ()
