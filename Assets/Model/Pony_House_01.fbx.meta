@@ -22,7 +22,37 @@ ModelImporter:
     3300002: House_roof
     4300000: House_roof
     4300002: House
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_DPink
+    second: {fileID: 2100000, guid: b4c6840fd3617044da4f01049811bdf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_Glass
+    second: {fileID: 2100000, guid: ecf0b593cf314704c8600b4f81b1ba55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_LPink
+    second: {fileID: 2100000, guid: 1cb3af00182ab694588ce7131eecb151, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_Roof
+    second: {fileID: 2100000, guid: b2f3ca676d1504542a53f9d26ea66025, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_color
+    second: {fileID: 2100000, guid: 8474c3a891ef68747bcfe6ba994faa8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House_sticks
+    second: {fileID: 2100000, guid: 797bf51d97b32b3438649d40c83eb63a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
