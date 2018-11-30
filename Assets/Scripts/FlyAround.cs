@@ -22,12 +22,12 @@ public class FlyAround : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void FixedUpdate ()
     {
         var direction = target.position - transform.position;
         var targetPos = target.position + target.transform.right * desiredDistance; //- direction.normalized * desiredDistance;
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * reactionSpeed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookTo, Vector3.up), Time.deltaTime * reactionSpeed);
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * reactionSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookTo, Vector3.up), Time.fixedDeltaTime * reactionSpeed);
     }
 }
