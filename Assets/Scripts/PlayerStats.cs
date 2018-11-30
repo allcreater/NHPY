@@ -45,10 +45,11 @@ public class PlayerStats : MonoBehaviour
         
     }
 
-    void Update ()
+    //It will influence to player movement, so using FixedUpdate
+    void FixedUpdate ()
     {
-        hitPoints += hitPointsRegenerationRate * Time.deltaTime;
-        stamina += staminaRegenerationRate * Time.deltaTime;
+        hitPoints += hitPointsRegenerationRate * Time.fixedDeltaTime;
+        stamina += staminaRegenerationRate * Time.fixedDeltaTime;
         Debug.Log($"now stamina is {stamina}");
     }
 }

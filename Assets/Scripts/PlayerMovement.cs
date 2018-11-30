@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Speed", m_moveDirection.magnitude);
     }
 
     private void FixedUpdate ()
@@ -49,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         var length = m_moveDirection.magnitude;
         var direction = m_moveDirection / (length + 0.001f);
 
-        if (length > 1.1)
+        if (length > 1.01)
         {
             float staminaOverrun = (length - 1) / (m_speedBoost - 1) * staminaConsumption;
             float amplification = stats.consumeStamina(staminaOverrun * Time.deltaTime);
@@ -57,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             length = Mathf.Clamp(length, 0, 1 + m_speedBoost * amplification);
         }
 
+        animator.SetFloat("Speed", length);
         rigidbody.MovePosition(rigidbody.position + direction * ( length * walkSpeed *  Time.fixedDeltaTime));
 
         if (m_moveDirection.sqrMagnitude > 0.0)
