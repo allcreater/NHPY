@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
 
+public struct MoveToParams
+{
+    public Vector3 direction;
+    public bool isRun;
+
+    public MoveToParams(Vector3 dir, bool run)
+    {
+        direction = dir;
+        isRun = run;
+    }
+}
+
 [RequireComponent(typeof(Camera))]
 public class PlayerControl : MonoBehaviour
 {
@@ -21,7 +33,7 @@ public class PlayerControl : MonoBehaviour
         {
             //TODO: remove костыль
             var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
-            controlledObject.BroadcastMessage("MoveTo", movement, SendMessageOptions.DontRequireReceiver);
+            controlledObject.BroadcastMessage("MoveTo", new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run")), SendMessageOptions.DontRequireReceiver);
 
             var mouseDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("RightJoystickX"), 0.0f, CrossPlatformInputManager.GetAxisRaw("RightJoystickY"));
             if (mouseDir.magnitude > 0.01)
