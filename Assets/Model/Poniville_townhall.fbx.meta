@@ -4,7 +4,11 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Floor_collider
+    100004: Townhall
     400000: //RootNode
+    400002: Floor_collider
+    400004: Townhall
     2100000: Townhall_Floror
     2100002: DarkWood
     2100004: MediumWood
@@ -15,9 +19,15 @@ ModelImporter:
     2100014: Townhall_Roof
     2100016: RedWood
     2100018: LightRedWood
+    2100020: No Name
     2300000: //RootNode
+    2300002: Floor_collider
+    2300004: Townhall
     3300000: //RootNode
+    3300002: Floor_collider
+    3300004: Townhall
     4300000: Townhall
+    4300002: Floor_collider
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -49,6 +59,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: MediumWood
     second: {fileID: 2100000, guid: 4c948f05c11154548b69356d8b667356, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PinkWood
+    second: {fileID: 2100000, guid: b4c6840fd3617044da4f01049811bdf1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
