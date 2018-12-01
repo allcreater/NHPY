@@ -830,7 +830,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 393492714}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.29
   m_Height: 1.32
   m_Direction: 2
@@ -8110,10 +8110,10 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 17.7
-  orthographic: 1
+  near clip plane: 0.1
+  far clip plane: 400
+  field of view: 8
+  orthographic: 0
   orthographic size: 14.6
   m_Depth: -1
   m_CullingMask:
@@ -8137,7 +8137,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1617900263}
   m_LocalRotation: {x: 0.38268346, y: -0.000000029802322, z: -0, w: 0.9238796}
-  m_LocalPosition: {x: 46.699997, y: 90, z: 10.36}
+  m_LocalPosition: {x: 46.699997, y: 115, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
