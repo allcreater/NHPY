@@ -818,7 +818,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Starllight_galop
       takeName: Starllight_galop
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 44
       wrapMode: 0
       orientationOffsetY: 0
