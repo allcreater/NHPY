@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
 
-public struct MoveToParams
+public class MoveToParams
 {
-    public Vector3 direction;
-    public bool isRun;
+    public Vector3 direction { get; }
+    public bool isRun { get; }
 
     public MoveToParams(Vector3 dir, bool run)
     {
@@ -18,10 +18,10 @@ public struct MoveToParams
 [RequireComponent(typeof(Camera))]
 public class PlayerControl : MonoBehaviour
 {
-    public Vector3 actualDirection;
+    public GameObject playerPawn;
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
 
     }
@@ -29,25 +29,34 @@ public class PlayerControl : MonoBehaviour
 // Update is called once per frame
     void Update ()
     {
+        var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
+        MoveToParams moveToParams = new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run"));
+
+        Vector3? lookToDirection = null, shootDirection = null;
+
+        var joysticDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("RightJoystickX"), 0.0f, CrossPlatformInputManager.GetAxisRaw("RightJoystickY"));
+        if (joysticDir.magnitude > 0.01)
+            lookToDirection = joysticDir;
+
+        var camera = GetComponent<Camera>();
+        var mouseScreenPos = Input.mousePosition;//new Vector3(CrossPlatformInputManager.GetAxisRaw("Mouse X"), CrossPlatformInputManager.GetAxisRaw("Mouse Y"), 0.0f);
+        Debug.Log(mouseScreenPos);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out hitInfo))
+            lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
+
+        if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
+            shootDirection = lookToDirection;
+
         foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))
         {
-            //TODO: remove костыль
-            var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
-            controlledObject.BroadcastMessage("MoveTo", new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run")), SendMessageOptions.DontRequireReceiver);
+            controlledObject.BroadcastMessage("MoveTo", moveToParams, SendMessageOptions.DontRequireReceiver);
 
-            var mouseDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("RightJoystickX"), 0.0f, CrossPlatformInputManager.GetAxisRaw("RightJoystickY"));
-            if (mouseDir.magnitude > 0.01)
-            {
-                controlledObject.BroadcastMessage("LookTo", actualDirection, SendMessageOptions.DontRequireReceiver);
-                actualDirection = mouseDir.normalized;
-            }
+            if (lookToDirection?.magnitude > 0.01)
+                controlledObject.BroadcastMessage("LookTo", lookToDirection.Value, SendMessageOptions.DontRequireReceiver);
 
-            if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
-            {
-                //var shootDirection = (camera.ScreenToWorldPoint(mousePos) - controlledObject.transform.position).normalized;
-                controlledObject.BroadcastMessage("ShootTo", actualDirection, SendMessageOptions.DontRequireReceiver);
-
-            }
+            if (shootDirection?.magnitude > 0.01)
+                controlledObject.BroadcastMessage("ShootTo", shootDirection.Value, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
