@@ -39,7 +39,7 @@ public class PlayerControl : MonoBehaviour
             lookToDirection = joysticDir;
 
         var camera = GetComponent<Camera>();
-        var mouseScreenPos = Input.mousePosition;//new Vector3(CrossPlatformInputManager.GetAxisRaw("Mouse X"), CrossPlatformInputManager.GetAxisRaw("Mouse Y"), 0.0f);
+        var mouseScreenPos = CrossPlatformInputManager.mousePosition;
         Debug.Log(mouseScreenPos);
         RaycastHit hitInfo;
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out hitInfo))

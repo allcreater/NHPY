@@ -8774,6 +8774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 10
+  maxManaPoints: 0
   maxStamina: 100
   hitPointsRegenerationRate: 0
   staminaRegenerationRate: 5
@@ -8879,7 +8880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f94212dcc258b46a947e9ab24dbbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualDirection: {x: 0, y: 0, z: 0}
+  playerPawn: {fileID: 1588861313}
 --- !u!114 &1617900269
 MonoBehaviour:
   m_ObjectHideFlags: 0
