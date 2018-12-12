@@ -7,6 +7,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour 
 {
     public string[] tags;
+    public GameObject hitEffect;
 
     // Use this for initialization
     void Start () 
@@ -14,14 +15,16 @@ public class Projectile : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!tags.Contains(gameObject.tag))
+        if (!tags.Contains(other.gameObject.tag))
             return;
 
-        GameObject.Destroy(gameObject);
+        if (hitEffect)
+            GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
 
-        //GetComponent<Rigidbody>().velocity += Vector3.up * 10;
+        //Debug.Log(other.gameObject.name);
+        GameObject.Destroy(this);
     }
 
     // Update is called once per frame

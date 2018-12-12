@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour
 
         var camera = GetComponent<Camera>();
         var mouseScreenPos = CrossPlatformInputManager.mousePosition;
-        Debug.Log(mouseScreenPos);
+
         RaycastHit hitInfo;
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out hitInfo))
             lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
