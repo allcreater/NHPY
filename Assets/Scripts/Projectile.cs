@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
             GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
 
         //Debug.Log(other.gameObject.name);
-        GameObject.Destroy(this);
+        GameObject.Destroy(gameObject);
     }
 
     // Update is called once per frame
