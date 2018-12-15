@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class DeathToken
+{
+    public bool Handled { get; set; } = false;
+}
+
 public class PlayerStats : MonoBehaviour
 {
     public float maxHitPoints = 10;
@@ -14,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     public UnityEngine.UI.Slider hitPointsBar;
     public UnityEngine.UI.Slider manaPointsBar;
     public UnityEngine.UI.Slider staminaPointsBar;
+
 
     private float m_hitPoints = 0;
     private float m_manaPoints = 0;
@@ -51,11 +57,6 @@ public class PlayerStats : MonoBehaviour
         m_stamina = maxStamina;
     }
     
-    void Awake ()
-    {
-        
-    }
-
     void Update()
     {
         if (hitPointsBar)
@@ -66,6 +67,14 @@ public class PlayerStats : MonoBehaviour
 
         if (staminaPointsBar)
             staminaPointsBar.value = m_stamina / maxStamina;
+
+        if (m_hitPoints <= 0)
+        {
+            var token = new DeathToken();
+            SendMessage("NoMoreHP", token, SendMessageOptions.DontRequireReceiver);
+            if (!token.Handled)
+                OnUnhandledDeath();
+        }
     }
 
     //It will influence to player movement, so using FixedUpdate
@@ -73,5 +82,10 @@ public class PlayerStats : MonoBehaviour
     {
         hitPoints += hitPointsRegenerationRate * Time.fixedDeltaTime;
         stamina += staminaRegenerationRate * Time.fixedDeltaTime;
+    }
+
+    private void OnUnhandledDeath()
+    {
+        GameObject.Destroy(gameObject);
     }
 }
