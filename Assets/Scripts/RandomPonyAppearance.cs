@@ -22,8 +22,6 @@ public class RandomPonyAppearance : MonoBehaviour
         {
             bodyObject.GetComponent<Renderer>().materials[0].color = Random.ColorHSV();
         }
-
-        var a = new MeshRenderer();
     }
 
     // Update is called once per frame

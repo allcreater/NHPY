@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8876446577636926304}
   - component: {fileID: 8876446577636926305}
   - component: {fileID: 8876446577636926318}
+  - component: {fileID: 3398971796977093993}
   m_Layer: 0
   m_Name: _Zombie_
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
   hitPointsBar: {fileID: 0}
   manaPointsBar: {fileID: 0}
   staminaPointsBar: {fileID: 0}
+--- !u!114 &3398971796977093993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876446577636926316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49cd0e3a98e14b4d8078a8a7728c02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8876446578999515210
 MonoBehaviour:
   m_ObjectHideFlags: 0
