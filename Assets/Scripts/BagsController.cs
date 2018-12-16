@@ -26,6 +26,9 @@ public class BagsController : MonoBehaviour
 {
     public GameObject bagPrefab;
 
+    public float bagReactionSpeedAverage = 6.0f;
+    public float bagReactionSpeedDispersion = 1.0f;
+
     private List<GameObject> bags = new List<GameObject>();
 
     public bool AddBag()
@@ -39,7 +42,9 @@ public class BagsController : MonoBehaviour
         {
             var newBag = GameObject.Instantiate(bagPrefab, null);
             newBag.name = bagName;
-            newBag.GetComponent<FlyAround>().target = socket;
+            var flyAroundComponent = newBag.GetComponent<FlyAround>();
+            flyAroundComponent.target = socket;
+            flyAroundComponent.reactionSpeed = Random.Range(bagReactionSpeedAverage - bagReactionSpeedDispersion, bagReactionSpeedAverage + bagReactionSpeedDispersion);
 
             bags.Add(newBag);
 
