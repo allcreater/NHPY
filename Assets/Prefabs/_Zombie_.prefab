@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2b2a034d3553c4fb09bda015b6db78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 10
+  maxHitPoints: 3
   maxManaPoints: 0
   maxStamina: 100
   hitPointsRegenerationRate: 0

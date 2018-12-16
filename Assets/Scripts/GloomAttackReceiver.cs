@@ -10,10 +10,12 @@ public class GloomAttackReceiver : MonoBehaviour
     public string objectsTag = "Enemy";
 
     private PlayerStats playerStats;
+    private GloomParticleEffect particleEffect;
 
     private void Awake()
     {
         playerStats = GetComponent<PlayerStats>();
+        particleEffect = GetComponentInChildren<GloomParticleEffect>();
     }
 
     float DistanceAttenuation(float distance, float innerR, float outerR)
@@ -34,12 +36,14 @@ public class GloomAttackReceiver : MonoBehaviour
             var dir = gloomAttacker.transform.position - transform.position;
 
             influence += DistanceAttenuation(dir.magnitude, 5.0f, gloomAttacker.damageRadius) * gloomAttacker.damage;
+
+            particleEffect?.GloomAttackedBy(gloomAttacker);
         }
 
         if (influence < damageThreshold)
             influence = 0.0f;//return
 
-        playerStats.hitPoints -= influence;
+        //playerStats.hitPoints -= influence;
         Debug.Log(influence);
     }
 }
