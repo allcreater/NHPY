@@ -10008,6 +10008,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8876446578999515210, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
+        type: 3}
+      propertyPath: manes.Array.data[0]
+      value: 
+      objectReference: {fileID: 100410, guid: caff2ce59901aa241b93e915913f631e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ebdbd2a23c8b244add4ce2dd1fec96, type: 3}
 --- !u!1001 &1139384281
@@ -10086,6 +10091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876446577636926305, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ebdbd2a23c8b244add4ce2dd1fec96, type: 3}
@@ -12242,6 +12252,22 @@ MonoBehaviour:
   bagPrefab: {fileID: 1299557394861990, guid: 98e43f100c7e47248a8df9dfa0842230, type: 3}
   bagReactionSpeedAverage: 6
   bagReactionSpeedDispersion: 2
+--- !u!114 &1588861320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588861313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63afcd580485d74492027c3bffe0c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageThreshold: 0
+  maxReceiveRadius: 20
+  layerMask: Default
+  objectsTag: Enemy
 --- !u!4 &1594372980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8876446577636926319, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,

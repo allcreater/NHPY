@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 8876446577636926305}
   - component: {fileID: 8876446577636926318}
   - component: {fileID: 3398971796977093993}
+  - component: {fileID: 5255212041058107136}
+  - component: {fileID: 8299443545391628940}
   m_Layer: 0
   m_Name: _Zombie_
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +117,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49cd0e3a98e14b4d8078a8a7728c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeedDeviation: 0.3
+--- !u!114 &5255212041058107136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876446577636926316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71abf42e3e9f4f41a403d622918c4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageRadius: 10
+  damage: 1
+--- !u!135 &8299443545391628940
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876446577636926316}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.86859924
+  m_Center: {x: -0.0000023650477, y: 2.9999907, z: 0.80538917}
 --- !u!114 &8876446578999515210
 MonoBehaviour:
   m_ObjectHideFlags: 0
