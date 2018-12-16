@@ -26,7 +26,6 @@ public class BagsController : MonoBehaviour
 {
     public GameObject bagPrefab;
 
-    private PlayerStats stats;
     private List<GameObject> bags = new List<GameObject>();
 
     public bool AddBag()
@@ -57,11 +56,6 @@ public class BagsController : MonoBehaviour
         AddBag();
     }
 
-    void Awake()
-    {
-        stats = GetComponent<PlayerStats>();
-    }
-
     void NoMoreHP(DeathToken token)
     {
         if (bags.Count >= 1)
@@ -70,7 +64,8 @@ public class BagsController : MonoBehaviour
             GameObject.Destroy(bags[index]);
             bags.RemoveAt(index);
 
-            token.Handled = true;
+
+            token.ReviveHitPoints = float.MaxValue;
         }
         else
         {

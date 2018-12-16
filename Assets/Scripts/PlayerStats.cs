@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeathToken
 {
-    public bool Handled { get; set; } = false;
+    public float? ReviveHitPoints { get; set; } = null;
 }
 
 public class PlayerStats : MonoBehaviour
@@ -72,7 +72,9 @@ public class PlayerStats : MonoBehaviour
         {
             var token = new DeathToken();
             SendMessage("NoMoreHP", token, SendMessageOptions.DontRequireReceiver);
-            if (!token.Handled)
+            if (token.ReviveHitPoints.HasValue)
+                hitPoints = token.ReviveHitPoints.Value;
+            else
                 OnUnhandledDeath();
         }
     }
