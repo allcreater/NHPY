@@ -25,7 +25,7 @@ public class FlyAround : MonoBehaviour
     void FixedUpdate ()
     {
         var direction = target.position - transform.position;
-        var targetPos = target.position + target.transform.right * desiredDistance; //- direction.normalized * desiredDistance;
+        var targetPos = target.position; //+ target.transform.right * desiredDistance; //- direction.normalized * desiredDistance;
 
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * reactionSpeed);
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookTo, Vector3.up), Time.fixedDeltaTime * reactionSpeed);

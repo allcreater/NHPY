@@ -21,10 +21,13 @@ public class Projectile : MonoBehaviour
             return;
 
         if (hitEffect)
-            GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
+        {
+            var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
+            effectObject.SendMessage("CollidedWith", other);
+        }
 
-        //Debug.Log(other.gameObject.name);
-        GameObject.Destroy(this);
+       
+        GameObject.Destroy(gameObject);
     }
 
     // Update is called once per frame

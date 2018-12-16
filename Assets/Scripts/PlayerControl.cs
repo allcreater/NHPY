@@ -45,6 +45,9 @@ public class PlayerControl : MonoBehaviour
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out hitInfo))
             lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
 
+        //if (lookToDirection.HasValue)
+        //    lookToDirection = (lookToDirection.Value + Vector3.up).normalized;
+
         if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
             shootDirection = lookToDirection;
 
