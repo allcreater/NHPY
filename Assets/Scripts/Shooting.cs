@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using System.Linq;
+﻿using UnityEngine;
 
 public class Shooting : MonoBehaviour 
 {
@@ -10,13 +6,21 @@ public class Shooting : MonoBehaviour
     public float bulletSpeed = 10.0f;
     public float reloadTime = 0.5f;
 
-    private float reloadingTimer = 0.0f;
+    public bool useBallisticTrajectory = false;
 
+    private System.Func<Vector3, float, Vector3> trajectoryCalculator;
+    private float reloadingTimer = 0.0f;
     private Vector3 m_prevPos, m_velocity;
+
     // Use this for initialization
     void Start () 
     {
         m_prevPos = transform.position;
+
+        if (useBallisticTrajectory)
+            trajectoryCalculator = BallisticTrajectoryDirection;
+        else
+            trajectoryCalculator = FlatTrajectoryDirection;
     }
 
     // Update is called once per frame
@@ -25,17 +29,43 @@ public class Shooting : MonoBehaviour
         reloadingTimer += Time.deltaTime;
     }
 
-    public void ShootTo(Vector3 direction)
+    private Vector3 FlatTrajectoryDirection(Vector3 targetPos, float desiredHeight)
     {
-        direction.Normalize();
+        var direction = targetPos - transform.position;
+        return direction.normalized * bulletSpeed;
+    }
+
+    private Vector3 BallisticTrajectoryDirection(Vector3 targetPos, float desiredHeight)
+    {
+        Debug.Assert(Mathf.Approximately(Physics.gravity.normalized.y, -1.0f), "BallisticTrajectoryDirection supports only gravity at y axis!");
+
+        var flatDirection = targetPos - transform.position;
+        float delthaY = flatDirection.y;
+        var delthaXZ = new Vector2(flatDirection.x, flatDirection.z);
+
+        float g = -Physics.gravity.y;
+        float V0y = Mathf.Sqrt(2 * g * desiredHeight);
+        float subSqr = V0y * V0y - 2 * g * delthaY;
+        if (subSqr < 0.0)
+            return Vector3.zero;
+
+        float V0xz = delthaXZ.magnitude * g / (V0y + Mathf.Sqrt(subSqr));
+
+        delthaXZ.Normalize();
+        return new Vector3(V0xz * delthaXZ.x, V0y, V0xz * delthaXZ.y);
+    }
+
+    public void ShootTo(Vector3 position)
+    {
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
         if (reloadingTimer > reloadTime)
         {
-            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = direction * bulletSpeed + m_velocity;
-
             reloadingTimer = 0.0f;
+            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
+
+            var velocity = trajectoryCalculator(position, 10.0f);
+            bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
         }
     }
 

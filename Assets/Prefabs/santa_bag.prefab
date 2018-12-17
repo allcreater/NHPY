@@ -5701,8 +5701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrototype: {fileID: 1095096490874756, guid: 7d2c7661a242e5d44b719cf270dda85e,
     type: 3}
-  bulletSpeed: 20.97
+  bulletSpeed: 20
   reloadTime: 0.5
+  useBallisticTrajectory: 1
 --- !u!114 &114009290733556996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7435,8 +7436,8 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0.97978777, b: 0.9019608, a: 1}
-  m_Intensity: 3
-  m_Range: 20
+  m_Intensity: 2
+  m_Range: 30
   m_SpotAngle: 20
   m_CookieSize: 10
   m_Shadows:

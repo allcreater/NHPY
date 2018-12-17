@@ -32,7 +32,7 @@ public class PlayerControl : MonoBehaviour
         var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
         MoveToParams moveToParams = new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run"));
 
-        Vector3? lookToDirection = null, shootDirection = null;
+        Vector3? lookToDirection = null, shootTargetPosition = null;
 
         var joysticDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("RightJoystickX"), 0.0f, CrossPlatformInputManager.GetAxisRaw("RightJoystickY"));
         if (joysticDir.magnitude > 0.01)
@@ -43,13 +43,11 @@ public class PlayerControl : MonoBehaviour
 
         RaycastHit hitInfo;
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out hitInfo))
+        {
             lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
-
-        //if (lookToDirection.HasValue)
-        //    lookToDirection = (lookToDirection.Value + Vector3.up).normalized;
-
-        if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
-            shootDirection = lookToDirection;
+            if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
+                shootTargetPosition = hitInfo.point;
+        }
 
         foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))
         {
@@ -58,8 +56,8 @@ public class PlayerControl : MonoBehaviour
             if (lookToDirection?.magnitude > 0.01)
                 controlledObject.BroadcastMessage("LookTo", lookToDirection.Value, SendMessageOptions.DontRequireReceiver);
 
-            if (shootDirection?.magnitude > 0.01)
-                controlledObject.BroadcastMessage("ShootTo", shootDirection.Value, SendMessageOptions.DontRequireReceiver);
+            if (shootTargetPosition.HasValue)
+                controlledObject.BroadcastMessage("ShootTo", shootTargetPosition.Value, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
