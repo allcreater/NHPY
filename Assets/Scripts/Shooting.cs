@@ -52,7 +52,9 @@ public class Shooting : MonoBehaviour
         float V0xz = delthaXZ.magnitude * g / (V0y + Mathf.Sqrt(subSqr));
 
         delthaXZ.Normalize();
-        return new Vector3(V0xz * delthaXZ.x, V0y, V0xz * delthaXZ.y);
+        var desiredVelocity = new Vector3(V0xz * delthaXZ.x, V0y, V0xz * delthaXZ.y) - m_velocity;
+        //Debug.Log($"velocity is {desiredVelocity.magnitude}");
+        return Vector3.ClampMagnitude(desiredVelocity, bulletSpeed);
     }
 
     public void ShootTo(Vector3 position)

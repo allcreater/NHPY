@@ -44,6 +44,6 @@ public class GloomAttackReceiver : MonoBehaviour
             influence = 0.0f;//return
 
         playerStats.hitPoints -= influence;
-        Debug.Log(influence);
+        //Debug.Log(influence);
     }
 }
