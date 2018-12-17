@@ -25,7 +25,7 @@ public class Shooting : MonoBehaviour
         reloadingTimer += Time.deltaTime;
     }
 
-    void ShootTo(Vector3 direction)
+    public void ShootTo(Vector3 direction)
     {
         direction.Normalize();
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);

@@ -43,7 +43,7 @@ public class GloomAttackReceiver : MonoBehaviour
         if (influence < damageThreshold)
             influence = 0.0f;//return
 
-        //playerStats.hitPoints -= influence;
+        playerStats.hitPoints -= influence;
         Debug.Log(influence);
     }
 }
