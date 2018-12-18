@@ -31,16 +31,19 @@ public class BagsController : MonoBehaviour
 
     private List<GameObject> bags = new List<GameObject>();
 
-    public bool AddBag_1()
+    public bool AddBag(int preafabindex )
     {
         var bagIndex = bags.Count + 1;
         var bagName = $"Bag #{bagIndex}";
         var bagSocketName = $"BagSocket #{bagIndex}";
         
         var socket = transform.FindChildByRecursion(bagSocketName);
+
+        if (preafabindex < 0 || preafabindex >= bagPrefab.Length) throw new System.IndexOutOfRangeException("preafabindex");
+
         if (socket)
         {
-            var newBag = GameObject.Instantiate(bagPrefab[0], null);
+            var newBag = GameObject.Instantiate(bagPrefab[preafabindex], null);
             newBag.name = bagName;
             var flyAroundComponent = newBag.GetComponent<FlyAround>();
             flyAroundComponent.target = socket;
@@ -53,34 +56,12 @@ public class BagsController : MonoBehaviour
 
         return false;
     }
-    public bool AddBag_2()
-    {
-        var bagIndex = bags.Count + 1;
-        var bagName = $"Bag #{bagIndex}";
-        var bagSocketName = $"BagSocket #{bagIndex}";
-
-        var socket = transform.FindChildByRecursion(bagSocketName);
-        if (socket)
-        {
-            var newBag = GameObject.Instantiate(bagPrefab[1], null);
-            newBag.name = bagName;
-            var flyAroundComponent = newBag.GetComponent<FlyAround>();
-            flyAroundComponent.target = socket;
-            flyAroundComponent.reactionSpeed = Random.Range(bagReactionSpeedAverage - bagReactionSpeedDispersion, bagReactionSpeedAverage + bagReactionSpeedDispersion);
-
-            bags.Add(newBag);
-
-            return true;
-        }
-
-        return false;
-    }
-
+    
     void Start()
     {
-        AddBag_1();
-        AddBag_1();
-        AddBag_2();
+        AddBag(0);
+        AddBag(1);
+        AddBag(2);
     }
 
     void NoMoreHP(DeathToken token)
