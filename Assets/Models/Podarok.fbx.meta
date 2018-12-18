@@ -4,13 +4,55 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cup
+    100004: Lentochki
+    100006: Marshmellow
+    100008: Podarok
+    100010: PodarokBox
     400000: //RootNode
+    400002: Cup
+    400004: Lentochki
+    400006: Marshmellow
+    400008: Podarok
+    400010: PodarokBox
     2100000: Podarok_Color_01
     2100002: Lentochki
+    2100004: Marshmellow
+    2100006: kakao
+    2100008: Podarok_Color_02
     2300000: //RootNode
+    2300002: Cup
+    2300004: Lentochki
+    2300006: Marshmellow
+    2300008: Podarok
+    2300010: PodarokBox
     3300000: //RootNode
+    3300002: Cup
+    3300004: Lentochki
+    3300006: Marshmellow
+    3300008: Podarok
+    3300010: PodarokBox
     4300000: Podarok
-  externalObjects: {}
+    4300002: PodarokBox
+    4300004: Lentochki
+    4300006: Marshmellow
+    4300008: Cup
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lentochki
+    second: {fileID: 2100000, guid: f7d6e841e473065429e38aa00b10887d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Podarok_Color_01
+    second: {fileID: 2100000, guid: 894b04787bfd35a4888b96d0564efac8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Podarok_Color_02
+    second: {fileID: 2100000, guid: 2ef9eddf0e7f5c042974db339fbb63ee, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
