@@ -239,6 +239,18 @@ ModelImporter:
     100466: VIS_RearKnee.L_end
     100468: VIS_RearKnee.R
     100470: VIS_RearKnee.R_end
+    100472: SG_Rig
+    100474: Tail_02
+    100476: Base_Alt_Arm
+    100478: Base_Alt_Feathers_Primary
+    100480: Base_Alt_Feathers_Secondary
+    100482: Base_Alt_Feathers_Tertiary
+    100484: Camera
+    100486: CameraAxis
+    100488: Plane
+    100490: Plane.001
+    100492: Plane.002
+    100494: Plane.003
     400000: Base_Body
     400002: Base_Eye.L
     400004: Base_Eye.R
@@ -475,6 +487,19 @@ ModelImporter:
     400466: VIS_RearKnee.L_end
     400468: VIS_RearKnee.R
     400470: VIS_RearKnee.R_end
+    400472: SG_Rig
+    400474: Tail_02
+    400476: Base_Alt_Arm
+    400478: Base_Alt_Feathers_Primary
+    400480: Base_Alt_Feathers_Secondary
+    400482: Base_Alt_Feathers_Tertiary
+    400484: Camera
+    400486: CameraAxis
+    400488: Plane
+    400490: Plane.001
+    400492: Plane.002
+    400494: Plane.003
+    2000000: Camera
     2100000: Hair_Pink
     2100002: Base_Eyes
     2100004: Base_Transparent
@@ -486,6 +511,9 @@ ModelImporter:
     2100016: Base_Black
     2100018: Base_Outline
     2100020: Base_Mouth
+    2100022: BG
+    2100024: Material
+    2100026: Material.001
     2300000: Base_Eye.L
     2300002: Base_Eye.R
     2300004: Base_EyeHighlight1.L
@@ -496,6 +524,15 @@ ModelImporter:
     2300014: Base_Iris.R
     2300016: FS_Hair
     2300018: FS_Tail
+    2300020: Tail_02
+    2300022: Base_Alt_Arm
+    2300024: Base_Alt_Feathers_Primary
+    2300026: Base_Alt_Feathers_Secondary
+    2300028: Base_Alt_Feathers_Tertiary
+    2300030: Plane
+    2300032: Plane.001
+    2300034: Plane.002
+    2300036: Plane.003
     3300000: Base_Eye.L
     3300002: Base_Eye.R
     3300004: Base_EyeHighlight1.L
@@ -506,6 +543,15 @@ ModelImporter:
     3300014: Base_Iris.R
     3300016: FS_Hair
     3300018: FS_Tail
+    3300020: Tail_02
+    3300022: Base_Alt_Arm
+    3300024: Base_Alt_Feathers_Primary
+    3300026: Base_Alt_Feathers_Secondary
+    3300028: Base_Alt_Feathers_Tertiary
+    3300030: Plane
+    3300032: Plane.001
+    3300034: Plane.002
+    3300036: Plane.003
     4300000: FS_Tail
     4300002: Base_Eye.R
     4300004: Base_Eye.L
@@ -523,9 +569,26 @@ ModelImporter:
     4300028: Base_Body
     4300030: FS_Eyelashes
     4300032: FS_Hair
+    4300034: Tail_02
+    4300036: Plane
+    4300038: Base_Alt_Feathers_Tertiary
+    4300040: Base_Alt_Feathers_Secondary
+    4300042: Base_Alt_Feathers_Primary
+    4300044: Base_Alt_Arm
+    4300046: Plane.003
+    4300048: Plane.002
+    4300050: Plane.001
     7400000: FS_Rig|CameraAxisAction
     7400002: Base_Eye.R|CameraAxisAction
     7400004: Base_Eye.L|CameraAxisAction
+    7400006: CameraAxis|CameraAxisAction
+    7400008: SG_Rig|CameraAxisAction
+    7400010: Base_TeethUpper|CameraAxisAction
+    7400012: Base_TeethLower|CameraAxisAction
+    7400014: Base_Wings_Folded|CameraAxisAction
+    7400016: Base_Wings|CameraAxisAction
+    7400018: Base_Tongue|CameraAxisAction
+    7400020: Base_Body|CameraAxisAction
     9500000: //RootNode
     13700000: Base_Body
     13700002: Base_TeethLower
@@ -534,12 +597,28 @@ ModelImporter:
     13700008: Base_Wings
     13700010: Base_Wings_Folded
     13700012: FS_Eyelashes
+    2186277476908879412: ImportLogs
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Black
+    second: {fileID: 2100000, guid: 699d95014f63f054090ff0a9975115dc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Base_Body
     second: {fileID: 2100000, guid: 99493b35290b3134c9ce00e6f0b68d51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Eyes
+    second: {fileID: 2100000, guid: a9b3974cdeeb9d443b8bef4fbe0b52bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Transparent
+    second: {fileID: 2100000, guid: 699d95014f63f054090ff0a9975115dc, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

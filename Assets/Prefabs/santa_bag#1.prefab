@@ -5701,7 +5701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrototype: {fileID: 1095096490874756, guid: b280e01eab4f57a45a9e897e9cf9538c,
     type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 40
   targetDeviationRange: 1
   reloadTime: 0.5
   useBallisticTrajectory: 0
