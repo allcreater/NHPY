@@ -34,6 +34,7 @@ Transform:
   m_LocalPosition: {x: 42.0906, y: 0.53479004, z: 93.94368}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
+  - {fileID: 6061070374794937439}
   - {fileID: 4373214318612648}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +54,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095096490874756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -112,6 +113,7 @@ MonoBehaviour:
   - Enemy
   - Untagged
   hitEffect: {fileID: 1839360561654190, guid: ded992411f02b484ca22391e4f65821d, type: 3}
+  delay: 0
 --- !u!54 &54065991071123218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4961602685661186}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &108115313522513386
 Light:
@@ -224,3 +226,78 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &6061070375422515597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4961602685661186}
+    m_Modifications:
+    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+--- !u!4 &6061070374794937439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937,
+    type: 3}
+  m_PrefabInstance: {fileID: 6061070375422515597}
+  m_PrefabAsset: {fileID: 0}
