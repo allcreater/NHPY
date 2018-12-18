@@ -1,9 +1,18 @@
 ﻿using UnityEngine;
 
+public static class MathUtils
+{
+    //public static float GaussRand()
+    //{
+        //TODO: to be implemented
+    //}
+}
+
 public class Shooting : MonoBehaviour 
 {
     public GameObject bulletPrototype;
     public float bulletSpeed = 10.0f;
+    public float targetDeviationRange = 1.0f;
     public float reloadTime = 0.5f;
 
     public bool useBallisticTrajectory = false;
@@ -66,7 +75,7 @@ public class Shooting : MonoBehaviour
             reloadingTimer = 0.0f;
             var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
 
-            var velocity = trajectoryCalculator(position, 10.0f);
+            var velocity = trajectoryCalculator(position + Random.insideUnitSphere * targetDeviationRange, 10.0f);
             bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
         }
     }
