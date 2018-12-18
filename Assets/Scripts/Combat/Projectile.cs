@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
 {
     public string[] tags;
     public GameObject hitEffect;
+    public float delay = 5;
 
     // Use this for initialization
     void Start () 
@@ -19,15 +20,21 @@ public class Projectile : MonoBehaviour
     {
         if (!tags.Contains(other.gameObject.tag))
             return;
-
+        
         if (hitEffect)
         {
-            var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
-            effectObject.SendMessage("CollidedWith", other);
+            StartCoroutine(ExecuteAfterTime(delay, other, hitEffect));
         }
+    }
 
-       
-        GameObject.Destroy(gameObject);
+    IEnumerator ExecuteAfterTime(float time, Collider other, GameObject hitEffect)
+    {
+        yield return new WaitForSeconds(time);
+
+        var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
+        effectObject.SendMessage("CollidedWith", other);
+            GameObject.Destroy(gameObject);
+ 
     }
 
     // Update is called once per frame
