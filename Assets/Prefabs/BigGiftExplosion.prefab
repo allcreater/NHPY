@@ -4801,7 +4801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1095096490874756, guid: dac8ec95eb402314eb8b067fa9482b0d, type: 3}
-  numberOfObjects: 50
+  numberOfObjects: 45
   spawnOffset: {x: 0, y: 2, z: 0}
   scatteringSpeed: 3
   verticalSpeed: 15
