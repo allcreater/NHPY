@@ -22,11 +22,13 @@ public class RandomPonyAppearance : MonoBehaviour
         if (manes != null && manes.Length > 0)
         {
             var maneInstance = GameObject.Instantiate(manes[Random.Range(0, manes.Length)], maneSocket ?? transform);
+            maneInstance.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(0.0f, 1.0f, saturationMin, saturationMax, valueMin, valueMax);
         }
 
-        if (manes != null && manes.Length > 0)
+        if (tails != null && tails.Length > 0)
         {
             var tailInstance = GameObject.Instantiate(tails[Random.Range(0, tails.Length)], tailSocket ?? transform);
+            tailInstance.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(0.0f, 1.0f, saturationMin, saturationMax, valueMin, valueMax);
         }
 
         if (bodyObject)
