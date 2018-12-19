@@ -20083,16 +20083,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8876446578196202814, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8876446578999515210, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
         type: 3}
       propertyPath: manes.Array.data[0]
       value: 
       objectReference: {fileID: 100410, guid: caff2ce59901aa241b93e915913f631e, type: 3}
+    - target: {fileID: 8876446578196202814, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ebdbd2a23c8b244add4ce2dd1fec96, type: 3}
 --- !u!1001 &1139384281
@@ -20172,15 +20172,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8876446578196202814, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8876446577636926305, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876446578196202814, guid: 55ebdbd2a23c8b244add4ce2dd1fec96,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ebdbd2a23c8b244add4ce2dd1fec96, type: 3}
@@ -29512,6 +29512,17 @@ PrefabInstance:
       propertyPath: staminaPointsBar
       value: 
       objectReference: {fileID: 1256079701}
+    - target: {fileID: 4807315214015005470, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
+        type: 3}
+      propertyPath: bagPrefab.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807315214015005470, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
+        type: 3}
+      propertyPath: bagPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 1299557394861990, guid: 8d4ad6de9059d824e96b2074c33795d1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8a0352b4e1843b274fb2bcda17cc, type: 3}
 --- !u!1 &2098704448
