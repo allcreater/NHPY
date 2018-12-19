@@ -36,3 +36,15 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.blend1
+
+# SplineMesh example data
+/Assets/SplineMesh/Scripts/Exemple
+/Assets/SplineMesh/DemoAssets
+/Assets/SplineMesh/Showcase.unity.meta
+/Assets/SplineMesh/Showcase.unity
+/Assets/SplineMesh/Doc.txt.meta
+/Assets/SplineMesh/Doc.txt
+/Assets/SplineMesh/DemoAssets.meta
+/Assets/SplineMesh/Scripts/Exemple.meta
+
+# Other stuff

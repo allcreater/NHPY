@@ -33,14 +33,14 @@ public class BagsController : MonoBehaviour
 
     public bool AddBag(int preafabindex )
     {
+        if (preafabindex < 0 || preafabindex >= bagPrefab.Length)
+            throw new System.IndexOutOfRangeException("preafabindex");
+
         var bagIndex = bags.Count + 1;
         var bagName = $"Bag #{bagIndex}";
         var bagSocketName = $"BagSocket #{bagIndex}";
         
         var socket = transform.FindChildByRecursion(bagSocketName);
-
-        if (preafabindex < 0 || preafabindex >= bagPrefab.Length) throw new System.IndexOutOfRangeException("preafabindex");
-
         if (socket)
         {
             var newBag = GameObject.Instantiate(bagPrefab[preafabindex], null);
