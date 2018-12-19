@@ -19,8 +19,15 @@ public class RandomPonyAppearance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var maneInstance = GameObject.Instantiate(manes[Random.Range(0, manes.Length)], maneSocket ?? transform);
-        var tailInstance = GameObject.Instantiate(tails[Random.Range(0, tails.Length)], tailSocket ?? transform);
+        if (manes != null && manes.Length > 0)
+        {
+            var maneInstance = GameObject.Instantiate(manes[Random.Range(0, manes.Length)], maneSocket ?? transform);
+        }
+
+        if (manes != null && manes.Length > 0)
+        {
+            var tailInstance = GameObject.Instantiate(tails[Random.Range(0, tails.Length)], tailSocket ?? transform);
+        }
 
         if (bodyObject)
         {

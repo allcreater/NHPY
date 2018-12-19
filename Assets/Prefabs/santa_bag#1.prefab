@@ -5705,6 +5705,8 @@ MonoBehaviour:
   targetDeviationRange: 1
   reloadTime: 0.5
   useBallisticTrajectory: 0
+  weaponType:
+  - Main
 --- !u!114 &114009290733556996
 MonoBehaviour:
   m_ObjectHideFlags: 0

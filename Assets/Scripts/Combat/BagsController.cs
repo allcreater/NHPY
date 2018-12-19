@@ -60,8 +60,8 @@ public class BagsController : MonoBehaviour
     void Start()
     {
         AddBag(0);
+        AddBag(0);
         AddBag(1);
-        AddBag(2);
     }
 
     void NoMoreHP(DeathToken token)

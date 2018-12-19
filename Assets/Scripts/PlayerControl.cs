@@ -15,6 +15,18 @@ public class MoveToParams
     }
 }
 
+public class ShootToParams
+{
+    public Vector3 targetPosition { get; }
+    public IReadOnlyList<string> activeWeapons { get; }
+
+    public ShootToParams (Vector3 targetPos, params string[] activeWeapons)
+    {
+        targetPosition = targetPos;
+        this.activeWeapons = activeWeapons;
+    }
+}
+
 [RequireComponent(typeof(Camera))]
 public class PlayerControl : MonoBehaviour
 {
@@ -32,7 +44,8 @@ public class PlayerControl : MonoBehaviour
         var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
         MoveToParams moveToParams = new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run"));
 
-        Vector3? lookToDirection = null, shootTargetPosition = null;
+        Vector3? lookToDirection = null;
+        ShootToParams shootToParameters = null;
 
         var joysticDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("RightJoystickX"), 0.0f, CrossPlatformInputManager.GetAxisRaw("RightJoystickY"));
         if (joysticDir.magnitude > 0.01)
@@ -41,12 +54,18 @@ public class PlayerControl : MonoBehaviour
         var camera = GetComponent<Camera>();
         var mouseScreenPos = CrossPlatformInputManager.mousePosition;
 
-        RaycastHit hitInfo;
-        if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out hitInfo))
+        if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out var hitInfo))
         {
             lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
+
+            var attacks = new List<string>();
             if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
-                shootTargetPosition = hitInfo.point;
+                attacks.Add("Main");
+            if (CrossPlatformInputManager.GetAxisRaw("Fire2") > 0.5f)
+                attacks.Add("Alternate");
+
+            if (attacks.Count > 0)
+                shootToParameters = new ShootToParams(hitInfo.point, attacks.ToArray());
         }
 
         foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))
@@ -56,8 +75,8 @@ public class PlayerControl : MonoBehaviour
             if (lookToDirection?.magnitude > 0.01)
                 controlledObject.BroadcastMessage("LookTo", lookToDirection.Value, SendMessageOptions.DontRequireReceiver);
 
-            if (shootTargetPosition.HasValue)
-                controlledObject.BroadcastMessage("ShootTo", shootTargetPosition.Value, SendMessageOptions.DontRequireReceiver);
+            if (shootToParameters != null)
+                controlledObject.BroadcastMessage("ShootTo", shootToParameters, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 
 public static class MathUtils
 {
@@ -8,7 +9,7 @@ public static class MathUtils
     //}
 }
 
-public class Shooting : MonoBehaviour 
+public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrototype;
     public float bulletSpeed = 10.0f;
@@ -17,12 +18,14 @@ public class Shooting : MonoBehaviour
 
     public bool useBallisticTrajectory = false;
 
+    public string[] weaponType;
+
     private System.Func<Vector3, float, Vector3> trajectoryCalculator;
     private float reloadingTimer = 0.0f;
     private Vector3 m_prevPos, m_velocity;
 
     // Use this for initialization
-    void Start () 
+    void Start()
     {
         m_prevPos = transform.position;
 
@@ -33,7 +36,7 @@ public class Shooting : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         reloadingTimer += Time.deltaTime;
     }
@@ -66,8 +69,11 @@ public class Shooting : MonoBehaviour
         return Vector3.ClampMagnitude(desiredVelocity, bulletSpeed);
     }
 
-    public void ShootTo(Vector3 position)
+    public void ShootTo(ShootToParams shootParameters)
     {
+        if (weaponType.Intersect(shootParameters.activeWeapons).FirstOrDefault() is null)
+            return;
+
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
         if (reloadingTimer > reloadTime)
@@ -75,7 +81,7 @@ public class Shooting : MonoBehaviour
             reloadingTimer = 0.0f;
             var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
 
-            var velocity = trajectoryCalculator(position + Random.insideUnitSphere * targetDeviationRange, 10.0f);
+            var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
             bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
         }
     }

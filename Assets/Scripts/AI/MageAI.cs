@@ -35,7 +35,7 @@ public class MageAI : MonoBehaviour
             nva.destination = target.transform.position;
 
             if ((target.transform.position - transform.position).sqrMagnitude <= (shootingDistance * shootingDistance))
-                shootingComponent.ShootTo(target.transform.position);
+                shootingComponent.ShootTo(new ShootToParams(target.transform.position, "Main"));
         }
         else
         {

@@ -5644,7 +5644,7 @@ GameObject:
   - component: {fileID: 114723901664501310}
   - component: {fileID: 114009290733556996}
   m_Layer: 0
-  m_Name: santa_bag
+  m_Name: santa_bag#3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5705,6 +5705,8 @@ MonoBehaviour:
   targetDeviationRange: 1
   reloadTime: 0.5
   useBallisticTrajectory: 1
+  weaponType:
+  - Alternate
 --- !u!114 &114009290733556996
 MonoBehaviour:
   m_ObjectHideFlags: 0

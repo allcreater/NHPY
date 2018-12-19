@@ -12,6 +12,9 @@ public class ReduceStats : MonoBehaviour
 
     void CollidedWith(Collider other)
     {
+        if (!other)
+            return;
+
         var stats = other.GetComponent<PlayerStats>();
         if (stats)
         {
