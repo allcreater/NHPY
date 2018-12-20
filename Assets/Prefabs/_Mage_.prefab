@@ -188,6 +188,14 @@ MonoBehaviour:
   bodyObject: {fileID: 1940292622352507328}
   maneSocket: {fileID: 3740815651657807343}
   tailSocket: {fileID: 4207214232846456982}
+  saturationMin: 0.5
+  saturationMax: 1
+  valueMin: 0.5
+  valueMax: 1
+  maneSaturationMin: 0.5
+  maneSaturationMax: 1
+  maneValueMin: 0.5
+  maneValueMax: 1
 --- !u!1 &4893551216333017031
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +245,8 @@ MonoBehaviour:
   targetDeviationRange: 1
   reloadTime: 0.5
   useBallisticTrajectory: 0
+  weaponType:
+  - Main
 --- !u!1 &7394438046316456141
 GameObject:
   m_ObjectHideFlags: 0

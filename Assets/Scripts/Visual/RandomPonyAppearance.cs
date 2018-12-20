@@ -42,10 +42,4 @@ public class RandomPonyAppearance : MonoBehaviour
             bodyObject.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(0.0f, 1.0f, saturationMin, saturationMax, valueMin, valueMax);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
