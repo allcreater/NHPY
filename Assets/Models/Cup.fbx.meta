@@ -6,18 +6,54 @@ ModelImporter:
     100000: //RootNode
     100002: Cup
     100004: Marshmellow
+    100006: Lentochki
+    100008: Podarok
+    100010: PodarokBox
     400000: //RootNode
     400002: Cup
     400004: Marshmellow
+    400006: Lentochki
+    400008: Podarok
+    400010: PodarokBox
     2100000: Marshmellow
     2100002: kakao
+    2100004: Podarok_Color_01
+    2100006: Lentochki
+    2100008: Podarok_Color_02
+    2100010: Cup
     2300000: Cup
     2300002: Marshmellow
+    2300004: Lentochki
+    2300006: Podarok
+    2300008: PodarokBox
+    2300010: //RootNode
     3300000: Cup
     3300002: Marshmellow
+    3300004: Lentochki
+    3300006: Podarok
+    3300008: PodarokBox
+    3300010: //RootNode
     4300000: Marshmellow
     4300002: Cup
-  externalObjects: {}
+    4300004: PodarokBox
+    4300006: Lentochki
+    4300008: Podarok
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cup
+    second: {fileID: 2100000, guid: d92aa1b5531d3db4b9e11a08557d2ec3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Marshmellow
+    second: {fileID: 2100000, guid: d9023352dc547ad4eb75e79c9ce6bdb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kakao
+    second: {fileID: 2100000, guid: 4c948f05c11154548b69356d8b667356, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

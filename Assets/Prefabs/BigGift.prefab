@@ -114,7 +114,7 @@ MonoBehaviour:
   - Untagged
   hitEffect: {fileID: 5644134204134359558, guid: 62fb7456fe6492f43b64fca4f9076fde,
     type: 3}
-  delay: 1.5
+  delay: 1.3
 --- !u!54 &2508539682050153416
 Rigidbody:
   m_ObjectHideFlags: 0

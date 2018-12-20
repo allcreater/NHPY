@@ -5703,7 +5703,7 @@ MonoBehaviour:
     type: 3}
   bulletSpeed: 20
   targetDeviationRange: 1
-  reloadTime: 5
+  reloadTime: 20
   useBallisticTrajectory: 1
   weaponType:
   - Alternate
