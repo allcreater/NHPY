@@ -671,7 +671,7 @@ MonoBehaviour:
   bagPrefab:
   - {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927, type: 3}
   - {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927, type: 3}
-  - {fileID: 1299557394861990, guid: 8d4ad6de9059d824e96b2074c33795d1, type: 3}
+  - {fileID: 1299557394861990, guid: b688161fa5d8cfe46b82e787ebff0f83, type: 3}
   bagReactionSpeedAverage: 6
   bagReactionSpeedDispersion: 2
 --- !u!114 &4807315214015005457

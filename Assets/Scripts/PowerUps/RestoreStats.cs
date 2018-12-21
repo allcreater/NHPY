@@ -19,9 +19,9 @@ namespace TouchableObject
             var playerStats = other.GetComponent<PlayerStats>();
             if (playerStats)
             {
-                bool restoresHP = playerStats.hitPoints < playerStats.maxHitPoints && Mathf.Approximately(restoredHitPoints, 0);
-                bool restoresMP = playerStats.manaPoints < playerStats.maxManaPoints && Mathf.Approximately(restoredManaPoints, 0);
-                bool restoresSP = playerStats.stamina < playerStats.maxStamina && Mathf.Approximately(restoredStaminaPoints, 0);
+                bool restoresHP = playerStats.hitPoints < playerStats.maxHitPoints && !Mathf.Approximately(restoredHitPoints, 0);
+                bool restoresMP = playerStats.manaPoints < playerStats.maxManaPoints && !Mathf.Approximately(restoredManaPoints, 0);
+                bool restoresSP = playerStats.stamina < playerStats.maxStamina && !Mathf.Approximately(restoredStaminaPoints, 0);
 
                 if (!restoresHP && !restoresMP && !restoresSP)
                     return;

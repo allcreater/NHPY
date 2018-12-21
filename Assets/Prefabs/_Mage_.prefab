@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad69f5f91f64584e8960471367bde15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  observingDistance: 100
+  observingDistance: 10000
   shootingDistance: 50
 --- !u!114 &8994531324026201443
 MonoBehaviour:

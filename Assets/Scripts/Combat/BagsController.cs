@@ -31,7 +31,7 @@ public class BagsController : MonoBehaviour
 
     private List<GameObject> bags = new List<GameObject>();
 
-    public bool AddBag(int preafabindex )
+    public GameObject AddBag(int preafabindex )
     {
         if (preafabindex < 0 || preafabindex >= bagPrefab.Length)
             throw new System.IndexOutOfRangeException("preafabindex");
@@ -51,17 +51,22 @@ public class BagsController : MonoBehaviour
 
             bags.Add(newBag);
 
-            return true;
+            return newBag;
         }
 
-        return false;
+        return null;
     }
     
-    void Start()
+    private void Start()
     {
         AddBag(0);
         AddBag(0);
         AddBag(1);
+    }
+
+    private void Update()
+    {
+        bags.RemoveAll(x => !x.activeInHierarchy);
     }
 
     void NoMoreHP(DeathToken token)

@@ -17,7 +17,14 @@ namespace TouchableObject
 
             var bagsController = other.GetComponent<BagsController>();
             if (bagsController)
-                bagsController.AddBag(bagIndex);
+            {
+                var newBag = bagsController.AddBag(bagIndex);
+                if (newBag)
+                {
+                    newBag.transform.position = transform.position;
+                    newBag.transform.rotation = transform.rotation;
+                }
+            }
 
             GameObject.Destroy(gameObject);
         }
