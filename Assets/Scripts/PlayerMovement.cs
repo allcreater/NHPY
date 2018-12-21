@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
 
-public static class MathExtension
-{
-}
-
 public class PlayerMovement : MonoBehaviour
 {
     public float walkSpeed;
