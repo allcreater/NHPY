@@ -5,6 +5,12 @@ using UnityEngine;
 public class RandomColor : MonoBehaviour
 {
     public Material[] randomMaterial;
+    public float hueMin = 0;
+    public float hueMax = 0;
+    public float saturationMin = 0;
+    public float saturationMax = 0;
+    public float valueMin = 0;
+    public float valueMax = 0;
     public GameObject firstColor;
     public GameObject secondColor;
     public GameObject thirdColor;
@@ -14,15 +20,15 @@ public class RandomColor : MonoBehaviour
     {
         if (firstColor)
         {
-            firstColor.GetComponent<Renderer>().materials[0].color = Random.ColorHSV();
+            firstColor.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(hueMin,hueMax,saturationMin, saturationMax,valueMin,valueMax);
         }
         if (secondColor)
         {
-            secondColor.GetComponent<Renderer>().materials[0].color = Random.ColorHSV();
+            secondColor.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(hueMin, hueMax, saturationMin, saturationMax, valueMin, valueMax);
         }
         if (thirdColor)
         {
-            thirdColor.GetComponent<Renderer>().materials[0].color = Random.ColorHSV();
+            thirdColor.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(hueMin, hueMax, saturationMin, saturationMax, valueMin, valueMax);
         }
     }
 

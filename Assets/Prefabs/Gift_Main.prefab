@@ -233,6 +233,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4961602685661186}
     m_Modifications:
+    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
     - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -289,9 +293,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.1
       objectReference: {fileID: 0}
-    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
-      propertyPath: m_Name
-      value: Podarok
+    - target: {fileID: 637017553, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: hueMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017553, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: saturationMin
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017553, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: saturationMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017553, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: valueMin
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017553, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: valueMax
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}

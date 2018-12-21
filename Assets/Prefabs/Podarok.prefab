@@ -124,6 +124,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomMaterial: []
+  hueMin: 0
+  hueMax: 1
+  saturationMin: 0.4
+  saturationMax: 1
+  valueMin: 0.4
+  valueMax: 1
   firstColor: {fileID: 1962875400}
   secondColor: {fileID: 1634373218}
   thirdColor: {fileID: 345728583}
