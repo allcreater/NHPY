@@ -8,7 +8,9 @@ public class Projectile : MonoBehaviour
 {
     public string[] tags;
     public GameObject hitEffect;
-    public float delay = 5;
+    public float startDelay = 0.0f;
+
+    private Coroutine delayedEffect;
 
     // Use this for initialization
     void Start () 
@@ -18,23 +20,23 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!tags.Contains(other.gameObject.tag))
+        if (!tags.Contains(other.gameObject.tag) || delayedEffect != null)
             return;
         
         if (hitEffect)
-        {
-            StartCoroutine(ExecuteAfterTime(delay, other, hitEffect));
-        }
+            delayedEffect = StartCoroutine(ExecuteAfterTime(other, hitEffect));
     }
 
-    IEnumerator ExecuteAfterTime(float time, Collider other, GameObject hitEffect)
+    IEnumerator ExecuteAfterTime( Collider other, GameObject hitEffect)
     {
-        yield return new WaitForSeconds(time);
+        Debug.Log($"{gameObject.name} EAF {startDelay}");
+        if (!Mathf.Approximately(startDelay, 0.0f))
+            yield return new WaitForSeconds(startDelay);
 
         var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
         effectObject.SendMessage("CollidedWith", other);
-            GameObject.Destroy(gameObject);
- 
+
+        GameObject.Destroy(gameObject);
     }
 
     // Update is called once per frame

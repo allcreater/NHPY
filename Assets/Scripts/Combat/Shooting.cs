@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public static class MathUtils
 {
@@ -9,12 +10,33 @@ public static class MathUtils
     //}
 }
 
+public class ShootToParams
+{
+    public Vector3 targetPosition { get; }
+    public IReadOnlyList<string> activeWeapons => activeWeaponsList;
+
+    private List<string> activeWeaponsList;
+
+    public void SetWeaponUsed(string weaponType)
+    {
+        if (!activeWeaponsList.Remove(weaponType))
+            throw new System.InvalidOperationException("weapon type not exisis");
+    }
+
+    public ShootToParams(Vector3 targetPos, params string[] activeWeapons)
+    {
+        targetPosition = targetPos;
+        activeWeaponsList = activeWeapons.ToList();
+    }
+}
+
 public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrototype;
     public float bulletSpeed = 10.0f;
     public float targetDeviationRange = 1.0f;
     public float reloadTime = 0.5f;
+    public float bullets = 1;
 
     public bool useBallisticTrajectory = false;
 
@@ -71,7 +93,8 @@ public class Shooting : MonoBehaviour
 
     public void ShootTo(ShootToParams shootParameters)
     {
-        if (weaponType.Intersect(shootParameters.activeWeapons).FirstOrDefault() is null)
+        var intersection = weaponType.Intersect(shootParameters.activeWeapons).ToList();
+        if (intersection.Count == 0)
             return;
 
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
@@ -83,6 +106,10 @@ public class Shooting : MonoBehaviour
 
             var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
             bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
+            if (bullets > 0 && --bullets == 0)
+                gameObject.SetActive(false);
+
+            foreach (var wt in intersection) shootParameters.SetWeaponUsed(wt);
         }
     }
 

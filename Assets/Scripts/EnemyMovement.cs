@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public float movementSpeedDeviation = 0.3f;
+    public bool isFlying = false;
 
     private NavMeshAgent navMeshAgent;
     private Animator animator;
@@ -29,5 +30,6 @@ public class EnemyMovement : MonoBehaviour
         prevPosition = transform.position;
 
         animator.SetFloat("Speed", velocity.magnitude);
+        animator.SetBool("IsFlying", isFlying);
     }
 }
