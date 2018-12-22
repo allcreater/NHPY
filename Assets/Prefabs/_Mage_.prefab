@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1364519290481890738}
   - component: {fileID: 5850341492777370793}
   - component: {fileID: 8994531324026201443}
+  - component: {fileID: 7995047965667228589}
   m_Layer: 0
   m_Name: _Mage_
   m_TagString: Enemy
@@ -151,6 +152,20 @@ MonoBehaviour:
     probabilityWeight: 0.05
   - prefab: {fileID: 2048751819, guid: 9c4e46698c96e0749a3f23425e93cd0f, type: 3}
     probabilityWeight: 0.2
+--- !u!114 &7995047965667228589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940292621988181074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f22d8773f0eee41aa97903866da3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHPFraction: 0.5
+  maxHPFraction: 3
 --- !u!114 &1940292623144193908
 MonoBehaviour:
   m_ObjectHideFlags: 0

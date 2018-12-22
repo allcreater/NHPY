@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2048751820}
   - component: {fileID: 2048751821}
   - component: {fileID: 2048751823}
+  - component: {fileID: 6972460710103569530}
   m_Layer: 0
   m_Name: CocoaCup
   m_TagString: Untagged
@@ -76,7 +77,26 @@ MonoBehaviour:
   pickerTag: Player
   restoredHitPoints: 1
   restoredManaPoints: 0
-  restoredStaminaPoints: 0
+  restoredStaminaPoints: 5
+--- !u!114 &6972460710103569530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048751819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76268caaf2cbc14469307e1faf63baf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restoredHitPointsFactorFrom: 1
+  restoreHitPointsFactorTo: 10
+  restoredManaPointsFactorFrom: 1
+  restoreManaPointsFactorTo: 1
+  restoredStaminaPointsFactorFrom: 1
+  restoreStaminaPointsFactorTo: 10
+  scalingFactor: 0.1
 --- !u!1 &1862102759211115136
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,25 +24,30 @@ public class SubobjectsSpawn : MonoBehaviour
             if (rigidBody)
                 rigidBody.velocity = Random.insideUnitSphere * scatteringSpeed + Vector3.up * verticalSpeed;
 
-            StartCoroutine(TemporaryDisableColliders(explodeDelay));
+            StartCoroutine(TemporaryDisableColliders(obj));
         }
 
-        GameObject.Destroy(gameObject);
+        GameObject.Destroy(gameObject, explodeDelay + 1f);
     }
 
-    IEnumerator TemporaryDisableColliders(float delay)
+    private void OnDestroy()
     {
-        if (Mathf.Approximately(delay, 0.0f))
+        Debug.Log("Destroy");
+    }
+
+    IEnumerator TemporaryDisableColliders(GameObject self)
+    {
+        if (Mathf.Approximately(explodeDelay, 0.0f))
             yield break;
 
-        var collidersThatShouldBeDisabled = GetComponentsInChildren<Collider>().Where(x => x.enabled);
+        var collidersThatShouldBeDisabled = self.GetComponentsInChildren<Collider>().Where(x => x.enabled).ToList();
         foreach (var collider in collidersThatShouldBeDisabled)
             collider.enabled = false;
 
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(explodeDelay);
 
+        Debug.Log($"{gameObject.name} enabled");
         foreach (var collider in collidersThatShouldBeDisabled)
             collider.enabled = true;
-
     }
 }
