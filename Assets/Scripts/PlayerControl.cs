@@ -15,18 +15,6 @@ public class MoveToParams
     }
 }
 
-public class ShootToParams
-{
-    public Vector3 targetPosition { get; }
-    public IReadOnlyList<string> activeWeapons { get; }
-
-    public ShootToParams (Vector3 targetPos, params string[] activeWeapons)
-    {
-        targetPosition = targetPos;
-        this.activeWeapons = activeWeapons;
-    }
-}
-
 [RequireComponent(typeof(Camera))]
 public class PlayerControl : MonoBehaviour
 {
@@ -61,7 +49,7 @@ public class PlayerControl : MonoBehaviour
             var attacks = new List<string>();
             if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
                 attacks.Add("Main");
-            if (CrossPlatformInputManager.GetAxisRaw("Fire2") > 0.5f)
+            if (CrossPlatformInputManager.GetButtonDown("Fire2"))
                 attacks.Add("Alternate");
 
             if (attacks.Count > 0)

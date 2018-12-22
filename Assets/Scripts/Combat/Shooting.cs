@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public static class MathUtils
 {
@@ -7,6 +8,26 @@ public static class MathUtils
     //{
         //TODO: to be implemented
     //}
+}
+
+public class ShootToParams
+{
+    public Vector3 targetPosition { get; }
+    public IReadOnlyList<string> activeWeapons => activeWeaponsList;
+
+    private List<string> activeWeaponsList;
+
+    public void SetWeaponUsed(string weaponType)
+    {
+        if (!activeWeaponsList.Remove(weaponType))
+            throw new System.InvalidOperationException("weapon type not exisis");
+    }
+
+    public ShootToParams(Vector3 targetPos, params string[] activeWeapons)
+    {
+        targetPosition = targetPos;
+        activeWeaponsList = activeWeapons.ToList();
+    }
 }
 
 public class Shooting : MonoBehaviour
@@ -72,8 +93,11 @@ public class Shooting : MonoBehaviour
 
     public void ShootTo(ShootToParams shootParameters)
     {
-        if (weaponType.Intersect(shootParameters.activeWeapons).FirstOrDefault() is null)
+        var intersection = weaponType.Intersect(shootParameters.activeWeapons).ToList();
+        if (intersection.Count == 0)
             return;
+        else
+            foreach (var wt in intersection) shootParameters.SetWeaponUsed(wt);
 
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
