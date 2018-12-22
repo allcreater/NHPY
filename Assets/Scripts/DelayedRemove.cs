@@ -5,10 +5,11 @@ using UnityEngine;
 public class DelayedRemove : MonoBehaviour
 {
     public float delay = 1;
+    public float delayMax = 1;
 
     void Awake ()
     {
-        GameObject.Destroy(gameObject, delay);
+        GameObject.Destroy(gameObject, Random.Range(delay, delayMax));
     }
 
 }

@@ -4772,6 +4772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
+  delayMax: 2
 --- !u!114 &4146976894936871624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4801,8 +4802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1095096490874756, guid: dac8ec95eb402314eb8b067fa9482b0d, type: 3}
-  numberOfObjects: 70
+  numberOfObjects: 60
   spawnOffset: {x: 0, y: 2, z: 0}
   explodeDelay: 1
   scatteringSpeed: 4
-  verticalSpeed: 20
+  verticalSpeed: 30

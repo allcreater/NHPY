@@ -96,8 +96,6 @@ public class Shooting : MonoBehaviour
         var intersection = weaponType.Intersect(shootParameters.activeWeapons).ToList();
         if (intersection.Count == 0)
             return;
-        else
-            foreach (var wt in intersection) shootParameters.SetWeaponUsed(wt);
 
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
@@ -110,6 +108,8 @@ public class Shooting : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
             if (bullets > 0 && --bullets == 0)
                 gameObject.SetActive(false);
+
+            foreach (var wt in intersection) shootParameters.SetWeaponUsed(wt);
         }
     }
 

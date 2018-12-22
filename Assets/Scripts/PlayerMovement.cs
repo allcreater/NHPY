@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed;
     public float runSpeed;
     public float staminaConsumption;
+    public float dragOnGround = 25;
 
     private Animator animator;          // Reference to the animator component.
     private new Rigidbody rigidbody;    // Reference to the player's rigidbody.
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_moveDirection;
     private float m_actualSpeed;
     private float m_speedBoost;
+
+    private int groundContacts = 0;
 
     private void Awake()
     {
@@ -35,12 +38,28 @@ public class PlayerMovement : MonoBehaviour
             m_moveDirection *= m_speedBoost;
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Static"))
+            groundContacts++;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Static"))
+            groundContacts--;
     }
 
     private void FixedUpdate ()
     {
+        if (groundContacts <= 0)
+        {
+            rigidbody.drag = 0;
+            return;
+        }
+
+        rigidbody.drag = dragOnGround;
+
         var length = m_moveDirection.magnitude;
         var direction = m_moveDirection / (length + 0.001f);
 
@@ -53,12 +72,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetFloat("Speed", length);
-        rigidbody.MovePosition(rigidbody.position + direction * ( length * walkSpeed *  Time.fixedDeltaTime));
+        rigidbody.AddForce(direction * (length * walkSpeed), ForceMode.VelocityChange);
 
         if (m_moveDirection.sqrMagnitude > 0.0)
         {
             var newRotation = Quaternion.LookRotation(m_moveDirection.normalized, Vector3.up);
             rigidbody.MoveRotation(Quaternion.Lerp(rigidbody.rotation, newRotation, Time.fixedDeltaTime * 10.0f));
         }
+
+
     }
 }
