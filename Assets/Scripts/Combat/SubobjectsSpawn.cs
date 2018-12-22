@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SubobjectsSpawn : MonoBehaviour
@@ -7,6 +8,7 @@ public class SubobjectsSpawn : MonoBehaviour
     public GameObject[] prefabs;
     public int numberOfObjects;
     public Vector3 spawnOffset;
+    public float explodeDelay = 0.0f;
 
     [Header("For RigidBodies")]
     public float scatteringSpeed = 2.0f;
@@ -21,9 +23,26 @@ public class SubobjectsSpawn : MonoBehaviour
             var rigidBody = obj.GetComponent<Rigidbody>();
             if (rigidBody)
                 rigidBody.velocity = Random.insideUnitSphere * scatteringSpeed + Vector3.up * verticalSpeed;
+
+            StartCoroutine(TemporaryDisableColliders(explodeDelay));
         }
 
         GameObject.Destroy(gameObject);
     }
 
+    IEnumerator TemporaryDisableColliders(float delay)
+    {
+        if (Mathf.Approximately(delay, 0.0f))
+            yield break;
+
+        var collidersThatShouldBeDisabled = GetComponentsInChildren<Collider>().Where(x => x.enabled);
+        foreach (var collider in collidersThatShouldBeDisabled)
+            collider.enabled = false;
+
+        yield return new WaitForSeconds(delay);
+
+        foreach (var collider in collidersThatShouldBeDisabled)
+            collider.enabled = true;
+
+    }
 }
