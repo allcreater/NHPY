@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ecccecc0b7424e8ca90e8dd1359fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularVelocity: {x: 0, y: 100, z: 0}
+  angularVelocity: {x: 50, y: 100, z: 0}
 --- !u!114 &2048751823
 MonoBehaviour:
   m_ObjectHideFlags: 0

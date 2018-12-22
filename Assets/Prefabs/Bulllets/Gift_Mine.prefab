@@ -113,7 +113,8 @@ MonoBehaviour:
   - Enemy
   - 
   hitEffect: {fileID: 1839360561654190, guid: ded992411f02b484ca22391e4f65821d, type: 3}
-  delay: 0
+  startDelay: 0
+  explodeDelay: 0
 --- !u!54 &54065991071123218
 Rigidbody:
   m_ObjectHideFlags: 0
