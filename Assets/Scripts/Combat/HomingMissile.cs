@@ -2,22 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class HomingMissile : MonoBehaviour
 {
     public float reactionSpeed = 2.0f;
+    public float acceleration = 10.0f;
     public Transform target;
+
+    private Rigidbody rigidBody;
+
+    private void Awake()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
-        if (!target)
-            return;
+        if (target)
+        {
+            var targetPos = target.position;
+            var targetDir = (target.position - transform.position).normalized;
 
-        var targetPos = target.position;
-        var targetDir = (target.position - transform.position).normalized;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDir, Vector3.up), Time.fixedDeltaTime * reactionSpeed);
+        }
 
-        //transform.position = Vector3.Lerp(transform.position, targetPos, Time.fixedDeltaTime * reactionSpeed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetDir, Vector3.up), Time.fixedDeltaTime * reactionSpeed * 3);
-
-        GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 10.0f, ForceMode.VelocityChange);
+        rigidBody.AddRelativeForce(Vector3.forward * acceleration, ForceMode.VelocityChange);
     }
 }

@@ -40,6 +40,7 @@ public class Shooting : MonoBehaviour
     public float reloadTime = 0.5f;
     public float bullets = 1;
 
+    public bool requireAim = false;
     public bool useBallisticTrajectory = false;
 
     public string[] weaponType;
@@ -104,6 +105,9 @@ public class Shooting : MonoBehaviour
     {
         var intersection = weaponType.Intersect(shootParameters.activeWeapons).ToList();
         if (intersection.Count == 0)
+            return;
+
+        if (!shootParameters.target && requireAim)
             return;
 
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
