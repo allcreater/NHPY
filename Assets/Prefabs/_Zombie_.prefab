@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeedDeviation: 0.3
+  isFlying: 0
 --- !u!114 &5255212041058107136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,12 +305,13 @@ MonoBehaviour:
   - {fileID: 100000, guid: 95184127b5277c64290da8201da94762, type: 3}
   - {fileID: 100000, guid: 7c4f978b38bc11142894e33228286b4e, type: 3}
   bodyMaterials: []
-  bodyObject: {fileID: 8876446578203473662}
+  bodyParts:
+  - {fileID: 8876446578203473662}
   maneSocket: {fileID: 8502114275957688516}
   tailSocket: {fileID: 4100262104400263130}
-  saturationMin: 0.5
-  saturationMax: 1
-  valueMin: 0.5
+  saturationMin: 0.2
+  saturationMax: 0.7
+  valueMin: 0.8
   valueMax: 1
   maneSaturationMin: 0.5
   maneSaturationMax: 1

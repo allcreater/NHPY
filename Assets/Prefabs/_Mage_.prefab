@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeedDeviation: 0.3
+  isFlying: 0
 --- !u!135 &1364519290481890738
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -218,12 +219,14 @@ MonoBehaviour:
   - {fileID: 100000, guid: 95184127b5277c64290da8201da94762, type: 3}
   - {fileID: 100000, guid: 7c4f978b38bc11142894e33228286b4e, type: 3}
   bodyMaterials: []
-  bodyObject: {fileID: 1940292622352507328}
+  bodyParts:
+  - {fileID: 1940292622352507328}
+  - {fileID: 7420757808211756284}
   maneSocket: {fileID: 3740815651657807343}
   tailSocket: {fileID: 4207214232846456982}
-  saturationMin: 0.5
-  saturationMax: 1
-  valueMin: 0.5
+  saturationMin: 0.1
+  saturationMax: 0.4
+  valueMin: 0.7
   valueMax: 1
   maneSaturationMin: 0.5
   maneSaturationMax: 1
@@ -281,6 +284,8 @@ MonoBehaviour:
   useBallisticTrajectory: 0
   weaponType:
   - Main
+  burstReloadTime: 0
+  burstSize: 0
 --- !u!1 &7394438046316456141
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +431,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9aee22d1a787ea49b0fbd14cb99b3a4, type: 3}
+--- !u!1 &7420757808211756284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8176136725055562420, guid: a9aee22d1a787ea49b0fbd14cb99b3a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1696919041502701128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4935328462511585412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6048727882723614412, guid: a9aee22d1a787ea49b0fbd14cb99b3a4,

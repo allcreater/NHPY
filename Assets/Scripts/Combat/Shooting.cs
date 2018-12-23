@@ -40,6 +40,7 @@ public class Shooting : MonoBehaviour
     public float reloadTime = 0.5f;
     public float bullets = 1;
 
+    public bool requireAim = false;
     public bool useBallisticTrajectory = false;
 
     public string[] weaponType;
@@ -106,6 +107,9 @@ public class Shooting : MonoBehaviour
         if (intersection.Count == 0)
             return;
 
+        if (!shootParameters.target && requireAim)
+            return;
+
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
         if (Mathf.Approximately(reloadingTimer, 0.0f))
@@ -131,10 +135,7 @@ public class Shooting : MonoBehaviour
             //TODO: remove
             var homingMissile = bullet.GetComponent<HomingMissile>();
             if (homingMissile)
-            {
                 homingMissile.target = shootParameters.target;
-                bullet.transform.rotation = Quaternion.Euler(-60.0f, Random.Range(-45.0f, 45.0f), 0.0f) * bullet.transform.rotation;
-            }
 
             if (bullets > 0 && --bullets == 0)
                 gameObject.SetActive(false);

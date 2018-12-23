@@ -2186,12 +2186,14 @@ MonoBehaviour:
   - {fileID: 100000, guid: 95184127b5277c64290da8201da94762, type: 3}
   - {fileID: 100000, guid: 7c4f978b38bc11142894e33228286b4e, type: 3}
   bodyMaterials: []
-  bodyObject: {fileID: 1593431525}
+  bodyParts:
+  - {fileID: 1593431525}
+  - {fileID: 986701228}
   maneSocket: {fileID: 1996562777}
   tailSocket: {fileID: 905235602}
-  saturationMin: 0.5
-  saturationMax: 1
-  valueMin: 0.5
+  saturationMin: 0
+  saturationMax: 0
+  valueMin: 1
   valueMax: 1
   maneSaturationMin: 0.5
   maneSaturationMax: 1

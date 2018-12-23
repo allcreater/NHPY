@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6408731192716927733}
   m_Layer: 0
   m_Name: RocketLauncher
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,11 +109,14 @@ MonoBehaviour:
     type: 3}
   bulletSpeed: 10
   targetDeviationRange: 1
-  reloadTime: 0.5
+  reloadTime: 1
   bullets: 20
+  requireAim: 1
   useBallisticTrajectory: 0
   weaponType:
   - Alternate
+  burstReloadTime: 0
+  burstSize: 0
 --- !u!114 &6408731192716927733
 MonoBehaviour:
   m_ObjectHideFlags: 0
