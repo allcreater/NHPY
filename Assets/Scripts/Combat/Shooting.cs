@@ -44,9 +44,14 @@ public class Shooting : MonoBehaviour
 
     public string[] weaponType;
 
+    [Header("Shooting bursts")]
+    public float burstReloadTime = 0.0f;
+    public int burstSize = 0;
+
     private System.Func<Vector3, float, Vector3> trajectoryCalculator;
     private float reloadingTimer = 0.0f;
     private Vector3 m_prevPos, m_velocity;
+    private int shootsUntilReload;
 
     // Use this for initialization
     void Start()
@@ -57,12 +62,14 @@ public class Shooting : MonoBehaviour
             trajectoryCalculator = BallisticTrajectoryDirection;
         else
             trajectoryCalculator = FlatTrajectoryDirection;
+
+        shootsUntilReload = burstSize;
     }
 
     // Update is called once per frame
     void Update()
     {
-        reloadingTimer += Time.deltaTime;
+        reloadingTimer = Mathf.Max(reloadingTimer - Time.deltaTime, 0.0f);
     }
 
     private Vector3 FlatTrajectoryDirection(Vector3 targetPos, float desiredHeight)
@@ -101,9 +108,17 @@ public class Shooting : MonoBehaviour
 
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
-        if (reloadingTimer > reloadTime)
+        if (Mathf.Approximately(reloadingTimer, 0.0f))
         {
-            reloadingTimer = 0.0f;
+            if (burstSize > 0 && --shootsUntilReload <= 0)
+            {
+                shootsUntilReload = burstSize;
+                reloadingTimer = burstReloadTime;
+            }
+            else
+                reloadingTimer = reloadTime;
+
+
             var bullet = GameObject.Instantiate(bulletPrototype, transform.position, transform.rotation);
 
             Rigidbody rigidBody = bullet.GetComponent<Rigidbody>();
