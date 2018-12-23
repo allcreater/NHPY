@@ -9,11 +9,13 @@ public class GloomAttackReceiver : MonoBehaviour
     public string layerMask = "Default";
     public string objectsTag = "Enemy";
 
+    private AudioSource audioSource;
     private PlayerStats playerStats;
     private GloomParticleEffect particleEffect;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         playerStats = GetComponent<PlayerStats>();
         particleEffect = GetComponentInChildren<GloomParticleEffect>();
     }
@@ -42,6 +44,10 @@ public class GloomAttackReceiver : MonoBehaviour
 
         if (influence < damageThreshold)
             influence = 0.0f;//return
+
+        if (audioSource)
+            audioSource.volume = influence * 10.0f;
+
 
         playerStats.hitPoints -= influence;
         //Debug.Log(influence);

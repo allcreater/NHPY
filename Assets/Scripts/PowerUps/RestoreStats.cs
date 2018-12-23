@@ -11,6 +11,14 @@ namespace TouchableObject
         public float restoredManaPoints = 0.0f;
         public float restoredStaminaPoints = 0.0f;
 
+        //private AudioSource audioSource;
+
+        //private void Awake()
+        //{
+        //    audioSource = GetComponent<AudioSource>();
+        //}
+
+
         private void OnTriggerStay(Collider other)
         {
             if (other.tag != pickerTag)

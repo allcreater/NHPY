@@ -49,13 +49,19 @@ public class Shooting : MonoBehaviour
     public float burstReloadTime = 0.0f;
     public int burstSize = 0;
 
+    private AudioSource audioSource;
+
     private System.Func<Vector3, float, Vector3> trajectoryCalculator;
     private float reloadingTimer = 0.0f;
     private Vector3 m_prevPos, m_velocity;
     private int shootsUntilReload;
 
-    // Use this for initialization
-    void Start()
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
     {
         m_prevPos = transform.position;
 
@@ -67,8 +73,7 @@ public class Shooting : MonoBehaviour
         shootsUntilReload = burstSize;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         reloadingTimer = Mathf.Max(reloadingTimer - Time.deltaTime, 0.0f);
     }
@@ -142,6 +147,9 @@ public class Shooting : MonoBehaviour
 
             foreach (var wt in intersection)
                 shootParameters.SetWeaponUsed(wt);
+
+            if (audioSource)
+                audioSource.PlayOneShot(audioSource.clip);
         }
     }
 
