@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 707890435903641180}
   - component: {fileID: 1946826672879758698}
   - component: {fileID: 5402181406170350696}
+  - component: {fileID: 3378063493554562413}
   m_Layer: 0
   m_Name: Tree_03
   m_TagString: Untagged
@@ -101,6 +102,20 @@ MonoBehaviour:
   firstColor: {fileID: 5809333315360422171}
   secondColor: {fileID: 0}
   thirdColor: {fileID: 0}
+--- !u!136 &3378063493554562413
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530127406218071984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05001358
+  m_Height: 0.40140158
+  m_Direction: 2
+  m_Center: {x: 0.00092391967, y: -5.5508483e-16, z: 0.15239762}
 --- !u!1 &5809333315360422171
 GameObject:
   m_ObjectHideFlags: 0
