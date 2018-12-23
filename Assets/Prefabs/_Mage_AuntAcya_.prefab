@@ -9304,7 +9304,7 @@ MonoBehaviour:
   useBallisticTrajectory: 0
   weaponType:
   - Main
-  burstReloadTime: 10
+  burstReloadTime: 2
   burstSize: 20
 --- !u!1 &2074783503
 GameObject:

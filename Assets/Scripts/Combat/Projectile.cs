@@ -9,19 +9,29 @@ public class Projectile : MonoBehaviour
     public string[] tags;
     public GameObject hitEffect;
     public float startDelay = 0.0f;
-    public float explodeAfter = 0.0f;
+    public float explodeAfterMin = 0.0f;
+    public float explodeAfterMax = 0.0f;
+
+    private float getExplode()
+    {
+        return Random.Range(explodeAfterMin, explodeAfterMax);
+    }
 
     private Coroutine delayedEffect;
 
     // Use this for initialization
-    void Start () 
+    void Start ()
     {
-        if (explodeAfter > 0.0f)
+        var explode = getExplode();
+        if (explode > 0.0f)
+
         {
             Debug.Log(gameObject.name);
-            StartCoroutine(ExecuteAfterTime(explodeAfter, null, hitEffect));
+            StartCoroutine(ExecuteAfterTime(explode, null, hitEffect));
         }
     }
+
+   
 
     private void OnTriggerEnter(Collider other)
     {

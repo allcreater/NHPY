@@ -144,7 +144,8 @@ MonoBehaviour:
   hitEffect: {fileID: 708064997584973626, guid: ad336eddb5c09544a8613612295982a0,
     type: 3}
   startDelay: 0
-  explodeAfter: 0
+  explodeAfterMin: 3
+  explodeAfterMax: 5
 --- !u!54 &763941290101313862
 Rigidbody:
   m_ObjectHideFlags: 0
