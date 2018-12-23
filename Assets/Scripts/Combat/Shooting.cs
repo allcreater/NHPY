@@ -135,10 +135,7 @@ public class Shooting : MonoBehaviour
             //TODO: remove
             var homingMissile = bullet.GetComponent<HomingMissile>();
             if (homingMissile)
-            {
                 homingMissile.target = shootParameters.target;
-                bullet.transform.rotation = Quaternion.Euler(-60.0f, Random.Range(-45.0f, 45.0f), 0.0f) * bullet.transform.rotation;
-            }
 
             if (bullets > 0 && --bullets == 0)
                 gameObject.SetActive(false);

@@ -7,6 +7,7 @@ public class HomingMissile : MonoBehaviour
 {
     public float reactionSpeed = 2.0f;
     public float acceleration = 10.0f;
+    public float delayAfterAiming = 0.2f;
     public Transform target;
 
     private Rigidbody rigidBody;
@@ -16,9 +17,15 @@ public class HomingMissile : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        //transform.rotation = Quaternion.Euler(-90.0f, Random.Range(-45.0f, 45.0f)*0.0f, 0.0f) * transform.rotation;
+        transform.Rotate(-60, 0.0f, 0.0f);
+    }
+
     private void FixedUpdate()
     {
-        if (target)
+        if (target && delayAfterAiming <= 0.0f)
         {
             var targetPos = target.position;
             var targetDir = (target.position - transform.position).normalized;
@@ -27,5 +34,7 @@ public class HomingMissile : MonoBehaviour
         }
 
         rigidBody.AddRelativeForce(Vector3.forward * acceleration, ForceMode.VelocityChange);
+
+        delayAfterAiming -= Time.fixedDeltaTime;
     }
 }

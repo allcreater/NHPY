@@ -66,8 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1883efd747d9222409fc6e02933a1eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionSpeed: 14
+  reactionSpeed: 25
   acceleration: 10
+  delayAfterAiming: 0.03
   target: {fileID: 0}
 --- !u!136 &2471002549253054806
 CapsuleCollider:

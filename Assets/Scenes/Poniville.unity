@@ -13134,6 +13134,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 513105025, guid: 5706c78c5ae61b144affbe0991d59663, type: 3}
+      propertyPath: bagIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5706c78c5ae61b144affbe0991d59663, type: 3}
 --- !u!4 &550624628 stripped
@@ -31638,13 +31642,25 @@ PrefabInstance:
     - target: {fileID: 4807315214015005470, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
         type: 3}
       propertyPath: bagPrefab.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4807315214015005470, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
         type: 3}
       propertyPath: bagPrefab.Array.data[1]
       value: 
       objectReference: {fileID: 1299557394861990, guid: b688161fa5d8cfe46b82e787ebff0f83,
+        type: 3}
+    - target: {fileID: 4807315214015005470, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
+        type: 3}
+      propertyPath: bagPrefab.Array.data[3]
+      value: 
+      objectReference: {fileID: 8754902770100498953, guid: c9fc6c5a34fa8184aa36fae691362605,
+        type: 3}
+    - target: {fileID: 4807315214015005470, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
+        type: 3}
+      propertyPath: bagPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 4927362061243153426, guid: 81db21efe74d2564dbbb4da55b6b79eb,
         type: 3}
     - target: {fileID: 4807315214444737501, guid: e9fb8a0352b4e1843b274fb2bcda17cc,
         type: 3}
