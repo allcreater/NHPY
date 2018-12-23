@@ -53,7 +53,10 @@ public class PlayerControl : MonoBehaviour
                 attacks.Add("Alternate");
 
             if (attacks.Count > 0)
-                shootToParameters = new ShootToParams(hitInfo.point, attacks.ToArray());
+            {
+                var target = (hitInfo.collider.tag == "Enemy") ? hitInfo.collider.transform : null;
+                shootToParameters = new ShootToParams(hitInfo.point, target, attacks.ToArray());
+            }
         }
 
         foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))

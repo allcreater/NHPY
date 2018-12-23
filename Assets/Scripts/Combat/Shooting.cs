@@ -13,6 +13,7 @@ public static class MathUtils
 public class ShootToParams
 {
     public Vector3 targetPosition { get; }
+    public Transform target { get; }
     public IReadOnlyList<string> activeWeapons => activeWeaponsList;
 
     private List<string> activeWeaponsList;
@@ -23,10 +24,11 @@ public class ShootToParams
             throw new System.InvalidOperationException("weapon type not exisis");
     }
 
-    public ShootToParams(Vector3 targetPos, params string[] activeWeapons)
+    public ShootToParams(Vector3 targetPos, Transform target, params string[] activeWeapons)
     {
         targetPosition = targetPos;
         activeWeaponsList = activeWeapons.ToList();
+        this.target = target;
     }
 }
 
@@ -102,14 +104,28 @@ public class Shooting : MonoBehaviour
         if (reloadingTimer > reloadTime)
         {
             reloadingTimer = 0.0f;
-            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
+            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, transform.rotation);
 
-            var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
-            bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
+            Rigidbody rigidBody = bullet.GetComponent<Rigidbody>();
+            if (rigidBody)
+            {
+                var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
+                rigidBody.velocity = velocity + m_velocity;
+            }
+
+            //TODO: remove
+            var homingMissile = bullet.GetComponent<HomingMissile>();
+            if (homingMissile)
+            {
+                homingMissile.target = shootParameters.target;
+                bullet.transform.rotation = Quaternion.Euler(-60.0f, Random.Range(-45.0f, 45.0f), 0.0f) * bullet.transform.rotation;
+            }
+
             if (bullets > 0 && --bullets == 0)
                 gameObject.SetActive(false);
 
-            foreach (var wt in intersection) shootParameters.SetWeaponUsed(wt);
+            foreach (var wt in intersection)
+                shootParameters.SetWeaponUsed(wt);
         }
     }
 

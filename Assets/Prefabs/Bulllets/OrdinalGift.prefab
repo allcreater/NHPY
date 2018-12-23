@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 114215311715618030}
   - component: {fileID: 135107391808948472}
   m_Layer: 9
-  m_Name: Gift_Main
+  m_Name: OrdinalGift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   - Enemy
   - Untagged
   hitEffect: {fileID: 1839360561654190, guid: ded992411f02b484ca22391e4f65821d, type: 3}
-  delay: 0
+  startDelay: 0
 --- !u!54 &54065991071123218
 Rigidbody:
   m_ObjectHideFlags: 0

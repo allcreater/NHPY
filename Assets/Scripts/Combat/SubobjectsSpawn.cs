@@ -14,15 +14,8 @@ public class SubobjectsSpawn : MonoBehaviour
     public float scatteringSpeed = 2.0f;
     public float verticalSpeed = 2.0f;
 
-    private bool alreadyCollided = false;
-
-    void CollidedWith(Collider other)
+    private void Start()
     {
-        if (alreadyCollided)
-            return;
-
-        alreadyCollided = true;
-
         for (int i = 0; i < numberOfObjects; ++i)
         {
             var obj = GameObject.Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position + spawnOffset, new Quaternion(), null);
@@ -36,7 +29,6 @@ public class SubobjectsSpawn : MonoBehaviour
 
         GameObject.Destroy(gameObject, explodeDelay + 1f);
     }
-
 
     IEnumerator TemporaryDisableColliders(GameObject self)
     {
