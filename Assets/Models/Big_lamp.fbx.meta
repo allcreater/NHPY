@@ -17,7 +17,17 @@ ModelImporter:
     3300002: BigLampGlass
     4300000: BigLampGlass
     4300002: BigLamp
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Big_lamp
+    second: {fileID: 2100000, guid: ecb7171f1d17a004f9a7d1c5ffebcc8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp_Glass
+    second: {fileID: 2100000, guid: 6fb9aef5933cc2d4d92cf0c6791c8b12, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

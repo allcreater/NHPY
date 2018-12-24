@@ -16,7 +16,12 @@ ModelImporter:
     3300002: Cube.003
     4300000: Cube.003
     4300002: Cube.002
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DinDon
+    second: {fileID: 2100000, guid: e8e6239793e500142ab76ff81403f79e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
