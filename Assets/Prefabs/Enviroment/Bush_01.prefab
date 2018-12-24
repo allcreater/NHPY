@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4416234173922639277}
   - component: {fileID: 4416234173922639276}
   - component: {fileID: 4416234173922639279}
+  - component: {fileID: 7628833110923556369}
   m_Layer: 0
   m_Name: Bush_01
   m_TagString: Untagged
@@ -100,3 +101,17 @@ MonoBehaviour:
   firstColor: {fileID: 4416234173922639278}
   secondColor: {fileID: 0}
   thirdColor: {fileID: 0}
+--- !u!136 &7628833110923556369
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416234173922639278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.02830048
+  m_Height: 0.33989277
+  m_Direction: 2
+  m_Center: {x: -0.0055829906, y: 0.0030219269, z: 0.16143943}

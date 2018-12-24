@@ -24,10 +24,8 @@ public class Projectile : MonoBehaviour
     {
         var explode = getExplode();
         if (explode > 0.0f)
-
         {
-            Debug.Log(gameObject.name);
-            StartCoroutine(ExecuteAfterTime(explode, null, hitEffect));
+            StartCoroutine(ExecuteAfterTime(explode, GetComponent<Collider>(), hitEffect));
         }
     }
 

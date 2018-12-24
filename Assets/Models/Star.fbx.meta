@@ -10,7 +10,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Star
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Star
+    second: {fileID: 2100000, guid: 7313e11ad61c5fb42b0c33f8818ede5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Star_stick
+    second: {fileID: 2100000, guid: 4c948f05c11154548b69356d8b667356, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

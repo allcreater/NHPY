@@ -114,6 +114,8 @@ MonoBehaviour:
   - Untagged
   hitEffect: {fileID: 1839360561654190, guid: ded992411f02b484ca22391e4f65821d, type: 3}
   startDelay: 0
+  explodeAfterMin: 0
+  explodeAfterMax: 0
 --- !u!54 &54065991071123218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -167,6 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4373214318612648}
   - component: {fileID: 108115313522513386}
+  - component: {fileID: 8085975918312740514}
   m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
@@ -226,6 +229,19 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8085975918312740514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654337069028636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIfBetter: 1
 --- !u!1001 &6061070375422515597
 PrefabInstance:
   m_ObjectHideFlags: 0
