@@ -1,21 +1,15 @@
 fileFormatVersion: 2
-guid: 159f2a2b31072724386334626aa6d1b6
+guid: d17901946658b444ca563e616e941385
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Wheel
+    2100000: Box
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube.004
-    4300002: Wheel
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wheel
-    second: {fileID: 2100000, guid: 4c948f05c11154548b69356d8b667356, type: 2}
+    4300000: Box
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
