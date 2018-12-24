@@ -27,7 +27,7 @@ namespace Preferences
             set;
         } = DynamicLightsAmount.OnlyImportant;
 
-        void Start()
+        void Awake()
         {
             if (instance == null)
                 instance = this;
