@@ -13,6 +13,7 @@ public static class MathUtils
 public class ShootToParams
 {
     public Vector3 targetPosition { get; }
+    public Transform target { get; }
     public IReadOnlyList<string> activeWeapons => activeWeaponsList;
 
     private List<string> activeWeaponsList;
@@ -23,10 +24,11 @@ public class ShootToParams
             throw new System.InvalidOperationException("weapon type not exisis");
     }
 
-    public ShootToParams(Vector3 targetPos, params string[] activeWeapons)
+    public ShootToParams(Vector3 targetPos, Transform target, params string[] activeWeapons)
     {
         targetPosition = targetPos;
         activeWeaponsList = activeWeapons.ToList();
+        this.target = target;
     }
 }
 
@@ -38,16 +40,28 @@ public class Shooting : MonoBehaviour
     public float reloadTime = 0.5f;
     public float bullets = 1;
 
+    public bool requireAim = false;
     public bool useBallisticTrajectory = false;
 
     public string[] weaponType;
 
+    [Header("Shooting bursts")]
+    public float burstReloadTime = 0.0f;
+    public int burstSize = 0;
+
+    private AudioSource audioSource;
+
     private System.Func<Vector3, float, Vector3> trajectoryCalculator;
     private float reloadingTimer = 0.0f;
     private Vector3 m_prevPos, m_velocity;
+    private int shootsUntilReload;
 
-    // Use this for initialization
-    void Start()
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
     {
         m_prevPos = transform.position;
 
@@ -55,12 +69,13 @@ public class Shooting : MonoBehaviour
             trajectoryCalculator = BallisticTrajectoryDirection;
         else
             trajectoryCalculator = FlatTrajectoryDirection;
+
+        shootsUntilReload = burstSize;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        reloadingTimer += Time.deltaTime;
+        reloadingTimer = Mathf.Max(reloadingTimer - Time.deltaTime, 0.0f);
     }
 
     private Vector3 FlatTrajectoryDirection(Vector3 targetPos, float desiredHeight)
@@ -97,19 +112,44 @@ public class Shooting : MonoBehaviour
         if (intersection.Count == 0)
             return;
 
+        if (!shootParameters.target && requireAim)
+            return;
+
         //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
 
-        if (reloadingTimer > reloadTime)
+        if (Mathf.Approximately(reloadingTimer, 0.0f))
         {
-            reloadingTimer = 0.0f;
-            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, Random.rotation);
+            if (burstSize > 0 && --shootsUntilReload <= 0)
+            {
+                shootsUntilReload = burstSize;
+                reloadingTimer = burstReloadTime;
+            }
+            else
+                reloadingTimer = reloadTime;
 
-            var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
-            bullet.GetComponent<Rigidbody>().velocity = velocity + m_velocity;
+
+            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, transform.rotation);
+
+            Rigidbody rigidBody = bullet.GetComponent<Rigidbody>();
+            if (rigidBody)
+            {
+                var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
+                rigidBody.velocity = velocity + m_velocity;
+            }
+
+            //TODO: remove
+            var homingMissile = bullet.GetComponent<HomingMissile>();
+            if (homingMissile)
+                homingMissile.target = shootParameters.target;
+
             if (bullets > 0 && --bullets == 0)
                 gameObject.SetActive(false);
 
-            foreach (var wt in intersection) shootParameters.SetWeaponUsed(wt);
+            foreach (var wt in intersection)
+                shootParameters.SetWeaponUsed(wt);
+
+            if (audioSource)
+                audioSource.PlayOneShot(audioSource.clip);
         }
     }
 

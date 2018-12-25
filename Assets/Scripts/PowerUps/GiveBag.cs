@@ -10,10 +10,19 @@ namespace TouchableObject
         public string pickerTag;
         public int bagIndex = 0;
 
+        //private AudioSource audioSource;
+
+        //private void Awake() //TODO: inherit from common PowerUp 
+        //{
+        //    audioSource = GetComponent<AudioSource>();
+        //}
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag != pickerTag)
                 return;
+
+            gameObject.SetActive(false);
 
             var bagsController = other.GetComponent<BagsController>();
             if (bagsController)

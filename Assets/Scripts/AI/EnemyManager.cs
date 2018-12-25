@@ -16,6 +16,13 @@ public class EnemyManager : MonoBehaviour
     public int desiredNumberOfNpcs = 30;
     public float spawnInterval = 5.0f;
 
+    public int deadNpcsCounter = 0;
+
+    [Header("game difficulty influence")]
+    public float minHitPointsFactor = 0.5f;
+    public float maxHitPointsFactor = 2.0f;
+    private float hpFactor => Mathf.Lerp(minHitPointsFactor, maxHitPointsFactor, Preferences.GameSettings.instance.difficulty);
+
     private HashSet<Enemy> knownNpc = new HashSet<Enemy>();
     private float timeSinceLastSpawn;
 
@@ -24,12 +31,19 @@ public class EnemyManager : MonoBehaviour
     private GameObject SelectEnemyPrefab() => MathExtension.RandomWeightedSelect(enemyPrototypes.Select(x => (x.prefab, x.probabilityWeight)));
 
     public void RegisterNpc(Enemy npc) => knownNpc.Add(npc);
-    public void UnregisterNpc(Enemy npc) => knownNpc.Remove(npc);
+    public void UnregisterNpc(Enemy npc)
+    {
+        knownNpc.Remove(npc);
+        deadNpcsCounter++;
+
+        if (npc.GetComponent<PlayerStats>().hitPoints <= 0.0f)
+            ScoreManager.instance.scores++;
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
-
+        Debug.Log($"Manager {gameObject.name}: HP factor is {hpFactor}");
     }
 
     private void SpawnNpc(GameObject prefab, Transform spawnPoint)
@@ -39,6 +53,11 @@ public class EnemyManager : MonoBehaviour
 
         var instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation, spawnPointsCollection);
         timeSinceLastSpawn = 0.0f;
+
+        //TODO: remove?
+        var playerStats = instance.GetComponent<PlayerStats>();
+        if (playerStats)
+            playerStats.hitPoints = (playerStats.maxHitPoints *= hpFactor);
 
         Debug.Log($"New NPC spawned! {knownNpc.Count}/{desiredNumberOfNpcs}");
     }

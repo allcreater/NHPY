@@ -60,8 +60,6 @@ public class BagsController : MonoBehaviour
     private void Start()
     {
         AddBag(0);
-        AddBag(0);
-        AddBag(1);
     }
 
     private void Update()

@@ -7,7 +7,8 @@ public class RandomPonyAppearance : MonoBehaviour
     public GameObject[] manes;
     public GameObject[] tails;
     public Material[] bodyMaterials;
-    public GameObject bodyObject;
+
+    public GameObject[] bodyParts;
 
     public Transform maneSocket;
     public Transform tailSocket;
@@ -37,9 +38,8 @@ public class RandomPonyAppearance : MonoBehaviour
             tailInstance.GetComponent<Renderer>().materials[0].color = maneTailColor;
         }
 
-        if (bodyObject)
-        {
-            bodyObject.GetComponent<Renderer>().materials[0].color = Random.ColorHSV(0.0f, 1.0f, saturationMin, saturationMax, valueMin, valueMax);
-        }
+        var mainBodyColor = Random.ColorHSV(0.0f, 1.0f, saturationMin, saturationMax, valueMin, valueMax);
+        foreach (var additionalObject in bodyParts)
+            additionalObject.GetComponent<Renderer>().materials[0].color = mainBodyColor;
     }
 }

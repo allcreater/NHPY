@@ -9,14 +9,27 @@ public class Projectile : MonoBehaviour
     public string[] tags;
     public GameObject hitEffect;
     public float startDelay = 0.0f;
+    public float explodeAfterMin = 0.0f;
+    public float explodeAfterMax = 0.0f;
+
+    private float getExplode()
+    {
+        return Random.Range(explodeAfterMin, explodeAfterMax);
+    }
 
     private Coroutine delayedEffect;
 
     // Use this for initialization
-    void Start () 
+    void Start ()
     {
-        
+        var explode = getExplode();
+        if (explode > 0.0f)
+        {
+            StartCoroutine(ExecuteAfterTime(explode, GetComponent<Collider>(), hitEffect));
+        }
     }
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,20 +37,20 @@ public class Projectile : MonoBehaviour
             return;
         
         if (hitEffect)
-            delayedEffect = StartCoroutine(ExecuteAfterTime(other, hitEffect));
+            delayedEffect = StartCoroutine(ExecuteAfterTime(startDelay, other, hitEffect));
     }
 
-    IEnumerator ExecuteAfterTime( Collider other, GameObject hitEffect)
+    IEnumerator ExecuteAfterTime(float delay, Collider other, GameObject hitEffect)
     {
-        Debug.Log($"{gameObject.name} EAF {startDelay}");
-        if (!Mathf.Approximately(startDelay, 0.0f))
-            yield return new WaitForSeconds(startDelay);
+        if (!Mathf.Approximately(delay, 0.0f))
+            yield return new WaitForSeconds(delay);
 
         var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
-        effectObject.SendMessage("CollidedWith", other);
+        effectObject.SendMessage("CollidedWith", other, SendMessageOptions.DontRequireReceiver);
 
         GameObject.Destroy(gameObject);
     }
+
 
     // Update is called once per frame
     void Update ()

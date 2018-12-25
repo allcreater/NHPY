@@ -29,6 +29,9 @@ public class PlayerControl : MonoBehaviour
 // Update is called once per frame
     void Update ()
     {
+        if (Mathf.Approximately(Time.timeScale, 0.0f))
+            return;
+
         var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
         MoveToParams moveToParams = new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run"));
 
@@ -53,7 +56,10 @@ public class PlayerControl : MonoBehaviour
                 attacks.Add("Alternate");
 
             if (attacks.Count > 0)
-                shootToParameters = new ShootToParams(hitInfo.point, attacks.ToArray());
+            {
+                var target = (hitInfo.collider.tag == "Enemy") ? hitInfo.collider.transform : null;
+                shootToParameters = new ShootToParams(hitInfo.point, target, attacks.ToArray());
+            }
         }
 
         foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))
