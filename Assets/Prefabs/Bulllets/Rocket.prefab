@@ -53,7 +53,8 @@ MonoBehaviour:
   - Untagged1
   hitEffect: {fileID: 1839360561654190, guid: ded992411f02b484ca22391e4f65821d, type: 3}
   startDelay: 0
-  explodeAfter: 0
+  explodeAfterMin: 4
+  explodeAfterMax: 5
 --- !u!114 &2471002549253054811
 MonoBehaviour:
   m_ObjectHideFlags: 0

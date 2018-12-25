@@ -28,6 +28,9 @@ public class GloomAttackReceiver : MonoBehaviour
 
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0))
+            return;
+
         float influence = 0.0f;
         foreach (var colliderGroup in Physics.OverlapSphere(transform.position, maxReceiveRadius, LayerMask.GetMask(layerMask), QueryTriggerInteraction.Ignore).Where(x => x.tag == objectsTag).GroupBy(x => x.gameObject))
         {

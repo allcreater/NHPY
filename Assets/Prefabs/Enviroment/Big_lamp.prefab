@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 580180445}
   m_Layer: 0
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: AppearLater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4846,7 +4846,7 @@ GameObject:
   - component: {fileID: 2089634027}
   m_Layer: 0
   m_Name: Point Light
-  m_TagString: Untagged
+  m_TagString: AppearLater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

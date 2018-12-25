@@ -16,6 +16,8 @@ public class EnemyManager : MonoBehaviour
     public int desiredNumberOfNpcs = 30;
     public float spawnInterval = 5.0f;
 
+    public int deadNpcsCounter = 0;
+
     [Header("game difficulty influence")]
     public float minHitPointsFactor = 0.5f;
     public float maxHitPointsFactor = 2.0f;
@@ -29,7 +31,14 @@ public class EnemyManager : MonoBehaviour
     private GameObject SelectEnemyPrefab() => MathExtension.RandomWeightedSelect(enemyPrototypes.Select(x => (x.prefab, x.probabilityWeight)));
 
     public void RegisterNpc(Enemy npc) => knownNpc.Add(npc);
-    public void UnregisterNpc(Enemy npc) => knownNpc.Remove(npc);
+    public void UnregisterNpc(Enemy npc)
+    {
+        knownNpc.Remove(npc);
+        deadNpcsCounter++;
+
+        if (npc.GetComponent<PlayerStats>().hitPoints <= 0.0f)
+            ScoreManager.instance.scores++;
+    }
 
     // Start is called before the first frame update
     private void Start()
