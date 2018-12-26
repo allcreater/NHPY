@@ -115,7 +115,7 @@ MonoBehaviour:
   hitEffect: {fileID: 8675072909301257320, guid: 6a9b28abed7c9574f8c3665cdf25a895,
     type: 3}
   startDelay: 0
-  explodeAfterMin: 1
+  explodeAfterMin: 1.5
   explodeAfterMax: 3
 --- !u!54 &6825272004704120807
 Rigidbody:
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 2616399219142499075}
   - component: {fileID: 7281869658508453665}
   - component: {fileID: 5084339233078470985}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Podarok
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2310662026290052831}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 4300505983838794357}
   - component: {fileID: 1792457730146837727}
   - component: {fileID: 4653071128089014644}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PodarokBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 3257438965078692429}
   - component: {fileID: 9145297627778013705}
   - component: {fileID: 2029426343180245811}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lentochki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8973811820343001466}
   - component: {fileID: 1803414356596373087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Podarok
   m_TagString: Untagged
   m_Icon: {fileID: 0}

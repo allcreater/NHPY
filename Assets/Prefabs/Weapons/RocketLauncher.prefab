@@ -9546,7 +9546,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d44b7798de30eea429b96be23116f88d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9637,10 +9637,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3293304965143458537}
     m_Modifications:
-    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
-      propertyPath: m_Name
-      value: Rocket_Launcher
-      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9696,6 +9692,22 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
       propertyPath: m_LocalScale.z
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Name
+      value: Rocket_Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
