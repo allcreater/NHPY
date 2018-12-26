@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260293880682260572}
   m_Layer: 0
-  m_Name: 'BagSocket #7'
+  m_Name: 'BagSocket #8'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,11 +54,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571998703150734138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9, y: 5, z: -1.85}
+  m_LocalPosition: {x: 0, y: 5, z: -3.77}
   m_LocalScale: {x: 1.0000007, y: 1, z: 1.0000007}
   m_Children: []
   m_Father: {fileID: 4807315214123131454}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2722478899310125317
 GameObject:
@@ -2015,6 +2015,7 @@ Transform:
   - {fileID: 4807315215822128036}
   - {fileID: 1813739416166767470}
   - {fileID: 2325248308006679614}
+  - {fileID: 5376139084597842420}
   - {fileID: 1260293880682260572}
   m_Father: {fileID: 4807315215905210146}
   m_RootOrder: 11
@@ -18566,4 +18567,34 @@ Transform:
   - {fileID: 4807315214471516667}
   m_Father: {fileID: 4807315215239739401}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5295130967989728280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5376139084597842420}
+  m_Layer: 0
+  m_Name: 'BagSocket #7'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5376139084597842420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295130967989728280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.9, y: 5, z: -1.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4807315214123131454}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

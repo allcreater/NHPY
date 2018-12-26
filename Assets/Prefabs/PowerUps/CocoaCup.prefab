@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2048751821}
   - component: {fileID: 2048751823}
   - component: {fileID: 6972460710103569530}
+  - component: {fileID: 6834072818429106202}
   m_Layer: 0
   m_Name: CocoaCup
   m_TagString: Untagged
@@ -27,15 +28,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048751819}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 54.93173, y: 0.89, z: 98.81}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 6859505778262675455}
   - {fileID: 2383305853009669080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2048751820
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201ecccecc0b7424e8ca90e8dd1359fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularVelocity: {x: 50, y: 100, z: 0}
+  angularVelocity: {x: 0, y: 100, z: 0}
 --- !u!114 &2048751823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +98,20 @@ MonoBehaviour:
   restoredStaminaPointsFactorFrom: 1
   restoreStaminaPointsFactorTo: 10
   scalingFactor: 0.1
+--- !u!114 &6834072818429106202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048751819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0fca700cb28ad458387889356db54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 40
+  delayMax: 100
 --- !u!1 &1862102759211115136
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862102759211115136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.169, z: 0}
+  m_LocalPosition: {x: 0, y: 0.348, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2048751824}
@@ -139,8 +154,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.79647464, b: 0.7411765, a: 1}
-  m_Intensity: 1
-  m_Range: 6
+  m_Intensity: 3
+  m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -191,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_LocalRotation.y
@@ -199,11 +214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_RootOrder
@@ -211,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1593acfea00c1d449177d004e4d24cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

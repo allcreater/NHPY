@@ -706,11 +706,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleDrop:
   - prefab: {fileID: 513105022, guid: 5706c78c5ae61b144affbe0991d59663, type: 3}
-    probabilityWeight: 0.05
+    probabilityWeight: 0
   - prefab: {fileID: 2048751819, guid: 9c4e46698c96e0749a3f23425e93cd0f, type: 3}
-    probabilityWeight: 0.2
+    probabilityWeight: 0
   - prefab: {fileID: 1029974633, guid: 4b3e1883d2230d24593393b109f3ded6, type: 3}
-    probabilityWeight: 0.1
+    probabilityWeight: 0
 --- !u!114 &517609626645668586
 MonoBehaviour:
   m_ObjectHideFlags: 0
