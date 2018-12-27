@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229419984110695615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.98}
+  m_LocalPosition: {x: 0, y: 0, z: 0.431}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3293304965143458537}
@@ -4755,7 +4755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8537343668976569000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 0, z: -1.004}
+  m_LocalPosition: {x: -0.002, y: 0, z: 0.40700316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3293304965143458537}
@@ -9637,6 +9637,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3293304965143458537}
     m_Modifications:
+    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Name
+      value: Rocket_Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9647,7 +9663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.795
+      value: 2.2060032
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9692,22 +9708,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
       propertyPath: m_LocalScale.z
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
-      propertyPath: m_Name
-      value: Rocket_Launcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee95e9584f42444ba7ccdc29f9f0ed4, type: 3}

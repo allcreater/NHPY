@@ -5714,6 +5714,10 @@ MonoBehaviour:
   - Main
   burstReloadTime: 0
   burstSize: 0
+  clips:
+  - {fileID: 8300000, guid: 86b57708a97515345bcb91c5c9c48493, type: 3}
+  minPitch: 0.2
+  maxPitch: 1
 --- !u!114 &114009290733556996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5738,11 +5742,12 @@ AudioSource:
   m_GameObject: {fileID: 1299557394861990}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 86b57708a97515345bcb91c5c9c48493, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: e11a511947743c94ea5ed1e2cb146c86,
+    type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.4
-  m_Pitch: 0.7
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -7613,7 +7618,7 @@ Light:
   m_Color: {r: 1, g: 0.97978777, b: 0.9019608, a: 1}
   m_Intensity: 2
   m_Range: 30
-  m_SpotAngle: 20
+  m_SpotAngle: 21.552118
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0

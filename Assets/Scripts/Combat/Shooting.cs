@@ -50,6 +50,9 @@ public class Shooting : MonoBehaviour
     public int burstSize = 0;
 
     private AudioSource audioSource;
+    public AudioClip[] clips;
+    public float minPitch = 1.0f;
+    public float maxPitch = 1.0f;
 
     private System.Func<Vector3, float, Vector3> trajectoryCalculator;
     private float reloadingTimer = 0.0f;
@@ -58,7 +61,10 @@ public class Shooting : MonoBehaviour
 
     private void Awake()
     {
+        var clip = clips[Random.Range(0, clips.Length)];
         audioSource = GetComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     private void Start()
@@ -76,6 +82,7 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
         reloadingTimer = Mathf.Max(reloadingTimer - Time.deltaTime, 0.0f);
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
     }
 
     private Vector3 FlatTrajectoryDirection(Vector3 targetPos, float desiredHeight)
@@ -105,6 +112,7 @@ public class Shooting : MonoBehaviour
         //Debug.Log($"velocity is {desiredVelocity.magnitude}");
         return Vector3.ClampMagnitude(desiredVelocity, bulletSpeed);
     }
+   
 
     public void ShootTo(ShootToParams shootParameters)
     {

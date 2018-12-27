@@ -48,4 +48,8 @@ sysinfo.txt
 /Assets/SplineMesh/Scripts/Exemple.meta
 /Assets/SplineMesh/Scripts/Editor/SplineExtrusionEditor.cs
 
+#Lightmap
+/Assets/Scenes/Poniville/LightingData.*
+/Assets/Scenes/Poniville/Lightmap*
+
 # Other stuff
