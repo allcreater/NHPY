@@ -9519,6 +9519,10 @@ MonoBehaviour:
   - Alternate
   burstReloadTime: 0
   burstSize: 0
+  clips:
+  - {fileID: 8300000, guid: d44b7798de30eea429b96be23116f88d, type: 3}
+  minPitch: 0.8
+  maxPitch: 1.2
 --- !u!114 &6408731192716927733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9544,7 +9548,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d44b7798de30eea429b96be23116f88d, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1

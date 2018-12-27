@@ -64,7 +64,6 @@ public class Shooting : MonoBehaviour
         var clip = clips[Random.Range(0, clips.Length)];
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = clip;
-        audioSource.Play();
     }
 
     private void Start()

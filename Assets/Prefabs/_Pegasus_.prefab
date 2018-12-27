@@ -706,11 +706,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleDrop:
   - prefab: {fileID: 513105022, guid: 5706c78c5ae61b144affbe0991d59663, type: 3}
-    probabilityWeight: 0
+    probabilityWeight: 0.01
   - prefab: {fileID: 2048751819, guid: 9c4e46698c96e0749a3f23425e93cd0f, type: 3}
-    probabilityWeight: 0
+    probabilityWeight: 0.2
   - prefab: {fileID: 1029974633, guid: 4b3e1883d2230d24593393b109f3ded6, type: 3}
-    probabilityWeight: 0
+    probabilityWeight: 0.18
 --- !u!114 &517609626645668586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6576b754052fbc548ac3a3198fd49d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  observingDistance: 200
+  observingDistance: 10000
   whirlingDistance: 20
 --- !u!1 &517609626646569935
 GameObject:

@@ -4957,6 +4957,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b51a289f5bb5d9d4cb49d3adc2004cf6, type: 3}
   - {fileID: 8300000, guid: c707c3bca9a602d4da6d39a38276fccd, type: 3}
   - {fileID: 8300000, guid: ec71f50478b879149a65cde123349a9f, type: 3}
+  minPitch: 0.9
+  maxPitch: 1.1
+  ciclcle: 0
 --- !u!1 &2422478121362276918
 GameObject:
   m_ObjectHideFlags: 0

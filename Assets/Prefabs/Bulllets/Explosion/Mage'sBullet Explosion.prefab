@@ -4713,6 +4713,7 @@ GameObject:
   - component: {fileID: 6026921353985958568}
   - component: {fileID: 765253288089677884}
   - component: {fileID: 8994739444720882773}
+  - component: {fileID: 2074973895466197836}
   m_Layer: 0
   m_Name: Mage'sBullet Explosion
   m_TagString: Untagged
@@ -9538,10 +9539,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 02b5699701ca2de41afae79fb738c856, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.7
-  m_Pitch: 1
+  m_Pitch: 0.67
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -9624,3 +9625,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2074973895466197836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380174291151267452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9d1bf463e8f484787440ffac21f0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minInterval: 0
+  maxInterval: 0
+  clips:
+  - {fileID: 8300000, guid: 02b5699701ca2de41afae79fb738c856, type: 3}
+  minPitch: 0.6
+  maxPitch: 0.9
+  ciclcle: 0

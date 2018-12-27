@@ -11,6 +11,11 @@ public struct PrefabWithProbability
 
 public class EnemyManager : MonoBehaviour
 {
+    private float x;
+    private float y;
+    private float z;
+    Vector3 posSpawnPoint;
+
     public PrefabWithProbability[] enemyPrototypes;
     public Transform spawnPointsCollection;
     public int desiredNumberOfNpcs = 30;
@@ -26,12 +31,14 @@ public class EnemyManager : MonoBehaviour
     private HashSet<Enemy> knownNpc = new HashSet<Enemy>();
     private float timeSinceLastSpawn;
 
-    private Transform SelectSpawnPoint() => spawnPointsCollection.GetChild(Random.Range(0, spawnPointsCollection.childCount));
+    private Transform SelectSpawnPoint() => spawnPointsCollection.Find($"Spawnpoint #{Random.Range(0, spawnPointsCollection.childCount)}");
 
     private GameObject SelectEnemyPrefab() => MathExtension.RandomWeightedSelect(enemyPrototypes.Select(x => (x.prefab, x.probabilityWeight)));
 
     public void RegisterNpc(Enemy npc) => knownNpc.Add(npc);
     public void UnregisterNpc(Enemy npc)
+    
+   
     {
         knownNpc.Remove(npc);
         deadNpcsCounter++;
@@ -43,11 +50,18 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+
+        
         Debug.Log($"Manager {gameObject.name}: HP factor is {hpFactor}");
     }
 
     private void SpawnNpc(GameObject prefab, Transform spawnPoint)
     {
+        x = Random.Range(-3, 3);
+        y = 0;
+        z = Random.Range(-3, 3);
+        posSpawnPoint = new Vector3(x, y, z);
+        spawnPoint.position = spawnPoint.position + posSpawnPoint;
         if (prefab is null)
             return;
 
