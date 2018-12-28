@@ -52,7 +52,8 @@ MonoBehaviour:
   tags:
   - Enemy
   - Untagged1
-  hitEffect: {fileID: 1839360561654190, guid: dca5a1bc8821fd849bf3c820e6f19095, type: 3}
+  manyHitEffect:
+  - {fileID: 1839360561654190, guid: dca5a1bc8821fd849bf3c820e6f19095, type: 3}
   startDelay: 0
   explodeAfterMin: 4
   explodeAfterMax: 5
