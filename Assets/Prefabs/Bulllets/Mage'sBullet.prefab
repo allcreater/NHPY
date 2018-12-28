@@ -49,8 +49,8 @@ MonoBehaviour:
   tags:
   - Player
   - Untagged
-  hitEffect: {fileID: 2380174291151267452, guid: 43e1bd2b190a7e748bd9c01fd2cdad9b,
-    type: 3}
+  manyHitEffect:
+  - {fileID: 2380174291151267452, guid: 43e1bd2b190a7e748bd9c01fd2cdad9b, type: 3}
   startDelay: 0
   explodeAfterMin: 4
   explodeAfterMax: 6
@@ -81,7 +81,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.72
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4496386992735907830
 GameObject:
@@ -2163,12 +2163,12 @@ ParticleSystem:
         m_RotationOrder: 4
     inWorldSpace: 0
   InheritVelocityModule:
-    enabled: 0
-    m_Mode: 0
+    enabled: 1
+    m_Mode: 1
     m_Curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2

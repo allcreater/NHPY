@@ -7,7 +7,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour 
 {
     public string[] tags;
-    public GameObject hitEffect;
+    public GameObject[] manyHitEffect;
+    int hitIndex;
+    private GameObject hitEffect;
     public float startDelay = 0.0f;
     public float explodeAfterMin = 0.0f;
     public float explodeAfterMax = 0.0f;
@@ -22,6 +24,10 @@ public class Projectile : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        if(hitIndex > 1)
+            manyHitEffect = GameObject.FindGameObjectsWithTag("");
+            hitIndex = Random.Range(0, manyHitEffect.Length);
+            hitEffect = manyHitEffect[hitIndex];
         var explode = getExplode();
         if (explode > 0.0f)
         {
@@ -36,7 +42,7 @@ public class Projectile : MonoBehaviour
         if (!tags.Contains(other.gameObject.tag) || delayedEffect != null)
             return;
         
-        if (hitEffect)
+        if (hitEffect)            
             delayedEffect = StartCoroutine(ExecuteAfterTime(startDelay, other, hitEffect));
     }
 
@@ -47,6 +53,7 @@ public class Projectile : MonoBehaviour
 
         var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
         effectObject.SendMessage("CollidedWith", other, SendMessageOptions.DontRequireReceiver);
+
 
         GameObject.Destroy(gameObject);
     }

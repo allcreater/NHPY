@@ -112,8 +112,8 @@ MonoBehaviour:
   tags:
   - Enemy
   - Untagged
-  hitEffect: {fileID: 8675072909301257320, guid: 6a9b28abed7c9574f8c3665cdf25a895,
-    type: 3}
+  manyHitEffect:
+  - {fileID: 8675072909301257320, guid: 6a9b28abed7c9574f8c3665cdf25a895, type: 3}
   startDelay: 0
   explodeAfterMin: 1.5
   explodeAfterMax: 3

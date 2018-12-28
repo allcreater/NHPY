@@ -4711,9 +4711,8 @@ GameObject:
   - component: {fileID: 2292885359151186022}
   - component: {fileID: 5191349988534965035}
   - component: {fileID: 6026921353985958568}
-  - component: {fileID: 765253288089677884}
-  - component: {fileID: 8994739444720882773}
   - component: {fileID: 2074973895466197836}
+  - component: {fileID: 824850621979236368}
   m_Layer: 0
   m_Name: Mage'sBullet Explosion
   m_TagString: Untagged
@@ -9507,7 +9506,7 @@ MonoBehaviour:
   hpDamage: 1
   mpDamage: 0
   staminaDamage: 0
---- !u!114 &765253288089677884
+--- !u!114 &2074973895466197836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9516,20 +9515,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2380174291151267452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e472abf32423484db21dd3904ec41a8, type: 3}
+  m_Script: {fileID: 11500000, guid: ea9d1bf463e8f484787440ffac21f0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomMaterial: []
-  hueMin: 0
-  hueMax: 1
-  saturationMin: 0.5
-  saturationMax: 1
-  valueMin: 0.5
-  valueMax: 1
-  firstColor: {fileID: 2380174291151267452}
-  secondColor: {fileID: 0}
-  thirdColor: {fileID: 0}
---- !u!82 &8994739444720882773
+  minInterval: 0
+  maxInterval: 0
+  clips:
+  - {fileID: 8300000, guid: 02b5699701ca2de41afae79fb738c856, type: 3}
+  minPitch: 0.6
+  maxPitch: 1
+  ciclcle: 0
+--- !u!82 &824850621979236368
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9541,18 +9537,18 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
-  m_Pitch: 0.67
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 125
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -9562,21 +9558,66 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.08082185
+      outSlope: -0.08082185
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.029853784
+      value: 0.9180862
+      inSlope: -4.6260567
+      outSlope: -4.6260567
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.8503293
+    - serializedVersion: 3
+      time: 0.109844625
+      value: 0.5242351
+      inSlope: -2.9563363
+      outSlope: -2.9563363
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.37297308
+      outWeight: 0.5070083
+    - serializedVersion: 3
+      time: 0.27926996
+      value: 0.24214572
+      inSlope: -1.1828289
+      outSlope: -1.1828289
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.811811
+      outWeight: 0.77648073
+    - serializedVersion: 3
+      time: 0.46763518
+      value: 0.082901
+      inSlope: -0.49015942
+      outSlope: -0.49015942
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.7604528
+    - serializedVersion: 3
+      time: 0.7031882
+      value: 0.02471739
+      inSlope: -0.12155348
+      outSlope: -0.12155348
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.62009764
+      outWeight: 0.77342826
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.0378205
+      outSlope: -0.0378205
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.30944166
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -9585,7 +9626,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -9600,6 +9641,15 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -9625,22 +9675,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2074973895466197836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380174291151267452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9d1bf463e8f484787440ffac21f0ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minInterval: 0
-  maxInterval: 0
-  clips:
-  - {fileID: 8300000, guid: 02b5699701ca2de41afae79fb738c856, type: 3}
-  minPitch: 0.6
-  maxPitch: 0.9
-  ciclcle: 0

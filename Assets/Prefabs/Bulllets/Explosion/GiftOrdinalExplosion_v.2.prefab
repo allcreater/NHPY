@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 199088197002009760}
   - component: {fileID: 114287068293730136}
   - component: {fileID: 4755576413043513323}
-  - component: {fileID: 3581535577282033249}
   - component: {fileID: 448534527498970343}
+  - component: {fileID: 4361115154255236578}
   m_Layer: 0
   m_Name: GiftOrdinalExplosion_v.2
   m_TagString: Untagged
@@ -288,7 +288,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -604,7 +604,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 30
+    maxNumParticles: 50
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4789,28 +4789,51 @@ MonoBehaviour:
   hpDamage: 1
   mpDamage: 0
   staminaDamage: 0
---- !u!82 &3581535577282033249
+--- !u!114 &448534527498970343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839360561654190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9d1bf463e8f484787440ffac21f0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minInterval: 0
+  maxInterval: 0
+  clips:
+  - {fileID: 8300000, guid: 4c396633d1fa4864388d2d7e9700fa42, type: 3}
+  - {fileID: 8300000, guid: bbd896766f340d145a9cc941099d6a0e, type: 3}
+  - {fileID: 8300000, guid: 9c387d3339461474c909f8e9a1dbf303, type: 3}
+  - {fileID: 8300000, guid: c4abd9744191ca547b9e1b87f34eb4bf, type: 3}
+  - {fileID: 8300000, guid: 079ee3f32ef875348848681cb042b674, type: 3}
+  minPitch: 1
+  maxPitch: 1
+  ciclcle: 1
+--- !u!82 &4361115154255236578
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839360561654190}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 150
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -4820,67 +4843,58 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.02
+      time: 0
       value: 1
-      inSlope: -50.01992
-      outSlope: -50.01992
+      inSlope: -0.7996339
+      outSlope: -0.7996339
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 1
     - serializedVersion: 3
-      time: 0.04
-      value: 0.5
-      inSlope: -12.50498
-      outSlope: -12.50498
+      time: 0.11568874
+      value: 0.7350811
+      inSlope: -3.9895136
+      outSlope: -3.9895136
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.5334573
+      outWeight: 0.3403501
     - serializedVersion: 3
-      time: 0.08
-      value: 0.25
-      inSlope: -3.126245
-      outSlope: -3.126245
+      time: 0.24132136
+      value: 0.23588961
+      inSlope: -1.5308446
+      outSlope: -1.5308446
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.9765956
+      outWeight: 0.83119094
     - serializedVersion: 3
-      time: 0.16
-      value: 0.125
-      inSlope: -0.78156126
-      outSlope: -0.78156126
+      time: 0.42950347
+      value: 0.051651
+      inSlope: -0.26985386
+      outSlope: -0.26985386
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 1
+      outWeight: 0.7604528
     - serializedVersion: 3
-      time: 0.3325351
-      value: 0.030151367
-      inSlope: -0.3335666
-      outSlope: -0.3335666
+      time: 0.7074301
+      value: 0.012220442
+      inSlope: -0.084867775
+      outSlope: -0.084867775
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0.5273091
-    - serializedVersion: 3
-      time: 0.6525427
-      value: 0
-      inSlope: -0.04884758
-      outSlope: -0.04884758
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.69436425
+      outWeight: 0.77342826
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -0.020007975
-      outSlope: -0.020007975
+      inSlope: -0.0378205
+      outSlope: -0.0378205
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.30944166
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -4890,7 +4904,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4905,6 +4919,15 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -4930,23 +4953,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &448534527498970343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839360561654190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9d1bf463e8f484787440ffac21f0ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minInterval: 0
-  maxInterval: 0
-  clips:
-  - {fileID: 8300000, guid: 4c396633d1fa4864388d2d7e9700fa42, type: 3}
-  - {fileID: 8300000, guid: bbd896766f340d145a9cc941099d6a0e, type: 3}
-  - {fileID: 8300000, guid: 9c387d3339461474c909f8e9a1dbf303, type: 3}
-  - {fileID: 8300000, guid: c4abd9744191ca547b9e1b87f34eb4bf, type: 3}
-  - {fileID: 8300000, guid: 079ee3f32ef875348848681cb042b674, type: 3}
