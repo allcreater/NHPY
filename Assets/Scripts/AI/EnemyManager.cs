@@ -74,6 +74,8 @@ public class EnemyManager : MonoBehaviour
             playerStats.hitPoints = (playerStats.maxHitPoints *= hpFactor);
 
         Debug.Log($"New NPC spawned! {knownNpc.Count}/{desiredNumberOfNpcs}");
+
+        spawnPoint.position = spawnPoint.position - posSpawnPoint;
     }
 
     // Update is called once per frame
