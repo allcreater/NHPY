@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class PegasusAI : MonoBehaviour
 {
+    public GameObject death;
     public float observingDistance = 100.0f;
     public float whirlingDistance = 10.0f;
 
@@ -28,6 +29,9 @@ public class PegasusAI : MonoBehaviour
 
     void Update ()
     {
+        if (death.activeInHierarchy == true)
+            return;
+
         if (IsObservingTarget(target))
         {
             var dir = target.transform.position - transform.position;

@@ -8,6 +8,7 @@ public class MageAI : MonoBehaviour
     public float observingDistance = 100.0f;
     public float shootingDistance = 50.0f;
 
+    public GameObject death;
     private GameObject target;
     private NavMeshAgent nva;
     private Shooting shootingComponent;
@@ -30,6 +31,10 @@ public class MageAI : MonoBehaviour
 
     void Update ()
     {
+        if (death.activeInHierarchy==true)
+            return;
+            
+
         if (IsObservingTarget(target))
         {
             nva.destination = target.transform.position;

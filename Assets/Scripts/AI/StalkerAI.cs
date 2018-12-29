@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class StalkerAI : MonoBehaviour
 {
+    public GameObject death;
+
     public float observingDistance = 100.0f;
 
     private GameObject target;
@@ -26,6 +28,9 @@ public class StalkerAI : MonoBehaviour
 
     void Update ()
     {
+        if (death.activeInHierarchy == true)
+            return;
+
         if (IsObservingTarget(target))
         {
             nva.destination = target.transform.position;
