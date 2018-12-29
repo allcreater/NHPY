@@ -6,9 +6,15 @@ ModelImporter:
     100000: //RootNode
     100002: Floor_collider
     100004: Townhall
+    100006: TownhallCentr
+    100008: TownhallLow
+    100010: TownhalTop
     400000: //RootNode
     400002: Floor_collider
     400004: Townhall
+    400006: TownhallCentr
+    400008: TownhallLow
+    400010: TownhalTop
     2100000: Townhall_Floror
     2100002: DarkWood
     2100004: MediumWood
@@ -20,14 +26,25 @@ ModelImporter:
     2100016: RedWood
     2100018: LightRedWood
     2100020: No Name
+    2100022: GoldWood
+    2100024: RealGlass
     2300000: //RootNode
     2300002: Floor_collider
     2300004: Townhall
+    2300006: TownhallCentr
+    2300008: TownhallLow
+    2300010: TownhalTop
     3300000: //RootNode
     3300002: Floor_collider
     3300004: Townhall
+    3300006: TownhallCentr
+    3300008: TownhallLow
+    3300010: TownhalTop
     4300000: Townhall
     4300002: Floor_collider
+    4300004: TownhallLow
+    4300006: TownhalTop
+    4300008: TownhallCentr
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -64,6 +81,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: PinkWood
     second: {fileID: 2100000, guid: b4c6840fd3617044da4f01049811bdf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RealGlass
+    second: {fileID: 2100000, guid: ecf0b593cf314704c8600b4f81b1ba55, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -112,6 +134,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -136,6 +159,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
