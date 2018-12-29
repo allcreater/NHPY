@@ -92,7 +92,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 90
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &1349919926140889231
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +251,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 513105028}
     m_Modifications:
+    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -306,14 +314,6 @@ PrefabInstance:
     - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_LocalScale.z
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
-      propertyPath: m_Name
-      value: Podarok
-      objectReference: {fileID: 0}
-    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 345728583, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_Layer
