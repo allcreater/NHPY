@@ -9327,7 +9327,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2404830722356356167}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 4
+  simulationSpeed: 7
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -9886,7 +9886,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 500
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -13127,13 +13127,13 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
-    ratio: 1
+    ratio: 0.8
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -13183,7 +13183,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0.1
     textureMode: 0
     ribbonCount: 1
     shadowBias: 0.5
@@ -13958,8 +13958,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ca5ba22c5403f524f86cf0461e5051e1, type: 2}
+  - {fileID: 2100000, guid: e7e80b4cff9e26d4d88373309cae6c38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
