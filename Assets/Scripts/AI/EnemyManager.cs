@@ -11,11 +11,13 @@ public struct PrefabWithProbability
 
 public class EnemyManager : MonoBehaviour
 {
+    public float spawnIfDisance = 0;
     private float x;
     private float y;
     private float z;
     Vector3 posSpawnPoint;
 
+    public Transform playerTransform;
     public PrefabWithProbability[] enemyPrototypes;
     public Transform spawnPointsCollection;
     public int desiredNumberOfNpcs = 30;
@@ -55,8 +57,18 @@ public class EnemyManager : MonoBehaviour
         Debug.Log($"Manager {gameObject.name}: HP factor is {hpFactor}");
     }
 
+    private void PlayerDist()
+    {
+        
+    }
+
     private void SpawnNpc(GameObject prefab, Transform spawnPoint)
     {
+        float playerDist = Vector3.Distance(spawnPoint.position, playerTransform.position);
+        if (playerDist < spawnIfDisance)
+            return;
+        
+       
         x = Random.Range(-3, 3);
         y = 0;
         z = Random.Range(-3, 3);
