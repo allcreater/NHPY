@@ -9,12 +9,14 @@ ModelImporter:
     100006: TownhallCentr
     100008: TownhallLow
     100010: TownhalTop
+    100012: TownhalTopFlore
     400000: //RootNode
     400002: Floor_collider
     400004: Townhall
     400006: TownhallCentr
     400008: TownhallLow
     400010: TownhalTop
+    400012: TownhalTopFlore
     2100000: Townhall_Floror
     2100002: DarkWood
     2100004: MediumWood
@@ -34,17 +36,20 @@ ModelImporter:
     2300006: TownhallCentr
     2300008: TownhallLow
     2300010: TownhalTop
+    2300012: TownhalTopFlore
     3300000: //RootNode
     3300002: Floor_collider
     3300004: Townhall
     3300006: TownhallCentr
     3300008: TownhallLow
     3300010: TownhalTop
+    3300012: TownhalTopFlore
     4300000: Townhall
     4300002: Floor_collider
     4300004: TownhallLow
     4300006: TownhalTop
     4300008: TownhallCentr
+    4300010: TownhalTopFlore
   externalObjects:
   - first:
       type: UnityEngine:Material
