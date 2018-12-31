@@ -3,28 +3,30 @@ guid: b2c7928d900155a4dacd40bb14525532
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Bone
-    100002: Bone_end
-    100004: //RootNode
-    100006: Rubilnik
-    100008: Rubilnika
-    100010: Snow
-    100012: Bone.001
-    100014: Bone.001_end
-    400000: Bone
-    400002: Bone_end
-    400004: //RootNode
-    400006: Rubilnik
-    400008: Rubilnika
-    400010: Snow
-    400012: Bone.001
-    400014: Bone.001_end
+    100000: //RootNode
+    100002: Bone
+    100004: Bone.001
+    100006: Bone.001_end
+    100008: Rubilnik
+    100010: Rubilnika
+    100012: Snow
+    400000: //RootNode
+    400002: Bone
+    400004: Bone.001
+    400006: Bone.001_end
+    400008: Rubilnik
+    400010: Rubilnika
+    400012: Snow
     2100000: Metal
     2100002: Plafon
     2100004: Wood
     2100006: No Name
-    2300000: Snow
-    3300000: Snow
+    2300000: //RootNode
+    2300002: Rubilnika
+    2300004: Snow
+    3300000: //RootNode
+    3300002: Rubilnika
+    3300004: Snow
     4300000: Rubilnika
     4300002: Snow
     9500000: //RootNode
@@ -70,7 +72,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -127,7 +129,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
