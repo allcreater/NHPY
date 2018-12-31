@@ -10,6 +10,10 @@ ModelImporter:
     100008: TownhallLow
     100010: TownhalTop
     100012: TownhalTopFlore
+    100014: Bone
+    100016: Bone.001
+    100018: Bone.001_end
+    100020: Rubilnik
     400000: //RootNode
     400002: Floor_collider
     400004: Townhall
@@ -17,6 +21,10 @@ ModelImporter:
     400008: TownhallLow
     400010: TownhalTop
     400012: TownhalTopFlore
+    400014: Bone
+    400016: Bone.001
+    400018: Bone.001_end
+    400020: Rubilnik
     2100000: Townhall_Floror
     2100002: DarkWood
     2100004: MediumWood
