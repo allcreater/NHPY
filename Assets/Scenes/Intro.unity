@@ -429,7 +429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bb4c80518dcdc4484b190fbb918559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneName: MainMenu
 --- !u!1 &680930608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,7 +1251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 485789150}
-        m_MethodName: NewGame
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

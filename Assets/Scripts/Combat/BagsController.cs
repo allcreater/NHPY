@@ -3,24 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-internal static class Ext
-{
-    internal static Transform FindChildByRecursion(this Transform aParent, string aName)
-    {
-        if (aParent == null) return null;
-        var result = aParent.Find(aName);
-        if (result != null)
-            return result;
-        foreach (Transform child in aParent)
-        {
-            result = child.FindChildByRecursion(aName);
-            if (result != null)
-                return result;
-        }
-        return null;
-    }
-}
-
 [RequireComponent(typeof(PlayerStats))]
 public class BagsController : MonoBehaviour
 {
