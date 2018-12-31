@@ -348,7 +348,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1095110258}
-        m_MethodName: NewGame
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -628,7 +628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bb4c80518dcdc4484b190fbb918559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneName: MainMenu
 --- !u!1 &1103170126
 GameObject:
   m_ObjectHideFlags: 0
