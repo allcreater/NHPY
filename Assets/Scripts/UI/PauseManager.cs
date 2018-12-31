@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    public static readonly string startSceneName = "MainMenu";
+    public static readonly string menuSceneName = "MainMenu";
 
     public bool isPaused
     {
@@ -17,14 +17,19 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
     }
     
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
 
-    public void NewGame()
+    public void LoadMainMenu()
     {
-        SceneManager.LoadScene(startSceneName);
+        SceneManager.LoadScene(menuSceneName);
     }
 
     public void Quit()
