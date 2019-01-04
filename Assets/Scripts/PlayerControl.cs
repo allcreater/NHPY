@@ -54,6 +54,8 @@ public class PlayerControl : MonoBehaviour
                 attacks.Add("Main");
             if (CrossPlatformInputManager.GetButtonDown("Fire2"))
                 attacks.Add("Alternate");
+            if (CrossPlatformInputManager.GetAxisRaw("Fire3") > 0.5f)
+                attacks.Add("Alternate#2");
 
             if (attacks.Count > 0)
             {

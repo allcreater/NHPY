@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2325248308006679614}
   m_Layer: 0
-  m_Name: 'BagSocket #6'
+  m_Name: 'RocketSocket #1'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -738,6 +738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2b2a034d3553c4fb09bda015b6db78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: {fileID: 0}
+  inDeathBodyOff: {fileID: 0}
   maxHitPoints: 10
   maxManaPoints: 0
   maxStamina: 100
@@ -762,6 +764,9 @@ MonoBehaviour:
   - {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927, type: 3}
   - {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927, type: 3}
   - {fileID: 1299557394861990, guid: b688161fa5d8cfe46b82e787ebff0f83, type: 3}
+  addNeededBags: 0
+  bagIndexIfTrue: 3
+  amountBags: 2
   bagReactionSpeedAverage: 6
   bagReactionSpeedDispersion: 2
 --- !u!114 &4807315214015005457
@@ -18578,7 +18583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5376139084597842420}
   m_Layer: 0
-  m_Name: 'BagSocket #7'
+  m_Name: 'RocketSocket #2'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
