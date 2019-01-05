@@ -24,35 +24,18 @@ public class BagsController : MonoBehaviour
         if (preafabindex < 0 || preafabindex >= bagPrefab.Length)
             throw new System.IndexOutOfRangeException("preafabindex");
 
-        var bagIndex = 0;
-        var bagName = "";
-        var bagSocketName = "";
+        var collection = preafabindex == 3 ? rockets : bags;
+        var bagIndex = collection.Count + 1;
+        var bagName = $"Bag #{bagIndex}";
+        var bagSocketName = (preafabindex == 3) ? $"RocketSocket #{bagIndex}" : $"BagSocket #{bagIndex}";
 
-        //Говнокод от Андрея
-        if (preafabindex == 3)
+        var newBag = AddSocket(bagSocketName, bagName, preafabindex);
+        if (newBag != null)
         {
-            bagIndex = rockets.Count + 1;
-            bagName = $"Bag #{bagIndex}";
-            bagSocketName = $"RocketSocket #{bagIndex}";
-            var newRocket = AddSocket(bagSocketName, bagName, preafabindex);
-            if (newRocket != null)
-            {
-                rockets.Add(newRocket);
-                return newRocket;
-            }
+            collection.Add(newBag);
+            return newBag;
         }
-        else
-        {
-            bagIndex = bags.Count + 1;
-            bagName = $"Bag #{bagIndex}";
-            bagSocketName = $"BagSocket #{bagIndex}";
-            var newBag = AddSocket(bagSocketName, bagName, preafabindex);
-            if(newBag != null)
-            {
-                bags.Add(newBag);
-                return newBag;
-            }                
-        }           
+         
 
         return null;
     }

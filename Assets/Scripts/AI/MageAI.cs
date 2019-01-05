@@ -7,6 +7,7 @@ public class MageAI : MonoBehaviour
 {
     public float observingDistance = 100.0f;
     public float shootingDistance = 50.0f;
+    public float teleportationDistance = 10.0f;
 
     public GameObject death;
     private GameObject target;
@@ -19,6 +20,13 @@ public class MageAI : MonoBehaviour
             return false;
 
         return (target_.transform.position - transform.position).sqrMagnitude <= (observingDistance * observingDistance);
+    }
+    public bool IsTargetClose(GameObject target_)
+    {
+        if (!target_)
+            return false;
+
+        return (target_.transform.position - transform.position).sqrMagnitude <= (teleportationDistance * teleportationDistance);
     }
 
     void Awake()
@@ -41,6 +49,14 @@ public class MageAI : MonoBehaviour
 
             if ((target.transform.position - transform.position).sqrMagnitude <= (shootingDistance * shootingDistance))
                 shootingComponent.ShootTo(new ShootToParams(target.transform.position, target.transform, "Main"));
+        }
+        if (IsTargetClose(target))
+        {
+            Vector3 randomDirection = Random.insideUnitSphere * 30 + target.transform.position;
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomDirection, out hit, 10, 1);
+            Vector3 randomTeleport = hit.position;
+            nva.Warp(randomTeleport);
         }
         else
         {

@@ -4526,6 +4526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   observingDistance: 10000
   shootingDistance: 50
+  teleportationDistance: 0.1
   death: {fileID: 8979521922541815213}
 --- !u!114 &935513192
 MonoBehaviour:
