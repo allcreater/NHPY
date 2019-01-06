@@ -20,7 +20,7 @@ TagManager:
   - Bullets
   - Static
   - CollectableItems
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Weapon
+    uniqueID: 1465973029
     locked: 0

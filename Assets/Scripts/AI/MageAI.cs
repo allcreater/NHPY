@@ -54,7 +54,7 @@ public class MageAI : MonoBehaviour
         {
             Vector3 randomDirection = Random.insideUnitSphere * 30 + target.transform.position;
             NavMeshHit hit;
-            NavMesh.SamplePosition(randomDirection, out hit, 10, 1);
+            NavMesh.SamplePosition(randomDirection, out hit, 30, 1);
             Vector3 randomTeleport = hit.position;
             nva.Warp(randomTeleport);
         }
