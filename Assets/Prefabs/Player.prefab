@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2325248308006679614}
+  - component: {fileID: 4867533670257405173}
   m_Layer: 0
   m_Name: 'RocketSocket #1'
   m_TagString: Untagged
@@ -30,6 +31,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4867533670257405173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195946512817864890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Launchers
 --- !u!1 &571998703150734138
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,6 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1260293880682260572}
+  - component: {fileID: 5199576488651746033}
   m_Layer: 0
   m_Name: 'BagSocket #8'
   m_TagString: Untagged
@@ -60,6 +75,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5199576488651746033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571998703150734138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Bags
 --- !u!1 &2722478899310125317
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1813739416166767470}
+  - component: {fileID: 3710149672468342444}
   m_Layer: 0
   m_Name: 'BagSocket #5'
   m_TagString: Untagged
@@ -90,6 +119,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3710149672468342444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722478899310125317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Bags
 --- !u!1 &4807315213913095353
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +658,7 @@ GameObject:
   - component: {fileID: 4807315214015005471}
   - component: {fileID: 4807315214015005470}
   - component: {fileID: 4807315214015005457}
+  - component: {fileID: 8334699448878177158}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -760,13 +803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af29c86563fb7b43bc48b018ae1a1c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bagPrefab:
-  - {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927, type: 3}
-  - {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927, type: 3}
-  - {fileID: 1299557394861990, guid: b688161fa5d8cfe46b82e787ebff0f83, type: 3}
-  addNeededBags: 0
-  bagIndexIfTrue: 3
-  amountBags: 2
+  startWeapons: []
+  categoriesThatBringsAdditionalLife: []
   bagReactionSpeedAverage: 6
   bagReactionSpeedDispersion: 2
 --- !u!114 &4807315214015005457
@@ -785,6 +823,29 @@ MonoBehaviour:
   maxReceiveRadius: 20
   layerMask: Default
   objectsTag: Enemy
+--- !u!114 &8334699448878177158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807315214015005464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af29c86563fb7b43bc48b018ae1a1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWeapons:
+  - weaponPrefab: {fileID: 1299557394861990, guid: 76aeb7274e8657f4eb19d6a101337927,
+      type: 3}
+    category: Bags
+  - weaponPrefab: {fileID: 8754902770100498953, guid: c9fc6c5a34fa8184aa36fae691362605,
+      type: 3}
+    category: Launchers
+  categoriesThatBringsAdditionalLife:
+  - Bags
+  bagReactionSpeedAverage: 6
+  bagReactionSpeedDispersion: 1
 --- !u!1 &4807315214028047457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807315214084887690}
+  - component: {fileID: 6727757218217476661}
   m_Layer: 0
   m_Name: 'BagSocket #2'
   m_TagString: Untagged
@@ -1176,6 +1238,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6727757218217476661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807315214084887691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Bags
 --- !u!1 &4807315214093006216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807315214102318105}
+  - component: {fileID: 8936223173656815357}
   m_Layer: 0
   m_Name: 'BagSocket #3'
   m_TagString: Untagged
@@ -1305,6 +1381,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8936223173656815357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807315214102318310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Bags
 --- !u!1 &4807315214103112990
 GameObject:
   m_ObjectHideFlags: 0
@@ -6061,6 +6150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807315214662677183}
+  - component: {fileID: 8829708944158474979}
   m_Layer: 0
   m_Name: 'BagSocket #1'
   m_TagString: Untagged
@@ -6082,6 +6172,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8829708944158474979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807315214662677180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Bags
 --- !u!1 &4807315214666518582
 GameObject:
   m_ObjectHideFlags: 0
@@ -17615,6 +17718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4807315215822128036}
+  - component: {fileID: 5597391114360832445}
   m_Layer: 0
   m_Name: 'BagSocket #4'
   m_TagString: Untagged
@@ -17636,6 +17740,19 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5597391114360832445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807315215822128037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Bags
 --- !u!1 &4807315215824628196
 GameObject:
   m_ObjectHideFlags: 0
@@ -18582,6 +18699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5376139084597842420}
+  - component: {fileID: 9012568429712988584}
   m_Layer: 0
   m_Name: 'RocketSocket #2'
   m_TagString: Untagged
@@ -18603,3 +18721,16 @@ Transform:
   m_Father: {fileID: 4807315214123131454}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9012568429712988584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295130967989728280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socketType: Launchers

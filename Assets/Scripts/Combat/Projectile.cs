@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
             yield return new WaitForSeconds(delay);
 
         var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
-        effectObject.SendMessage("CollidedWith", other, SendMessageOptions.DontRequireReceiver);
+        effectObject.GetComponent<ProjectileHit>()?.OnCollidedWith(other, tags);
 
 
         GameObject.Destroy(gameObject);

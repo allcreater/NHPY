@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace TouchableObject
 {
-
     public class GiveBag : MonoBehaviour
     {
         public string pickerTag;
-        public int bagIndex = 0;
+        public StartWeapon weapon;
 
         //private AudioSource audioSource;
 
@@ -24,10 +23,10 @@ namespace TouchableObject
 
             gameObject.SetActive(false);
 
-            var bagsController = other.GetComponent<BagsController>();
+            var bagsController = other.GetComponent<WeaponsController>();
             if (bagsController)
             {
-                var newBag = bagsController.AddBag(bagIndex);
+                var newBag = bagsController.AddWeapon(weapon.category, weapon.weaponPrefab);
                 if (newBag)
                 {
                     newBag.transform.position = transform.position;
