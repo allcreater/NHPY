@@ -12,10 +12,7 @@ public struct PrefabWithProbability
 public class EnemyManager : MonoBehaviour
 {
     public float spawnIfDisance = 0;
-    private float x;
-    private float y;
-    private float z;
-    Vector3 posSpawnPoint;
+    public float spawnPointDeviation = 3.0f;
 
     public Transform playerTransform;
     public PrefabWithProbability[] enemyPrototypes;
@@ -67,12 +64,9 @@ public class EnemyManager : MonoBehaviour
         float playerDist = Vector3.Distance(spawnPoint.position, playerTransform.position);
         if (playerDist < spawnIfDisance)
             return;
-        
-       
-        x = Random.Range(-3, 3);
-        y = 0;
-        z = Random.Range(-3, 3);
-        posSpawnPoint = new Vector3(x, y, z);
+
+        var randomPoint = Random.insideUnitCircle * spawnPointDeviation;
+        var posSpawnPoint = new Vector3(randomPoint.x, 0, randomPoint.y);
         spawnPoint.position = spawnPoint.position + posSpawnPoint;
         if (prefab is null)
             return;
