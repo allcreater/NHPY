@@ -50,8 +50,8 @@ MonoBehaviour:
   tags:
   - Player
   - Untagged
-  manyHitEffect:
-  - {fileID: 1776806142378369382, guid: 758fb1711458a6743a4d4e3be376bdf8, type: 3}
+  hitEffect: {fileID: 1776806142378369382, guid: 758fb1711458a6743a4d4e3be376bdf8,
+    type: 3}
   startDelay: 0
   explodeAfterMin: 3
   explodeAfterMax: 5

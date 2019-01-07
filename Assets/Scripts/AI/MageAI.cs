@@ -7,11 +7,11 @@ public class MageAI : MonoBehaviour
 {
     public float observingDistance = 100.0f;
     public float shootingDistance = 50.0f;
-    public float teleportationDistansReact = 10.0f;
-    public float teleportDistans = 50.0f;
+    public float teleportationDistanceReact = 10.0f;
+    public float teleportDistance = 50.0f;
 
     public GameObject teleportEffect;
-    public GameObject death;
+
     private GameObject target;
     private NavMeshAgent nva;
     private Shooting shootingComponent;
@@ -31,7 +31,7 @@ public class MageAI : MonoBehaviour
         if (!target_)
             return false;
 
-        return (target_.transform.position - transform.position).sqrMagnitude <= (teleportationDistansReact * teleportationDistansReact);
+        return (target_.transform.position - transform.position).sqrMagnitude <= (teleportationDistanceReact * teleportationDistanceReact);
     }
 
     void Awake()
@@ -47,10 +47,6 @@ public class MageAI : MonoBehaviour
 
     void Update ()
     {
-        if (death.activeInHierarchy==true)
-            return;
-            
-
         if (IsObservingTarget(target))
         {
             nva.destination = target.transform.position;
@@ -60,17 +56,20 @@ public class MageAI : MonoBehaviour
         }
         if (IsTargetClose(target))
         {
-            Vector3 randomDirection = Random.insideUnitSphere * teleportDistans + target.transform.position;
-            NavMeshHit hit;
-            NavMesh.SamplePosition(randomDirection, out hit, teleportDistans, 1);
-            Vector3 randomTeleport = hit.position;
-            var teleport = GameObject.Instantiate(teleportEffect,transform.position, transform.rotation);
+            var randomPos2D = Random.insideUnitCircle;
+            Vector3 targetPos = new Vector3(randomPos2D.x, 0, randomPos2D.y) * teleportDistance + target.transform.position;
+            if (NavMesh.SamplePosition(targetPos, out NavMeshHit hit, teleportDistance, 1))
+            {
+                //teleport in effect
+                var teleport = GameObject.Instantiate(teleportEffect, transform.position, transform.rotation);
 
-            if (audioSource)
-                audioSource.PlayOneShot(audioSource.clip);
+                if (audioSource)
+                    audioSource.PlayOneShot(audioSource.clip);
 
-            nva.Warp(randomTeleport);
-            teleport = GameObject.Instantiate(teleportEffect,transform.position, transform.rotation);
+                nva.Warp(hit.position);
+                //teleport out effect
+                teleport = GameObject.Instantiate(teleportEffect, transform.position, transform.rotation);
+            }
         }
         else
         {

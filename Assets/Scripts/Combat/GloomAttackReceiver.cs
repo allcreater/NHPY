@@ -6,9 +6,10 @@ public class GloomAttackReceiver : MonoBehaviour
 {
     public float damageThreshold;
     public float maxReceiveRadius = 20.0f;
-    public string layerMask = "Default";
+    public LayerMask layerMask;
     public string objectsTag = "Enemy";
 
+    
     private AudioSource audioSource;
     private PlayerStats playerStats;
     private GloomParticleEffect particleEffect;
@@ -32,10 +33,10 @@ public class GloomAttackReceiver : MonoBehaviour
             return;
 
         float influence = 0.0f;
-        foreach (var colliderGroup in Physics.OverlapSphere(transform.position, maxReceiveRadius, LayerMask.GetMask(layerMask), QueryTriggerInteraction.Ignore).Where(x => x.tag == objectsTag).GroupBy(x => x.gameObject))
+        foreach (var colliderGroup in Physics.OverlapSphere(transform.position, maxReceiveRadius, layerMask, QueryTriggerInteraction.Ignore).Where(x => x.tag == objectsTag).GroupBy(x => x.gameObject))
         {
             var gloomAttacker = colliderGroup.First().GetComponent<GloomAttack>();
-            if (!gloomAttacker)
+            if (!gloomAttacker || !gloomAttacker.enabled)
                 continue;
 
             var dir = gloomAttacker.transform.position - transform.position;

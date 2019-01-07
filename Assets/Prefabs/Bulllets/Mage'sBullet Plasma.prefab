@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5999178757569110439}
   - component: {fileID: 297635880927495233}
   - component: {fileID: 7091688835504249951}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ SphereCollider:
   m_GameObject: {fileID: 4025905102784111053}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 81038150218272990}
   - component: {fileID: 6681654677721693667}
   - component: {fileID: 4013361258438123973}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4840,7 +4840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8893316307941531361}
   - component: {fileID: 1492645944550906787}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   - component: {fileID: 8536302683675356362}
   - component: {fileID: 763941290101313862}
   - component: {fileID: 529091505175646583}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Mage'sBullet Plasma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4950,8 +4950,8 @@ MonoBehaviour:
   tags:
   - Player
   - Untagged
-  manyHitEffect:
-  - {fileID: 708064997584973626, guid: ad336eddb5c09544a8613612295982a0, type: 3}
+  hitEffect: {fileID: 708064997584973626, guid: ad336eddb5c09544a8613612295982a0,
+    type: 3}
   startDelay: 0
   explodeAfterMin: 3
   explodeAfterMax: 5

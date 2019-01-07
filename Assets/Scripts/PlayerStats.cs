@@ -10,7 +10,7 @@ public class DeathToken
 public class PlayerStats : MonoBehaviour
 {
     public GameObject death;
-    public GameObject inDeathBodyOff;
+
     public float maxHitPoints = 10;
     public float maxManaPoints = 0;
     public float maxStamina = 100;
@@ -90,12 +90,10 @@ public class PlayerStats : MonoBehaviour
 
     private void OnUnhandledDeath()
     {
-        //if(inDeathBodyOff.activeInHierarchy ==true)
-        //{
-        inDeathBodyOff.SetActive(false);
-        //}
-
         death.SetActive(true);
-        GameObject.Destroy(gameObject, 0.5f);
+        death.transform.SetParent(null);
+
+        gameObject.SetActive(false);
+        GameObject.Destroy(gameObject, 5f);
     }
 }

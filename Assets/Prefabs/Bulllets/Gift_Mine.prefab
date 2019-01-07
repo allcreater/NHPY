@@ -111,8 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Enemy
-  manyHitEffect:
-  - {fileID: 8760453390716787146, guid: 90d2bf808f04b0641a1a8c1f9e7135df, type: 3}
+  hitEffect: {fileID: 8760453390716787146, guid: 90d2bf808f04b0641a1a8c1f9e7135df,
+    type: 3}
   startDelay: 0
   explodeAfterMin: 15
   explodeAfterMax: 50
@@ -235,14 +235,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4961602685661186}
     m_Modifications:
-    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
-      propertyPath: m_Name
-      value: Podarok
-      objectReference: {fileID: 0}
-    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -298,6 +290,14 @@ PrefabInstance:
     - target: {fileID: 637017554, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_LocalScale.z
       value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 637017552, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 345728583, guid: b0a40dc2732eae64b8f70c071a22d937, type: 3}
       propertyPath: m_Layer

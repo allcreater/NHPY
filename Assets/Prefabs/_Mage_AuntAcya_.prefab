@@ -4528,8 +4528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   observingDistance: 10000
   shootingDistance: 50
-  teleportationDistansReact: 0.1
-  teleportDistans: 0.1
+  teleportationDistanceReact: 10
+  teleportDistance: 50
   teleportEffect: {fileID: 6093525084084573419, guid: e50b89318318e5a46a5e9f7277242472,
     type: 3}
   death: {fileID: 8979521922541815213}

@@ -5,14 +5,11 @@ using UnityEngine.AI;
 
 public class StalkerAI : MonoBehaviour
 {
-    public GameObject death;
-
     public float observingDistance = 100.0f;
     public float teleportationDistance = 10.0f;
 
     private GameObject target;
     private NavMeshAgent nva;
-    
 
     public bool IsObservingTarget (GameObject target_)
     {
@@ -37,10 +34,7 @@ public class StalkerAI : MonoBehaviour
     }
 
     void Update ()
-    {                    
-        if (death.activeInHierarchy == true)
-            return;
-
+    {
         if (IsObservingTarget(target))
         {
             nva.destination = target.transform.position;

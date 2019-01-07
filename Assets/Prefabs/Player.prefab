@@ -769,6 +769,9 @@ MonoBehaviour:
   runSpeed: 18
   staminaConsumption: 20
   dragOnGround: 22.5
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!114 &4807315214015005471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageThreshold: 0
   maxReceiveRadius: 20
-  layerMask: Default
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
   objectsTag: Enemy
 --- !u!114 &8334699448878177158
 MonoBehaviour:

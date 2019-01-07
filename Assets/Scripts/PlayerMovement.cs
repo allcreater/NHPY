@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed;
     public float staminaConsumption;
     public float dragOnGround = 25;
+    public LayerMask groundLayerMask;
 
     private Animator animator;          // Reference to the animator component.
     private new Rigidbody rigidbody;    // Reference to the player's rigidbody.
@@ -40,13 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Static"))
+        if (((1 << other.gameObject.layer) & groundLayerMask) > 0)
             groundContacts++;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Static"))
+        if (((1 << other.gameObject.layer) & groundLayerMask) > 0)
             groundContacts--;
     }
 

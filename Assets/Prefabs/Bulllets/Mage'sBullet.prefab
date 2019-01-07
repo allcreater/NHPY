@@ -49,8 +49,8 @@ MonoBehaviour:
   tags:
   - Player
   - Untagged
-  manyHitEffect:
-  - {fileID: 2380174291151267452, guid: 43e1bd2b190a7e748bd9c01fd2cdad9b, type: 3}
+  hitEffect: {fileID: 2380174291151267452, guid: 43e1bd2b190a7e748bd9c01fd2cdad9b,
+    type: 3}
   startDelay: 0
   explodeAfterMin: 4
   explodeAfterMax: 6

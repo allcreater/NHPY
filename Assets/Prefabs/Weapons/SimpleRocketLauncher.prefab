@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5966013957866980743}
   - component: {fileID: 525602059429989634}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 9174438289768463072}
   - component: {fileID: 6925916551345348767}
   - component: {fileID: 7238512491243624854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SimpleRocketLauncher
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 8524520107440350958}
   - component: {fileID: 4721872145201349703}
   - component: {fileID: 5635455023839176706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Garland 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5963,7 +5963,7 @@ GameObject:
   - component: {fileID: 3525098126160593830}
   - component: {fileID: 2358242689559752209}
   - component: {fileID: 2344262733401941645}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10670,7 +10670,7 @@ GameObject:
   - component: {fileID: 8148075992990161159}
   - component: {fileID: 6018680312997402804}
   - component: {fileID: 6312846084464398020}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15373,26 +15373,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4733754777625191740}
     m_Modifications:
-    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Name
-      value: Single_Rocket_Launcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15437,6 +15417,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Name
+      value: Single_Rocket_Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
 --- !u!1 &3599230134823886531 stripped
@@ -15470,26 +15470,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4733754777625191740}
     m_Modifications:
-    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Name
-      value: Podarok
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.026
@@ -15545,6 +15525,26 @@ PrefabInstance:
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
