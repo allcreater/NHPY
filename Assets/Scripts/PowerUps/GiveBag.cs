@@ -4,37 +4,28 @@ using UnityEngine;
 
 namespace TouchableObject
 {
-    public class GiveBag : MonoBehaviour
+    public class GiveBag : GenericPowerUp
     {
-        public string pickerTag;
         public StartWeapon weapon;
 
-        //private AudioSource audioSource;
-
-        //private void Awake() //TODO: inherit from common PowerUp 
-        //{
-        //    audioSource = GetComponent<AudioSource>();
-        //}
-
-        private void OnTriggerEnter(Collider other)
+        protected override bool TryActivate(Collider other)
         {
             if (other.tag != pickerTag)
-                return;
-
-            gameObject.SetActive(false);
+                return false;
 
             var bagsController = other.GetComponent<WeaponsController>();
-            if (bagsController)
-            {
-                var newBag = bagsController.AddWeapon(weapon.category, weapon.weaponPrefab);
-                if (newBag)
-                {
-                    newBag.transform.position = transform.position;
-                    newBag.transform.rotation = transform.rotation;
-                }
-            }
+            if (!bagsController)
+                return false;
 
-            GameObject.Destroy(gameObject);
+            var newBag = bagsController.AddWeapon(weapon.category, weapon.weaponPrefab);
+            if (!newBag)
+                return false;
+
+
+            newBag.transform.position = transform.position;
+            newBag.transform.rotation = transform.rotation;
+
+            return true;
         }
     }
 
