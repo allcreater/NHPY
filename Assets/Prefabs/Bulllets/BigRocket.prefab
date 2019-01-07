@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1883efd747d9222409fc6e02933a1eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionSpeed: 25
-  acceleration: 5
-  delayAfterAiming: 0.1
+  reactionSpeed: 15
+  acceleration: 4
+  delayAfterAiming: 0.5
   ranRotXmin: -45.7
   ranRotXmax: -60
   ranRotYmin: -16.9

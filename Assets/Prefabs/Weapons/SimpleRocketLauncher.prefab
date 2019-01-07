@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5966013957866980743}
   - component: {fileID: 525602059429989634}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,12 +38,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597463955797261735}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 15.14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -61,7 +61,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4096
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 8524520107440350958}
   - component: {fileID: 4721872145201349703}
   - component: {fileID: 5635455023839176706}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Garland 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1717,7 +1717,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 100
+    maxNumParticles: 70
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4883,7 +4883,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 525602059429989634}
     randomDistribution: 1
@@ -4996,7 +4996,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    maxLights: 100
+    maxLights: 20
   TrailModule:
     enabled: 0
     mode: 0
@@ -6619,7 +6619,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.98098874, y: 1.1797826, z: 3.8259323}
+    m_Scale: {x: 1.39, y: 1.48, z: 3.8259323}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -11318,7 +11318,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 5
+    type: 16
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -11326,7 +11326,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.9603655, y: 1.1433042, z: 4.1559043}
+    m_Scale: {x: 1.26, y: 1.41, z: 3.78}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -15379,19 +15379,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15473,6 +15473,22 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_Name
       value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalPosition.x
