@@ -4478,7 +4478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   death: {fileID: 8979521922541815213}
-  inDeathBodyOff: {fileID: 462826888}
   maxHitPoints: 3
   maxManaPoints: 0
   maxStamina: 100
@@ -4528,11 +4527,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   observingDistance: 10000
   shootingDistance: 50
-  teleportationDistanceReact: 10
-  teleportDistance: 50
+  teleportationDistanceReact: 0.1
+  teleportDistance: 0.1
   teleportEffect: {fileID: 6093525084084573419, guid: e50b89318318e5a46a5e9f7277242472,
     type: 3}
-  death: {fileID: 8979521922541815213}
   clips:
   - {fileID: 8300000, guid: 7fb8ac107e6d3194a9285e64a7f47e55, type: 3}
 --- !u!114 &935513192
