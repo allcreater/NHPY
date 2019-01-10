@@ -152,7 +152,7 @@ MonoBehaviour:
   requireAim: 1
   useBallisticTrajectory: 0
   weaponType:
-  - Alternate#2
+  - Alternate#1
   burstReloadTime: 0
   burstSize: 0
   clips:
@@ -15373,6 +15373,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4733754777625191740}
     m_Modifications:
+    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Name
+      value: Single_Rocket_Launcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15417,26 +15437,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Name
-      value: Single_Rocket_Launcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
 --- !u!1 &3599230134823886531 stripped
@@ -15470,6 +15470,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4733754777625191740}
     m_Modifications:
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.026
@@ -15525,26 +15545,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Name
-      value: Podarok
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}

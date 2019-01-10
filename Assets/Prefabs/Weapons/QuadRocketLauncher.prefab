@@ -9512,12 +9512,12 @@ MonoBehaviour:
   bulletSpeed: 10
   targetDeviationRange: 1
   reloadTime: 0.1
-  bullets: 200
+  bullets: 100
   requireAim: 1
   useBallisticTrajectory: 0
   weaponType:
-  - Alternate#2
-  burstReloadTime: 1
+  - Alternate#0
+  burstReloadTime: 1.5
   burstSize: 4
   clips:
   - {fileID: 8300000, guid: d44b7798de30eea429b96be23116f88d, type: 3}

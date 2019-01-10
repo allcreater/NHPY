@@ -20,6 +20,11 @@ public class PlayerControl : MonoBehaviour
 {
     public GameObject playerPawn;
 
+    public int maxAlternates;
+
+    private string alternateButton = "Alternate#0";
+    //private int i = 0;
+    //private bool switchWeapon = false;
     // Use this for initialization
     void Awake ()
     {
@@ -45,6 +50,23 @@ public class PlayerControl : MonoBehaviour
         var camera = GetComponent<Camera>();
         var mouseScreenPos = CrossPlatformInputManager.mousePosition;
 
+        if (CrossPlatformInputManager.GetButtonDown("SwitchWeapon"))
+        {
+            //if (switchWeapon == false)
+            //{
+            //    alternateButton = "Alternate#3";
+            //    switchWeapon = true;
+            //}
+            //else 
+            //    alternateButton = "Aletrnate#2";
+            //switch (alternateButton)
+            //{
+
+            //}
+            GetNextWeapon();
+        }
+            
+
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out var hitInfo))
         {
             lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
@@ -55,7 +77,7 @@ public class PlayerControl : MonoBehaviour
             if (CrossPlatformInputManager.GetButtonDown("Fire2"))
                 attacks.Add("Alternate");
             if (CrossPlatformInputManager.GetAxisRaw("Fire3") > 0.5f)
-                attacks.Add("Alternate#2");
+                attacks.Add(alternateButton);
 
             if (attacks.Count > 0)
             {
@@ -74,5 +96,15 @@ public class PlayerControl : MonoBehaviour
             if (shootToParameters != null)
                 controlledObject.BroadcastMessage("ShootTo", shootToParameters, SendMessageOptions.DontRequireReceiver);
         }
+    }
+
+    private void GetNextWeapon()
+    {
+        var i = System.Convert.ToInt32(alternateButton.Substring(alternateButton.Length - 1));
+        if (++i >= maxAlternates)
+        {
+            i = 0;
+        }
+        alternateButton = "Alternate#" + i.ToString();
     }
 }

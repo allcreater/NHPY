@@ -188,7 +188,7 @@ MonoBehaviour:
   weapon:
     weaponPrefab: {fileID: 624314362935776253, guid: 759703f792363044d8f94c74aca24fd1,
       type: 3}
-    category: Launchers
+    category: MegaWeapon
 --- !u!136 &4892707952896262840
 CapsuleCollider:
   m_ObjectHideFlags: 0
