@@ -94,6 +94,6 @@ public class PlayerStats : MonoBehaviour
         death.transform.SetParent(null);
 
         gameObject.SetActive(false);
-        GameObject.Destroy(gameObject, 5f);
+        GameObject.Destroy(gameObject, 1.15f);
     }
 }

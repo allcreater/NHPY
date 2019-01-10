@@ -139,8 +139,8 @@ MonoBehaviour:
           power: {r: 1, g: 1, b: 1, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 0.98093164, g: 0.9618612, b: 1, a: 0}
-          gamma: {r: 1, g: 1, b: 1, a: 0}
+          lift: {r: 0.9616752, g: 0.88324624, b: 1, a: 0}
+          gamma: {r: 0.9514481, g: 0.94376385, b: 1, a: 0}
           gain: {r: 1, g: 1, b: 1, a: 0}
       curves:
         master:
