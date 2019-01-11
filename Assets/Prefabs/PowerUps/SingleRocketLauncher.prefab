@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1414123628227500509}
   - component: {fileID: 6986694890545233624}
   m_Layer: 11
-  m_Name: SingleRocketLauncher 1
+  m_Name: SingleRocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   weapon:
     weaponPrefab: {fileID: 624314362935776253, guid: 759703f792363044d8f94c74aca24fd1,
       type: 3}
-    category: MegaWeapon
+    category: MegaWeapons
 --- !u!136 &4892707952896262840
 CapsuleCollider:
   m_ObjectHideFlags: 0
