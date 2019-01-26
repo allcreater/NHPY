@@ -11,12 +11,10 @@ public struct PrefabWithProbability
 
 public class EnemyManager : MonoBehaviour
 {
-    public float spawnIfDisance = 0;
     public float spawnPointDeviation = 3.0f;
 
     public Transform playerTransform;
     public PrefabWithProbability[] enemyPrototypes;
-    public Transform spawnPointsCollection;
     public int desiredNumberOfNpcs = 30;
     public float spawnInterval = 5.0f;
 
@@ -30,14 +28,19 @@ public class EnemyManager : MonoBehaviour
     private HashSet<Enemy> knownNpc = new HashSet<Enemy>();
     private float timeSinceLastSpawn;
 
-    private Transform SelectSpawnPoint() => spawnPointsCollection.Find($"Spawnpoint #{Random.Range(0, spawnPointsCollection.childCount)}");
+    private List<SpawnPoint> knownSpawnPoints = new List<SpawnPoint>();
 
-    private GameObject SelectEnemyPrefab() => MathExtension.RandomWeightedSelect(enemyPrototypes.Select(x => (x.prefab, x.probabilityWeight)));
+    private void UpdateSpawnPointList()
+    {
+        GetComponentsInChildren(knownSpawnPoints);
+    }
+
+    //TODO: optimization ?
+    private SpawnPoint SelectSpawnPoint(Vector3 relativePosition) => MathExtension.RandomWeightedSelect(knownSpawnPoints.Select(x => (x, x.spawnProbability(relativePosition))));
+    private static GameObject SelectPrefab(PrefabWithProbability[] prototypes) => MathExtension.RandomWeightedSelect(prototypes.Select(x => (x.prefab, x.probabilityWeight))); //TODO: implicit cast PrefabWithProbability -> (a, b)
 
     public void RegisterNpc(Enemy npc) => knownNpc.Add(npc);
     public void UnregisterNpc(Enemy npc)
-    
-   
     {
         knownNpc.Remove(npc);
         deadNpcsCounter++;
@@ -49,46 +52,50 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        UpdateSpawnPointList();
 
-        
         Debug.Log($"Manager {gameObject.name}: HP factor is {hpFactor}");
     }
 
-    private void PlayerDist()
+    public void SpawnNpc(GameObject prefab, Vector3 position, Quaternion rotation)
     {
-        
-    }
-
-    private void SpawnNpc(GameObject prefab, Transform spawnPoint)
-    {
-        float playerDist = Vector3.Distance(spawnPoint.position, playerTransform.position);
-        if (playerDist < spawnIfDisance)
-            return;
-
-        var randomPoint = Random.insideUnitCircle * spawnPointDeviation;
-        var posSpawnPoint = new Vector3(randomPoint.x, 0, randomPoint.y);
-        spawnPoint.position = spawnPoint.position + posSpawnPoint;
         if (prefab is null)
-            return;
+            throw new System.ArgumentNullException(nameof(prefab));
 
-        var instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation, spawnPointsCollection);
+        var instance = Instantiate(prefab, position, rotation, transform); //TODO: probably no need to set self as parent
         timeSinceLastSpawn = 0.0f;
 
-        //TODO: remove?
+        //TODO: seems it should be responsibility of another object?
         var playerStats = instance.GetComponent<PlayerStats>();
         if (playerStats)
             playerStats.hitPoints = (playerStats.maxHitPoints *= hpFactor);
 
-        Debug.Log($"New NPC spawned! {knownNpc.Count}/{desiredNumberOfNpcs}");
-
-        spawnPoint.position = spawnPoint.position - posSpawnPoint;
+        Debug.Log($"New NPC spawned! {knownNpc.Count+1}/{desiredNumberOfNpcs}");
     }
 
-    // Update is called once per frame
+    public void AutoSpawn()
+    {
+        var spawnPoint = SelectSpawnPoint(playerTransform.position);
+        var prefabs = spawnPoint.overridePrefabs != null && spawnPoint.overridePrefabs.Length > 0 ? spawnPoint.overridePrefabs : enemyPrototypes;
+        if (prefabs is null || prefabs.Length < 0)
+            return;
+
+        var prefab = SelectPrefab(prefabs);
+        if (!prefab)
+            return;
+
+        spawnPoint.remainingSpawns--;
+
+        var randomPoint = Random.insideUnitCircle * spawnPointDeviation;
+        var posSpawnPoint = new Vector3(randomPoint.x, 0, randomPoint.y);
+
+        SpawnNpc(prefab, spawnPoint.transform.position + posSpawnPoint, spawnPoint.transform.rotation);
+    }
+
     private void Update()
     {
         if (knownNpc.Count < desiredNumberOfNpcs && timeSinceLastSpawn >= spawnInterval)
-            SpawnNpc(SelectEnemyPrefab(), SelectSpawnPoint());
+            AutoSpawn();
 
         timeSinceLastSpawn += Time.deltaTime;
     }
