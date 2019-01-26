@@ -19,7 +19,7 @@ public class SpawnPoint : MonoBehaviour
 
     public float SpawnProbability(Vector3 target) => spawnProbabilityByDistance.Evaluate(Vector3.Distance(target, transform.position)) * (spawnPossible ? 1.0f : 0.0f);
 
-    public virtual Vector3 spawnPosition => MathExtension.RandomPointAroundCircle(Vector3.up) * deviationDistance;
+    public virtual Vector3 spawnPosition => transform.position + MathExtension.RandomPointAroundCircle(Vector3.up) * deviationDistance;
 
     private void Start()
     {

@@ -11,6 +11,7 @@ public class StartWeapon
     public string category;
 }
 
+//TODO: think about better linking with weapons
 [RequireComponent(typeof(PlayerStats))]
 public class WeaponsController : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class WeaponsController : MonoBehaviour
     public float bagReactionSpeedDispersion = 1.0f;
 
     private Dictionary<string, List<GameObject>> weapons = new Dictionary<string, List<GameObject>>();
+
+    //TODO: is there better way?
+    public IReadOnlyCollection<string> buckets => weapons.Keys;
+    public IReadOnlyList<GameObject> GetWeapons(string bucket) => weapons.TryGetValue(bucket, out var result) ? result : null;
+
 
     public GameObject AddWeapon(string socketType, GameObject weapon)
     {
@@ -55,7 +61,7 @@ public class WeaponsController : MonoBehaviour
     private void Update()
     {
         foreach (var bag in weapons)
-            bag.Value.RemoveAll(x => !x.activeInHierarchy);
+            bag.Value.RemoveAll(x => !x.activeInHierarchy); //TODO: probably weapon should be removed another way
     }
 
     void NoMoreHP(DeathToken token)

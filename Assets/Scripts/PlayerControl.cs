@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
@@ -20,22 +20,40 @@ public class PlayerControl : MonoBehaviour
 {
     public GameObject playerPawn;
 
-    public int maxAlternates;
+    private WeaponsController weaponsController;
+    private SortedSet<string> discoveredWeapons = new SortedSet<string>();
 
-    private string alternateButton = "Alternate#0";
-    //private int i = 0;
-    //private bool switchWeapon = false;
-    // Use this for initialization
+    private int selectedSecondaryGroupIndex = 0;
+
+    private static readonly string mainGroup = "Main";
+    private static readonly string alternateGroup = "Alternate";
+
     void Awake ()
     {
-
+        weaponsController = playerPawn.GetComponent<WeaponsController>();
     }
 
-// Update is called once per frame
+    void RediscoverWeapon()
+    {
+        discoveredWeapons.Clear();
+        foreach (var bucket in weaponsController.buckets)
+            foreach (var weapon in weaponsController.GetWeapons(bucket))
+            {
+                var shooter = weapon.GetComponentInChildren<Shooting>();
+                if (shooter)
+                    discoveredWeapons.UnionWith(shooter.weaponType);
+            }
+
+        discoveredWeapons.Remove(mainGroup);
+        discoveredWeapons.Remove(alternateGroup);
+    }
+
     void Update ()
     {
         if (Mathf.Approximately(Time.timeScale, 0.0f))
             return;
+
+        RediscoverWeapon();
 
         var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
         MoveToParams moveToParams = new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run"));
@@ -50,22 +68,16 @@ public class PlayerControl : MonoBehaviour
         var camera = GetComponent<Camera>();
         var mouseScreenPos = CrossPlatformInputManager.mousePosition;
 
-        if (CrossPlatformInputManager.GetButtonDown("SwitchWeapon"))
-        {
-            //if (switchWeapon == false)
-            //{
-            //    alternateButton = "Alternate#3";
-            //    switchWeapon = true;
-            //}
-            //else 
-            //    alternateButton = "Aletrnate#2";
-            //switch (alternateButton)
-            //{
+        //secondary weapon selection
+        var direction = (int)Mathf.Clamp(CrossPlatformInputManager.GetAxisRaw("SwitchWeapon"), -1, 1);
+        if (direction != 0)
+            selectedSecondaryGroupIndex++;
 
-            //}
-            GetNextWeapon();
-        }
-            
+        selectedSecondaryGroupIndex %= Mathf.Max(discoveredWeapons.Count, 1);
+        var secondaryGroup = discoveredWeapons.Skip(selectedSecondaryGroupIndex).FirstOrDefault();
+
+        if (direction != 0)
+            Debug.Log("Weapon:" + secondaryGroup);
 
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out var hitInfo))
         {
@@ -73,11 +85,11 @@ public class PlayerControl : MonoBehaviour
 
             var attacks = new List<string>();
             if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
-                attacks.Add("Main");
+                attacks.Add(mainGroup);
             if (CrossPlatformInputManager.GetButtonDown("Fire2"))
-                attacks.Add("Alternate");
+                attacks.Add(alternateGroup);
             if (CrossPlatformInputManager.GetAxisRaw("Fire3") > 0.5f)
-                attacks.Add(alternateButton);
+                attacks.Add(secondaryGroup);
 
             if (attacks.Count > 0)
             {
@@ -86,6 +98,8 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
+        //TODO: switch to new message system
+        //TODO: decrutch this weapon search
         foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))
         {
             controlledObject.BroadcastMessage("MoveTo", moveToParams, SendMessageOptions.DontRequireReceiver);
@@ -96,15 +110,5 @@ public class PlayerControl : MonoBehaviour
             if (shootToParameters != null)
                 controlledObject.BroadcastMessage("ShootTo", shootToParameters, SendMessageOptions.DontRequireReceiver);
         }
-    }
-
-    private void GetNextWeapon()
-    {
-        var i = System.Convert.ToInt32(alternateButton.Substring(alternateButton.Length - 1));
-        if (++i >= maxAlternates)
-        {
-            i = 0;
-        }
-        alternateButton = "Alternate#" + i.ToString();
     }
 }
