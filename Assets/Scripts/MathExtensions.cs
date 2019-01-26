@@ -26,4 +26,11 @@ public static class MathExtension
     }
 
     public static T RandomWeightedSelect<T>(IEnumerable<(T, float)> weightedCollection) => MakeWeightedRandomGenerator(weightedCollection)();
+
+    public static Vector3 RandomPointAroundCircle (Vector3 normal)
+    {
+        var pointAt2dCircle = Random.insideUnitCircle;
+        var quat = Quaternion.FromToRotation(Vector3.forward, normal);  //TODO: think about better solution
+        return quat * new Vector3(pointAt2dCircle.x, pointAt2dCircle.y, 0);
+    }
 }

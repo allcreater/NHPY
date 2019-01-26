@@ -36,7 +36,7 @@ public class EnemyManager : MonoBehaviour
     }
 
     //TODO: optimization ?
-    private SpawnPoint SelectSpawnPoint(Vector3 relativePosition) => MathExtension.RandomWeightedSelect(knownSpawnPoints.Select(x => (x, x.spawnProbability(relativePosition))));
+    private SpawnPoint SelectSpawnPoint(Vector3 relativePosition) => MathExtension.RandomWeightedSelect(knownSpawnPoints.Select(x => (x, x.SpawnProbability(relativePosition))));
     private static GameObject SelectPrefab(PrefabWithProbability[] prototypes) => MathExtension.RandomWeightedSelect(prototypes.Select(x => (x.prefab, x.probabilityWeight))); //TODO: implicit cast PrefabWithProbability -> (a, b)
 
     public void RegisterNpc(Enemy npc) => knownNpc.Add(npc);
@@ -85,11 +85,7 @@ public class EnemyManager : MonoBehaviour
             return;
 
         spawnPoint.remainingSpawns--;
-
-        var randomPoint = Random.insideUnitCircle * spawnPointDeviation;
-        var posSpawnPoint = new Vector3(randomPoint.x, 0, randomPoint.y);
-
-        SpawnNpc(prefab, spawnPoint.transform.position + posSpawnPoint, spawnPoint.transform.rotation);
+        SpawnNpc(prefab, spawnPoint.spawnPosition, spawnPoint.transform.rotation);
     }
 
     private void Update()
