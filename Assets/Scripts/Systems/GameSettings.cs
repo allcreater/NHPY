@@ -11,37 +11,13 @@ namespace Preferences
         Everywhere
     }
 
-    public class GameSettings : MonoBehaviour
+    [CreateAssetMenu]
+    public class GameSettings : ScriptableObject
     {
-        public static GameSettings instance = null;
+        public float difficulty = 0.5f;
+        public DynamicLightsAmount dynamicLightsAmount = DynamicLightsAmount.OnlyImportant;
 
-        public float difficulty
-        {
-            get;
-            set;
-        } = 0.5f;
-
-        public DynamicLightsAmount dynamicLightsAmount
-        {
-            get;
-            set;
-        } = DynamicLightsAmount.OnlyImportant;
-
-        void Awake()
-        {
-            if (instance == null)
-                instance = this;
-            else if (instance == this) // Экземпляр объекта уже существует на сцене
-                Destroy(gameObject);
-
-            // Теперь нам нужно указать, чтобы объект не уничтожался
-            // при переходе на другую сцену игры
-            DontDestroyOnLoad(gameObject);
-
-            // И запускаем собственно инициализатор
-            InitializeManager();
-        }
-
+        /*
         public void Set()
         {
             PlayerPrefs.SetFloat(nameof(difficulty), difficulty);
@@ -57,6 +33,7 @@ namespace Preferences
             if (System.Enum.TryParse(PlayerPrefs.GetString(nameof(dynamicLightsAmount)), out DynamicLightsAmount parsedEnum))
                 dynamicLightsAmount = parsedEnum;
         }
+        */
     }
 
 }

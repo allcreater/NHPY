@@ -9,18 +9,20 @@ public class SettingsWindow : MonoBehaviour
     public Slider difficultySlider;
     public Dropdown lightingQualitySelector;
 
+    public Preferences.GameSettings gameSettings;
+
     public void SetSettings()
     {
-        Preferences.GameSettings.instance.dynamicLightsAmount = (Preferences.DynamicLightsAmount)lightingQualitySelector.value;
-        Preferences.GameSettings.instance.difficulty = difficultySlider.value;
-
-        Preferences.GameSettings.instance.Set();
+        gameSettings.dynamicLightsAmount = (Preferences.DynamicLightsAmount)lightingQualitySelector.value;
+        gameSettings.difficulty = difficultySlider.value;
+        
+        //gameSettings.Set();
     }
 
     private void SetControls()
     {
-        lightingQualitySelector.value = (int)Preferences.GameSettings.instance.dynamicLightsAmount;
-        difficultySlider.value = Preferences.GameSettings.instance.difficulty;
+        lightingQualitySelector.value = (int)gameSettings.dynamicLightsAmount;
+        difficultySlider.value = gameSettings.difficulty;
     }
 
     private void Start()

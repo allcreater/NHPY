@@ -11,6 +11,9 @@ public struct PrefabWithProbability
 
 public class EnemyManager : MonoBehaviour
 {
+    public ScoreManager scoreManager;
+    public Preferences.GameSettings gameSettings;
+
     public float spawnPointDeviation = 3.0f;
 
     public Transform playerTransform;
@@ -23,7 +26,7 @@ public class EnemyManager : MonoBehaviour
     [Header("game difficulty influence")]
     public float minHitPointsFactor = 0.5f;
     public float maxHitPointsFactor = 2.0f;
-    private float hpFactor => Mathf.Lerp(minHitPointsFactor, maxHitPointsFactor, Preferences.GameSettings.instance.difficulty);
+    private float hpFactor => Mathf.Lerp(minHitPointsFactor, maxHitPointsFactor, gameSettings.difficulty);
 
     private HashSet<Enemy> knownNpc = new HashSet<Enemy>();
     private float timeSinceLastSpawn;
@@ -46,7 +49,7 @@ public class EnemyManager : MonoBehaviour
         deadNpcsCounter++;
 
         if (npc.GetComponent<PlayerStats>().hitPoints <= 0.0f)
-            ScoreManager.instance.scores++;
+            scoreManager.scores++; //TODO: more interesting estimating
     }
 
     // Start is called before the first frame update

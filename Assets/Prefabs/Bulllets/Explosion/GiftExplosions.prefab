@@ -4800,6 +4800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
   enableIfBetter: 2
 --- !u!1 &814961681290264623
 GameObject:
@@ -33331,6 +33332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
   enableIfBetter: 2
 --- !u!1 &4243890434841334373
 GameObject:
@@ -33434,6 +33436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
   enableIfBetter: 2
 --- !u!1 &4764460713079181033
 GameObject:
@@ -33537,6 +33540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
   enableIfBetter: 2
 --- !u!1 &4970700687840846816
 GameObject:
@@ -47794,6 +47798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
   enableIfBetter: 2
 --- !u!1 &8648837074077742006
 GameObject:
@@ -52655,6 +52660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93365c7bae1e35a418e02de11221b9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
   enableIfBetter: 2
 --- !u!1 &8760453390716787146
 GameObject:
