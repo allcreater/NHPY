@@ -2984,7 +2984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1787731629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3407,10 +3407,12 @@ MonoBehaviour:
     - 2d \u0430\u0440\u0442\n\n<b>\u0421\u0434\u0435\u043B\u0430\u043D\u043E \u0434\u043B\u044F
     \u043A\u043E\u043D\u043A\u0443\u0440\u0441\u0430</b>\n<color=blue>https://tabun.everypony.ru/blog/OKI/183886.html</color>\n\u043B\u044E\u0431\u0438\u0442\u0435\u043B\u044C\u0441\u043A\u0438\u0445
     \u0440\u0430\u0431\u043E\u0442 \u043F\u043E \u043C\u043E\u0442\u0438\u0432\u0430\u043C
-    <i>My Little Pony: Friendship is Magic</i>\n\n\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0435
-    \u0440\u0435\u0441\u0443\u0440\u0441\u044B:</b>\n<color=blue>https://www.deviantart.com/ikillyou121/art/Smiley-Derpy-Hooves-Vector-377582698\r</color>\n\r\n<b>\u041C\u0443\u0437\u044B\u043A\u0430:\r</b>\nAurelleah
-    - Daybreaker\r\nJyc Row - -FiE- Main Theme (Menu Screen)\r\nSkelter - Sombra\n\n<b>\u0418\u0441\u0445\u043E\u0434\u043D\u044B\u0439
-    \u043A\u043E\u0434:</b>\n<color=blue>https://github.com/allcreater/NHPY</color>"
+    <i>My Little Pony: Friendship is Magic</i>\n\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0435
+    \u0440\u0435\u0441\u0443\u0440\u0441\u044B:</b>\n<color=blue>\"Smiley Derpy Hooves\"
+    \xA9 ikillyou121\n\"Pony Warning Label\" \xA9 AxemGR</color>\n\n<b>\u041C\u0443\u0437\u044B\u043A\u0430:\r</b><color=blue>\n\"Daybreaker\"
+    \xA9 Aurelleah\r\n\"[FiE] Main Theme (Menu Screen)\"\r \xA9 Jyc Row \n\"Sombra\"
+    \xA9 Skelter</color>\n\n\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0438
+    \u0432 readme.md\n\n<b>\u0418\u0441\u0445\u043E\u0434\u043D\u044B\u0439 \u043A\u043E\u0434:</b>\n<color=blue>https://github.com/allcreater/NHPY</color>"
 --- !u!222 &1922658843
 CanvasRenderer:
   m_ObjectHideFlags: 0
