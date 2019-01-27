@@ -13,7 +13,7 @@ public class StartWeapon
 
 //TODO: think about better linking with weapons
 [RequireComponent(typeof(PlayerStats))]
-public class WeaponsController : MonoBehaviour
+public class WeaponsController : MonoBehaviour, IDeathHandler
 {
     public StartWeapon[] startWeapons;
     public string[] categoriesThatBringsAdditionalLife;
@@ -64,9 +64,8 @@ public class WeaponsController : MonoBehaviour
             bag.Value.RemoveAll(x => !x.activeInHierarchy); //TODO: probably weapon should be removed another way
     }
 
-    void NoMoreHP(DeathToken token)
+    float? IDeathHandler.OnDeathDoor()
     {
-        
         var selectedList = weapons.FirstOrDefault(x => categoriesThatBringsAdditionalLife.Contains(x.Key) && x.Value.Count > 0).Value; //TODO: priority what category will be reduced first
         if (selectedList != null)
         {
@@ -74,12 +73,14 @@ public class WeaponsController : MonoBehaviour
             GameObject.Destroy(selectedList[index]);
             selectedList.RemoveAt(index);
 
+            return float.MaxValue;
+        }
 
-            token.ReviveHitPoints = float.MaxValue;
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver"); //TODO: remove инкостыляцию
-        }
+        return null;
+    }
+
+    void IDeathHandler.OnDeath()
+    {
+        //Do nothing
     }
 }

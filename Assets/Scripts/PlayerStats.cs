@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 
-public class DeathToken
+public interface IDeathHandler
 {
-    public float? ReviveHitPoints { get; set; } = null;
+    float? OnDeathDoor();
+    void OnDeath();
 }
 
 public class PlayerStats : MonoBehaviour
@@ -17,11 +17,6 @@ public class PlayerStats : MonoBehaviour
 
     public float hitPointsRegenerationRate = 0;
     public float staminaRegenerationRate = 5;
-
-    public UnityEngine.UI.Slider hitPointsBar;
-    public UnityEngine.UI.Slider manaPointsBar;
-    public UnityEngine.UI.Slider staminaPointsBar;
-
 
     private float m_hitPoints = 0;
     private float m_manaPoints = 0;
@@ -61,21 +56,13 @@ public class PlayerStats : MonoBehaviour
     
     void Update()
     {
-        if (hitPointsBar)
-            hitPointsBar.value = m_hitPoints / maxHitPoints;
-
-        if (manaPointsBar)
-            manaPointsBar.value = m_manaPoints / maxManaPoints;
-
-        if (staminaPointsBar)
-            staminaPointsBar.value = m_stamina / maxStamina;
-
-        if (m_hitPoints <= 0)
+        if (hitPoints <= 0)
         {
-            var token = new DeathToken();
-            SendMessage("NoMoreHP", token, SendMessageOptions.DontRequireReceiver);
-            if (token.ReviveHitPoints.HasValue)
-                hitPoints = token.ReviveHitPoints.Value;
+            //send notification through children until someone will return revive hit points
+            var reviveHitPoints = GetComponentsInChildren<IDeathHandler>().Select(x => x.OnDeathDoor()).FirstOrDefault(x => x.HasValue && x.Value > 0);
+
+            if (reviveHitPoints.HasValue)
+                hitPoints = reviveHitPoints.Value;
             else
                 OnUnhandledDeath();
         }
@@ -90,6 +77,10 @@ public class PlayerStats : MonoBehaviour
 
     private void OnUnhandledDeath()
     {
+        foreach (var handler in GetComponentsInChildren<IDeathHandler>())
+            handler.OnDeath();
+
+        //Move to separate component
         death.SetActive(true);
         death.transform.SetParent(null);
 
