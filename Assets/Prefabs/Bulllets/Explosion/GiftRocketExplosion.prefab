@@ -4811,7 +4811,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  hpDamage: 1
+  hpDamage: 1.2
   mpDamage: 0
   staminaDamage: 0
 --- !u!82 &3581535577282033249

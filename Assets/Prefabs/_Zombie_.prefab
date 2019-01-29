@@ -5183,9 +5183,6 @@ MonoBehaviour:
   maxStamina: 100
   hitPointsRegenerationRate: 0
   staminaRegenerationRate: 5
-  hitPointsBar: {fileID: 0}
-  manaPointsBar: {fileID: 0}
-  staminaPointsBar: {fileID: 0}
 --- !u!114 &3398971796977093993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5253,9 +5250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleDrop:
   - prefab: {fileID: 513105022, guid: 5706c78c5ae61b144affbe0991d59663, type: 3}
-    probabilityWeight: 0.07
+    probabilityWeight: 0.05
   - prefab: {fileID: 2048751819, guid: 9c4e46698c96e0749a3f23425e93cd0f, type: 3}
-    probabilityWeight: 0.14
+    probabilityWeight: 0.1
   - prefab: {fileID: 591841168, guid: 7cd7739d8cf834b46a74853640dd8f11, type: 3}
     probabilityWeight: 0.005
 --- !u!114 &5379975219598580876
