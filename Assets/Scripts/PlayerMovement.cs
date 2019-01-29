@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
+using UnityEngine.Networking;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public float walkSpeed;
     public float runSpeed;
     public float staminaConsumption;
     public float dragOnGround = 25;
     public LayerMask groundLayerMask;
+    public Camera cam;
 
     private Animator animator;          // Reference to the animator component.
     private new Rigidbody rigidbody;    // Reference to the player's rigidbody.
@@ -53,6 +55,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate ()
     {
+        if (!isLocalPlayer)
+        {
+            cam.enabled = false;
+            return;
+        }
+           
         if (groundContacts <= 0)
         {
             rigidbody.drag = 0;
