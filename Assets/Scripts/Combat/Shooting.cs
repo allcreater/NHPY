@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public static class MathUtils
 {
@@ -32,7 +33,7 @@ public class ShootToParams
     }
 }
 
-public class Shooting : MonoBehaviour
+public class Shooting : NetworkBehaviour
 {
     public GameObject bulletPrototype;
     public float bulletSpeed = 10.0f;
@@ -111,8 +112,8 @@ public class Shooting : MonoBehaviour
         //Debug.Log($"velocity is {desiredVelocity.magnitude}");
         return Vector3.ClampMagnitude(desiredVelocity, bulletSpeed);
     }
-   
 
+    //[Command]
     public void ShootTo(ShootToParams shootParameters)
     {
         var intersection = weaponType.Intersect(shootParameters.activeWeapons).ToList();
@@ -135,9 +136,9 @@ public class Shooting : MonoBehaviour
                 reloadingTimer = reloadTime;
 
 
-            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, transform.rotation);
-
+            GameObject bullet = Instantiate(bulletPrototype, transform.position, transform.rotation);            
             Rigidbody rigidBody = bullet.GetComponent<Rigidbody>();
+            NetworkServer.Spawn(bullet);
             if (rigidBody)
             {
                 var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
@@ -157,6 +158,7 @@ public class Shooting : MonoBehaviour
 
             if (audioSource)
                 audioSource.PlayOneShot(audioSource.clip);
+            
         }
     }
 
