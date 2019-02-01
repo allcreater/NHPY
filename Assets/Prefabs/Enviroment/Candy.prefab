@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 705061402688136988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.90000004, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9026133046730020482}
   - {fileID: 3050211748503730534}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705061402688136988}
-  m_Mesh: {fileID: 4300000, guid: 27dd125e25b518a478b6b3871d08db93, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 27dd125e25b518a478b6b3871d08db93, type: 3}
 --- !u!23 &6319274074448306665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -90,10 +90,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.62
-  m_Height: 8.08
+  m_Radius: 0.18
+  m_Height: 2.62
   m_Direction: 1
-  m_Center: {x: 0.08, y: 3.5, z: -0.00000017881393}
+  m_Center: {x: 0.08, y: 1.13, z: -0.00000017881393}
 --- !u!1 &1475364235781717115
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475364235781717115}
   m_LocalRotation: {x: -0, y: -0, z: -0.50508124, w: 0.86307186}
-  m_LocalPosition: {x: 1.1099854, y: 8.18, z: 0}
+  m_LocalPosition: {x: 0.343, y: 2.438, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6267890200010853095}
@@ -144,8 +144,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 3.06
+  m_Radius: 0.15
+  m_Height: 1.13
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7459188460117342325
@@ -174,7 +174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459188460117342325}
   m_LocalRotation: {x: 0.016199593, y: 0.00004336564, z: -0.90562665, w: 0.4237664}
-  m_LocalPosition: {x: 3.6170003, y: 8.030094, z: -0.0000026053635}
+  m_LocalPosition: {x: 1.075, y: 2.29, z: -0.0000026053635}
   m_LocalScale: {x: 1.0020273, y: 1.0020251, z: 1}
   m_Children: []
   m_Father: {fileID: 6267890200010853095}
@@ -198,7 +198,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 3.06
+  m_Radius: 0.19
+  m_Height: 1.26
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

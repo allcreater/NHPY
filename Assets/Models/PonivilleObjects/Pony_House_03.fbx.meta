@@ -4,7 +4,12 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: House_03
     400000: //RootNode
+    400002: Camera
+    400004: House_03
+    2000000: Camera
     2100000: House_DWood
     2100002: House_Glass
     2100004: House_LPink
@@ -15,7 +20,9 @@ ModelImporter:
     2100014: House_color
     2100016: House_Roof
     2300000: //RootNode
+    2300002: House_03
     3300000: //RootNode
+    3300002: House_03
     4300000: House_03
   externalObjects:
   - first:

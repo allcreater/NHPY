@@ -14,6 +14,13 @@ ModelImporter:
     100016: Bone.001
     100018: Bone.001_end
     100020: Rubilnik
+    100022: Townhall.001
+    100024: Townhall.002
+    100026: Townhall.003
+    100028: Townhall.004
+    100030: Townhall.005
+    100032: Townhall.007
+    100034: Townhall.008
     400000: //RootNode
     400002: Floor_collider
     400004: Townhall
@@ -25,6 +32,13 @@ ModelImporter:
     400016: Bone.001
     400018: Bone.001_end
     400020: Rubilnik
+    400022: Townhall.001
+    400024: Townhall.002
+    400026: Townhall.003
+    400028: Townhall.004
+    400030: Townhall.005
+    400032: Townhall.007
+    400034: Townhall.008
     2100000: Townhall_Floror
     2100002: DarkWood
     2100004: MediumWood
@@ -45,6 +59,13 @@ ModelImporter:
     2300008: TownhallLow
     2300010: TownhalTop
     2300012: TownhalTopFlore
+    2300014: Townhall.001
+    2300016: Townhall.002
+    2300018: Townhall.003
+    2300020: Townhall.004
+    2300022: Townhall.005
+    2300024: Townhall.007
+    2300026: Townhall.008
     3300000: //RootNode
     3300002: Floor_collider
     3300004: Townhall
@@ -52,12 +73,26 @@ ModelImporter:
     3300008: TownhallLow
     3300010: TownhalTop
     3300012: TownhalTopFlore
+    3300014: Townhall.001
+    3300016: Townhall.002
+    3300018: Townhall.003
+    3300020: Townhall.004
+    3300022: Townhall.005
+    3300024: Townhall.007
+    3300026: Townhall.008
     4300000: Townhall
     4300002: Floor_collider
     4300004: TownhallLow
     4300006: TownhalTop
     4300008: TownhallCentr
     4300010: TownhalTopFlore
+    4300012: Townhall.005
+    4300014: Townhall.008
+    4300016: Townhall.007
+    4300018: Townhall.004
+    4300020: Townhall.003
+    4300022: Townhall.002
+    4300024: Townhall.001
   externalObjects:
   - first:
       type: UnityEngine:Material

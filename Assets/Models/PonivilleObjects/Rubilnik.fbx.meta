@@ -10,6 +10,13 @@ ModelImporter:
     100008: Rubilnik
     100010: Rubilnika
     100012: Snow
+    100014: Budka
+    100016: BudkaSnow
+    100018: Floor_collider
+    100020: TownhallCentr
+    100022: TownhallLow
+    100024: TownhalTop
+    100026: TownhalTopFlore
     400000: //RootNode
     400002: Bone
     400004: Bone.001
@@ -17,18 +24,61 @@ ModelImporter:
     400008: Rubilnik
     400010: Rubilnika
     400012: Snow
+    400014: Budka
+    400016: BudkaSnow
+    400018: Floor_collider
+    400020: TownhallCentr
+    400022: TownhallLow
+    400024: TownhalTop
+    400026: TownhalTopFlore
     2100000: Metal
     2100002: Plafon
     2100004: Wood
     2100006: No Name
+    2100008: Snow
+    2100010: House
+    2100012: roof
+    2100014: PinkWood
+    2100016: LightPinkWood
+    2100018: MediumWood
+    2100020: Townhall_Floror
+    2100022: DarkWood
+    2100024: LightWood
+    2100026: Townhall_Roof
+    2100028: GoldWood
+    2100030: RedWood
+    2100032: RealGlass
+    2100034: Glass
+    2100036: LightRedWood
     2300000: //RootNode
     2300002: Rubilnika
     2300004: Snow
+    2300006: Budka
+    2300008: BudkaSnow
+    2300010: Floor_collider
+    2300012: TownhallCentr
+    2300014: TownhallLow
+    2300016: TownhalTop
+    2300018: TownhalTopFlore
     3300000: //RootNode
     3300002: Rubilnika
     3300004: Snow
+    3300006: Budka
+    3300008: BudkaSnow
+    3300010: Floor_collider
+    3300012: TownhallCentr
+    3300014: TownhallLow
+    3300016: TownhalTop
+    3300018: TownhalTopFlore
     4300000: Rubilnika
     4300002: Snow
+    4300004: BudkaSnow
+    4300006: Budka
+    4300008: TownhalTopFlore
+    4300010: TownhallLow
+    4300012: TownhalTop
+    4300014: TownhallCentr
+    4300016: Floor_collider
     9500000: //RootNode
     13700000: Rubilnika
     2186277476908879412: ImportLogs
@@ -104,7 +154,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
+    previousCalculatedGlobalScale: 0.297
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580180443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.81, z: 0}
+  m_LocalPosition: {x: 0, y: 2.953, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 990458437}
@@ -168,7 +168,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.54
+      scalar: -0.22
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.662281
+      value: 0.14732361
       mode: 0
       spread: 0
       speed:
@@ -4733,7 +4733,7 @@ Transform:
   m_GameObject: {fileID: 990458435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.900127, y: -0.02, z: 89.30116}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2099086893}
   - {fileID: 1636049450}
@@ -4752,10 +4752,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.840374
-  m_Height: 12.149553
+  m_Radius: 0.34
+  m_Height: 3.58
   m_Direction: 1
-  m_Center: {x: 0, y: 5.5747766, z: 0.030887604}
+  m_Center: {x: 0, y: 1.78, z: 0.030887604}
 --- !u!1 &1636049449
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,7 +4859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089634024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.86, z: 0}
+  m_LocalPosition: {x: 0, y: 2.9799998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 990458437}
@@ -4877,7 +4877,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.990566, g: 0.770961, b: 0.3224012, a: 1}
   m_Intensity: 2
-  m_Range: 35
+  m_Range: 12
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:

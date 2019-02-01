@@ -5,16 +5,21 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: Tree_7Leaves
+    100004: Tree_6L
     400000: //RootNode
     400002: Tree_7Leaves
+    400004: Tree_6L
     2100000: Tree
     2100002: Leaves
     2300000: //RootNode
     2300002: Tree_7Leaves
+    2300004: Tree_6L
     3300000: //RootNode
     3300002: Tree_7Leaves
+    3300004: Tree_6L
     4300000: Tree_06
     4300002: Tree_7Leaves
+    4300004: Tree_6L
   externalObjects:
   - first:
       type: UnityEngine:Material
