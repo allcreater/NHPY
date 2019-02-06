@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socketType: Launchers
+  socketType: RocketLaunchers_Light
+  weapon: {fileID: 0}
 --- !u!1 &571998703150734138
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketType: MegaWeapons
+  weapon: {fileID: 0}
 --- !u!1 &912533253588318824
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +103,7 @@ GameObject:
   - component: {fileID: 8307410653982558588}
   - component: {fileID: 7694062214732801115}
   m_Layer: 0
-  m_Name: 'BagSocket #7'
+  m_Name: 'Socket #7'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socketType: Bags
+  socketType: 
+  weapon: {fileID: 0}
 --- !u!1 &1134745191760295673
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketType: Bags
+  weapon: {fileID: 0}
 --- !u!1 &2968535645160211188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketType: Bags
+  weapon: {fileID: 0}
 --- !u!1 &4807315214093006216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketType: Bags
+  weapon: {fileID: 0}
 --- !u!1 &4807315214103112990
 GameObject:
   m_ObjectHideFlags: 0
@@ -6530,6 +6536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketType: Bags
+  weapon: {fileID: 0}
 --- !u!1 &4807315214666518582
 GameObject:
   m_ObjectHideFlags: 0
@@ -17754,6 +17761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketType: Bags
+  weapon: {fileID: 0}
 --- !u!1 &4807315215824628196
 GameObject:
   m_ObjectHideFlags: 0
@@ -18679,7 +18687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socketType: Launchers
+  socketType: RocketLaunchers_Light
+  weapon: {fileID: 0}
 --- !u!1 &6367733977584319345
 GameObject:
   m_ObjectHideFlags: 0
@@ -23740,7 +23749,7 @@ GameObject:
   - component: {fileID: 4982339441708895779}
   - component: {fileID: 1875816946903664555}
   m_Layer: 0
-  m_Name: 'BagSocket #6'
+  m_Name: 'Socket #6'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23773,7 +23782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a857330792fca04baefbe06bafd8aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  socketType: Bags
+  socketType: 
+  weapon: {fileID: 0}
 --- !u!1 &8947093433549678046
 GameObject:
   m_ObjectHideFlags: 0

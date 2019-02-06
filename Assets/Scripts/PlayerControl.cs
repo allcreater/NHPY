@@ -21,31 +21,16 @@ public class PlayerControl : MonoBehaviour
     public GameObject playerPawn;
 
     private WeaponsController weaponsController;
-    private SortedSet<string> discoveredWeapons = new SortedSet<string>();
 
     private int selectedSecondaryGroupIndex = 0;
 
-    private static readonly string mainGroup = "Main";
-    private static readonly string alternateGroup = "Alternate";
+    private static readonly string mainGroupName = "Bags";
+    private static readonly string alternateGroupName = "Alternate";
+    private static readonly string[] primaryGroupNames = { mainGroupName, alternateGroupName };
 
     void Awake ()
     {
         weaponsController = playerPawn.GetComponent<WeaponsController>();
-    }
-
-    void RediscoverWeapon()
-    {
-        discoveredWeapons.Clear();
-        foreach (var bucket in weaponsController.buckets)
-            foreach (var weapon in weaponsController.GetWeapons(bucket))
-            {
-                var shooter = weapon.GetComponentInChildren<Shooting>();
-                if (shooter)
-                    discoveredWeapons.UnionWith(shooter.weaponType);
-            }
-
-        discoveredWeapons.Remove(mainGroup);
-        discoveredWeapons.Remove(alternateGroup);
     }
 
     void Update ()
@@ -53,11 +38,13 @@ public class PlayerControl : MonoBehaviour
         if (Mathf.Approximately(Time.timeScale, 0.0f))
             return;
 
-        RediscoverWeapon();
-
+        //Movement
         var movement = Vector3.ClampMagnitude(new Vector3(CrossPlatformInputManager.GetAxisRaw("Horizontal"), 0.0f, CrossPlatformInputManager.GetAxisRaw("Vertical")), 1.0f);
         MoveToParams moveToParams = new MoveToParams(movement, CrossPlatformInputManager.GetButton("Run"));
+        playerPawn.BroadcastMessage("MoveTo", moveToParams, SendMessageOptions.DontRequireReceiver);//TODO: switch to new message system ?
 
+
+        //Targeting
         Vector3? lookToDirection = null;
         ShootToParams shootToParameters = null;
 
@@ -68,47 +55,44 @@ public class PlayerControl : MonoBehaviour
         var camera = GetComponent<Camera>();
         var mouseScreenPos = CrossPlatformInputManager.mousePosition;
 
+
+        var weaponGroups = weaponsController.Weapons.GroupBy(x => x.socketType).ToDictionary(x => x.Key);
+
         //secondary weapon selection
         var direction = (int)Mathf.Clamp(CrossPlatformInputManager.GetAxisRaw("SwitchWeapon"), -1, 1);
         if (direction != 0)
             selectedSecondaryGroupIndex++;
 
-        selectedSecondaryGroupIndex %= Mathf.Max(discoveredWeapons.Count, 1);
-        var secondaryGroup = discoveredWeapons.Skip(selectedSecondaryGroupIndex).FirstOrDefault();
+        var secondaryGroups = weaponGroups.Where(x => !primaryGroupNames.Contains(x.Key)).Select(x => x.Value).ToArray();
+        if (secondaryGroups.Length > 0)
+        {
+            selectedSecondaryGroupIndex %= secondaryGroups.Length;
+        }
 
-        if (direction != 0)
-            Debug.Log("Weapon:" + secondaryGroup);
 
         if (Physics.Raycast(camera.ScreenPointToRay(mouseScreenPos), out var hitInfo))
         {
             lookToDirection = (hitInfo.point - playerPawn.transform.position).normalized;
 
-            var attacks = new List<string>();
-            if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f)
-                attacks.Add(mainGroup);
-            if (CrossPlatformInputManager.GetButtonDown("Fire2"))
-                attacks.Add(alternateGroup);
-            if (CrossPlatformInputManager.GetAxisRaw("Fire3") > 0.5f)
-                attacks.Add(secondaryGroup);
+            var target = (hitInfo.collider.tag == "Enemy") ? hitInfo.collider.transform : null;
+            shootToParameters = new ShootToParams(hitInfo.point, target, weaponsController); //TODO: think about sending weaponsController
 
-            if (attacks.Count > 0)
-            {
-                var target = (hitInfo.collider.tag == "Enemy") ? hitInfo.collider.transform : null;
-                shootToParameters = new ShootToParams(hitInfo.point, target, attacks.ToArray());
-            }
+            //TODO: move some grouping functionality into socket/controller?
+            bool Shoot(IGrouping<string, BagSocket> weaponGroup) => weaponGroup.SelectMany(x => x.weapon.GetComponentsInChildren<IShootable>()).Any(x => x.ShootTo(shootToParameters));
+
+            //Right now weapon is subdivided by groups(setted by socket types), secondary group is selectable
+            if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f && weaponGroups.TryGetValue(mainGroupName, out var mainGroup))
+                Shoot(mainGroup);
+            if (CrossPlatformInputManager.GetButtonDown("Fire2") && weaponGroups.TryGetValue(alternateGroupName, out var alternateGroup))
+                Shoot(alternateGroup);
+            if (CrossPlatformInputManager.GetAxisRaw("Fire3") > 0.5f && secondaryGroups.Length > 0)
+                Shoot(secondaryGroups[selectedSecondaryGroupIndex]);
         }
 
-        //TODO: switch to new message system
-        //TODO: decrutch this weapon search
-        foreach (var controlledObject in GameObject.FindGameObjectsWithTag("Player"))
+        foreach (var weaponSocket in weaponsController.Weapons)
         {
-            controlledObject.BroadcastMessage("MoveTo", moveToParams, SendMessageOptions.DontRequireReceiver);
-
             if (lookToDirection?.magnitude > 0.01)
-                controlledObject.BroadcastMessage("LookTo", lookToDirection.Value, SendMessageOptions.DontRequireReceiver);
-
-            if (shootToParameters != null)
-                controlledObject.BroadcastMessage("ShootTo", shootToParameters, SendMessageOptions.DontRequireReceiver);
+                weaponSocket.weapon.BroadcastMessage("LookTo", lookToDirection.Value, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

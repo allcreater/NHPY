@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class StartWeapon
@@ -21,57 +20,69 @@ public class WeaponsController : MonoBehaviour, IDeathHandler
     public float bagReactionSpeedAverage = 6.0f;
     public float bagReactionSpeedDispersion = 1.0f;
 
-    private Dictionary<string, List<GameObject>> weapons = new Dictionary<string, List<GameObject>>();
-
-    //TODO: is there better way?
-    public IReadOnlyCollection<string> buckets => weapons.Keys;
-    public IReadOnlyList<GameObject> GetWeapons(string bucket) => weapons.TryGetValue(bucket, out var result) ? result : null;
-
-
-    public GameObject AddWeapon(string socketType, GameObject weapon)
+    private int socketsUpdateFrame = 0;
+    private List<BagSocket> sockets = new List<BagSocket>(); //It's very unlikely that list will be bigger than hundred elements, so that it more efficient than dictionaries etc
+    public IReadOnlyList<BagSocket> Sockets
     {
-        var list = weapons.GetOrCreate(socketType);
+        get
+        {
+            if (socketsUpdateFrame != Time.frameCount)
+            {
+                GetComponentsInChildren(sockets);
+                socketsUpdateFrame = Time.frameCount;
+            }
+            return sockets;
+        }
+    }
 
-        var socket = GetComponentsInChildren<BagSocket>().Where(x => x.socketType == socketType).Skip(list.Count).FirstOrDefault();
+    public IEnumerable<BagSocket> Weapons => Sockets.Where(x => x.weapon);
+    public IEnumerable<BagSocket> VacantPlaces => Sockets.Where(x => !x.weapon);
+
+    public BagSocket AddWeapon(string socketType, GameObject weapon)
+    {
+        var socket = Sockets.Where(x => String.IsNullOrEmpty(x.socketType) || x.socketType == socketType).FirstOrDefault(x => !x.weapon);
         if (socket)
         {
-            int index = list.Count + 1;
-
-            var newWeapon = GameObject.Instantiate(weapon, null);
-            newWeapon.name = $"Weapon [{socketType}] {index}]";
-
-            var flyAroundComponent = newWeapon.GetComponent<FlyAround>();
+            var flyAroundComponent = weapon.GetComponent<FlyAround>();
             flyAroundComponent.target = socket.transform;
             flyAroundComponent.reactionSpeed = UnityEngine.Random.Range(bagReactionSpeedAverage - bagReactionSpeedDispersion, bagReactionSpeedAverage + bagReactionSpeedDispersion);
 
-            list.Add(newWeapon);
-
-            return newWeapon;
+            socket.weapon = weapon;
+            return socket;
         }
 
         return null;
     }
     
+    public bool RemoveWeapon(GameObject weapon, bool destroyObject = true)
+    {
+        var socket = Sockets.FirstOrDefault(x => x.weapon == weapon);
+        if (socket)
+        {
+            socket.weapon = null;
+            if (destroyObject)
+                GameObject.Destroy(weapon);
+        }
+
+        return socket;
+    }
+
     private void Start()
     {
         foreach (var startWeapon in startWeapons)
-            AddWeapon(startWeapon.category, startWeapon.weaponPrefab);
+            AddWeapon(startWeapon.category, Instantiate(startWeapon.weaponPrefab));
     }
 
     private void Update()
     {
-        foreach (var bag in weapons)
-            bag.Value.RemoveAll(x => !x.activeInHierarchy); //TODO: probably weapon should be removed another way
     }
 
     float? IDeathHandler.OnDeathDoor()
     {
-        var selectedList = weapons.FirstOrDefault(x => categoriesThatBringsAdditionalLife.Contains(x.Key) && x.Value.Count > 0).Value; //TODO: priority what category will be reduced first
-        if (selectedList != null)
+        var socket = Sockets.Where(x => categoriesThatBringsAdditionalLife.Contains(x.socketType)).FirstOrDefault(x => x.weapon); //TODO: priority what category will be reduced first
+        if (socket)
         {
-            var index = selectedList.Count - 1;
-            GameObject.Destroy(selectedList[index]);
-            selectedList.RemoveAt(index);
+            RemoveWeapon(socket.weapon);
 
             return float.MaxValue;
         }

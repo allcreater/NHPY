@@ -17,13 +17,13 @@ namespace TouchableObject
             if (!bagsController)
                 return false;
 
-            var newBag = bagsController.AddWeapon(weapon.category, weapon.weaponPrefab);
-            if (!newBag)
+            //TODO: don't copy, just take ? :)
+            var actualSocket = bagsController.AddWeapon(weapon.category, Instantiate(weapon.weaponPrefab));
+            if (!actualSocket)
                 return false;
 
-
-            newBag.transform.position = transform.position;
-            newBag.transform.rotation = transform.rotation;
+            actualSocket.weapon.transform.position = transform.position;
+            actualSocket.weapon.transform.rotation = transform.rotation;
 
             return true;
         }
