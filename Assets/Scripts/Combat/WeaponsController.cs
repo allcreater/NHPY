@@ -21,8 +21,8 @@ public class WeaponsController : MonoBehaviour, IDeathHandler
     public float bagReactionSpeedDispersion = 1.0f;
 
     private int socketsUpdateFrame = 0;
-    private List<BagSocket> sockets = new List<BagSocket>(); //It's very unlikely that list will be bigger than hundred elements, so that it more efficient than dictionaries etc
-    public IReadOnlyList<BagSocket> Sockets
+    private List<WeaponSocket> sockets = new List<WeaponSocket>(); //It's very unlikely that list will be bigger than hundred elements, so that it more efficient than dictionaries etc
+    public IReadOnlyList<WeaponSocket> Sockets
     {
         get
         {
@@ -35,13 +35,13 @@ public class WeaponsController : MonoBehaviour, IDeathHandler
         }
     }
 
-    public IEnumerable<BagSocket> Weapons => Sockets.Where(x => x.weapon);
-    public IEnumerable<BagSocket> VacantPlaces => Sockets.Where(x => !x.weapon);
+    public IEnumerable<WeaponSocket> Weapons => Sockets.Where(x => x.weapon);
+    public IEnumerable<WeaponSocket> VacantPlaces => Sockets.Where(x => !x.weapon);
 
-    public BagSocket GetFreeSocket(string socketType) => Sockets.Where(x => String.IsNullOrEmpty(x.socketType) || x.socketType == socketType).FirstOrDefault(x => !x.weapon);
+    public WeaponSocket GetFreeSocket(string socketType) => Sockets.Where(x => String.IsNullOrEmpty(x.socketType) || x.socketType == socketType).FirstOrDefault(x => !x.weapon);
 
     //TODO: maybe better to move it somewhere else
-    public BagSocket InstantiateWeapon(string socketType, GameObject weaponPrefab)
+    public WeaponSocket InstantiateWeapon(string socketType, GameObject weaponPrefab)
     {
         var socket = GetFreeSocket(socketType);
         if (socket)

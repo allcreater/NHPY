@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TouchableObject
 {
-    public class GiveBag : GenericPowerUp
+    public class GiveWeapon : GenericPowerUp
     {
         public StartWeapon weapon;
 
