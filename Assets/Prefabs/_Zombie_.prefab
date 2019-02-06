@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6597765908866754983
 Transform:
   m_ObjectHideFlags: 0
@@ -1608,7 +1608,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 6
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1623,8 +1623,17 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
+          time: 0.47372192
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.87668884
+          value: 0.9919355
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1686,7 +1695,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 0.87668884
-          value: 0.9919355
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5281,15 +5290,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4279337209529003518, guid: 9373055eaa0b09343a5a4493198df35f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7748104977155321714, guid: 9373055eaa0b09343a5a4493198df35f,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279337209529003518, guid: 9373055eaa0b09343a5a4493198df35f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1681336902838203133, guid: 9373055eaa0b09343a5a4493198df35f,
         type: 3}
