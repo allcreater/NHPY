@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TouchableObject
 {
-    public class GiveBag : GenericPowerUp
+    public class GiveWeapon : GenericPowerUp
     {
         public StartWeapon weapon;
 
@@ -18,7 +18,7 @@ namespace TouchableObject
                 return false;
 
             //TODO: don't copy, just take ? :)
-            var actualSocket = bagsController.AddWeapon(weapon.category, Instantiate(weapon.weaponPrefab));
+            var actualSocket = bagsController.InstantiateWeapon(weapon.category, weapon.weaponPrefab);
             if (!actualSocket)
                 return false;
 

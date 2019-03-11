@@ -78,7 +78,7 @@ public class PlayerControl : MonoBehaviour
             shootToParameters = new ShootToParams(hitInfo.point, target, weaponsController); //TODO: think about sending weaponsController
 
             //TODO: move some grouping functionality into socket/controller?
-            bool Shoot(IGrouping<string, BagSocket> weaponGroup) => weaponGroup.SelectMany(x => x.weapon.GetComponentsInChildren<IShootable>()).Any(x => x.ShootTo(shootToParameters));
+            bool Shoot(IGrouping<string, WeaponSocket> weaponGroup) => weaponGroup.SelectMany(x => x.weapon.GetComponentsInChildren<IShootable>()).Any(x => x.ShootTo(shootToParameters));
 
             //Right now weapon is subdivided by groups(setted by socket types), secondary group is selectable
             if (CrossPlatformInputManager.GetAxisRaw("Fire1") > 0.5f && weaponGroups.TryGetValue(mainGroupName, out var mainGroup))

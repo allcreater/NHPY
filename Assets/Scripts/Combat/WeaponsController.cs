@@ -21,8 +21,8 @@ public class WeaponsController : MonoBehaviour, IDeathHandler
     public float bagReactionSpeedDispersion = 1.0f;
 
     private int socketsUpdateFrame = 0;
-    private List<BagSocket> sockets = new List<BagSocket>(); //It's very unlikely that list will be bigger than hundred elements, so that it more efficient than dictionaries etc
-    public IReadOnlyList<BagSocket> Sockets
+    private List<WeaponSocket> sockets = new List<WeaponSocket>(); //It's very unlikely that list will be bigger than hundred elements, so that it more efficient than dictionaries etc
+    public IReadOnlyList<WeaponSocket> Sockets
     {
         get
         {
@@ -35,14 +35,19 @@ public class WeaponsController : MonoBehaviour, IDeathHandler
         }
     }
 
-    public IEnumerable<BagSocket> Weapons => Sockets.Where(x => x.weapon);
-    public IEnumerable<BagSocket> VacantPlaces => Sockets.Where(x => !x.weapon);
+    public IEnumerable<WeaponSocket> Weapons => Sockets.Where(x => x.weapon);
+    public IEnumerable<WeaponSocket> VacantPlaces => Sockets.Where(x => !x.weapon);
 
-    public BagSocket AddWeapon(string socketType, GameObject weapon)
+    public WeaponSocket GetFreeSocket(string socketType) => Sockets.Where(x => String.IsNullOrEmpty(x.socketType) || x.socketType == socketType).FirstOrDefault(x => !x.weapon);
+
+    //TODO: maybe better to move it somewhere else
+    public WeaponSocket InstantiateWeapon(string socketType, GameObject weaponPrefab)
     {
-        var socket = Sockets.Where(x => String.IsNullOrEmpty(x.socketType) || x.socketType == socketType).FirstOrDefault(x => !x.weapon);
+        var socket = GetFreeSocket(socketType);
         if (socket)
         {
+            var weapon = Instantiate(weaponPrefab);
+
             var flyAroundComponent = weapon.GetComponent<FlyAround>();
             flyAroundComponent.target = socket.transform;
             flyAroundComponent.reactionSpeed = UnityEngine.Random.Range(bagReactionSpeedAverage - bagReactionSpeedDispersion, bagReactionSpeedAverage + bagReactionSpeedDispersion);
@@ -69,8 +74,9 @@ public class WeaponsController : MonoBehaviour, IDeathHandler
 
     private void Start()
     {
+        //TODO: move into helper component
         foreach (var startWeapon in startWeapons)
-            AddWeapon(startWeapon.category, Instantiate(startWeapon.weaponPrefab));
+            InstantiateWeapon(startWeapon.category, startWeapon.weaponPrefab);
     }
 
     private void Update()
