@@ -4,7 +4,11 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: House_04
+    100004: House_04.Snow
     400000: //RootNode
+    400002: House_04
+    400004: House_04.Snow
     2100000: House_color
     2100002: House_sticks
     2100004: House_Glass
@@ -13,8 +17,13 @@ ModelImporter:
     2100010: House_Roof
     2100012: Snow
     2300000: //RootNode
+    2300002: House_04
+    2300004: House_04.Snow
     3300000: //RootNode
+    3300002: House_04
+    3300004: House_04.Snow
     4300000: House_04
+    4300002: House_04.Snow
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -25,7 +34,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_DWood
-    second: {fileID: 2100000, guid: 797bf51d97b32b3438649d40c83eb63a, type: 2}
+    second: {fileID: 2100000, guid: 4c948f05c11154548b69356d8b667356, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -45,7 +54,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_sticks
-    second: {fileID: 2100000, guid: 4c948f05c11154548b69356d8b667356, type: 2}
+    second: {fileID: 2100000, guid: 797bf51d97b32b3438649d40c83eb63a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
