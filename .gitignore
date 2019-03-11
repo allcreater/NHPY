@@ -53,3 +53,5 @@ sysinfo.txt
 /Assets/Scenes/*/Lightmap*
 
 # Other stuff
+/Assets/Models/plane.fbx
+/Assets/Models/plane.fbx.meta
