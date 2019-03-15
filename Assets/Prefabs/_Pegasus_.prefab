@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71abf42e3e9f4f41a403d622918c4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageRadius: 6.5
+  damageRadius: 7
   damage: 1
 --- !u!135 &517609626645668585
 SphereCollider:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   observingDistance: 10000
-  whirlingDistance: 20
+  whirlingDistance: 6
 --- !u!1 &2404830722356356167
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,14 +224,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2404830722356356167}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 5122057328739138295}
   m_Father: {fileID: 517609628503351303}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!198 &5445433424783399152
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2404830722356356167}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -251,7 +251,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -5057,7 +5057,7 @@ ParticleSystem:
   m_GameObject: {fileID: 8653514304470731306}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0

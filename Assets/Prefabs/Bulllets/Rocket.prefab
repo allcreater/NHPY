@@ -68,9 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1883efd747d9222409fc6e02933a1eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionSpeed: 30
-  acceleration: 7
-  delayAfterAiming: 0.2
+  reactionSpeed: 22
+  acceleration: 1.8
+  delayAfterAiming: 0.15
   ranRotXmin: -70
   ranRotXmax: -90
   ranRotYmin: -90
@@ -86,10 +86,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.7
-  m_Height: 2.4103394
+  m_Radius: 0.1
+  m_Height: 0.41
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.3888092}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6483390011628216425
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ AudioSource:
   Priority: 119
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -228,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471002549676153584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2471002550968394695}
@@ -370,7 +370,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -495,7 +495,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.03
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -871,7 +871,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 32.47646
+    angle: 8.002571
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -4966,8 +4966,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471002550968394697}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -0.035}
-  m_LocalScale: {x: 0.3, y: 0.5, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: -0.13500395}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
   - {fileID: 2471002549676153585}
   m_Father: {fileID: 2471002549253054805}
@@ -5025,6 +5025,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2471002549253054805}
     m_Modifications:
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Name
+      value: Podarok
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5035,7 +5055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.734
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5071,35 +5091,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Name
-      value: Podarok
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}
-      propertyPath: m_Layer
-      value: 9
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec751045054ca441a5b96c55b5f7bff, type: 3}

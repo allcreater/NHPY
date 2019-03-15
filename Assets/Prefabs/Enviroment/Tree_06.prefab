@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 488110175433877962}
   - component: {fileID: 1809154019335950814}
   - component: {fileID: 3007894800014227521}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tree_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2525208926416054276
 Transform:
@@ -129,12 +129,12 @@ GameObject:
   - component: {fileID: 2594027592037685930}
   - component: {fileID: 5781080293447869380}
   - component: {fileID: 866600996342478193}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tree_7Leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &328377091787449303
 Transform:

@@ -4953,8 +4953,8 @@ MonoBehaviour:
   hitEffect: {fileID: 708064997584973626, guid: ad336eddb5c09544a8613612295982a0,
     type: 3}
   startDelay: 0
-  explodeAfterMin: 3
-  explodeAfterMax: 5
+  explodeAfterMin: 5
+  explodeAfterMax: 7
 --- !u!54 &763941290101313862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4982,5 +4982,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}

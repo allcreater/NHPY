@@ -43,7 +43,7 @@ ParticleSystem:
   m_GameObject: {fileID: 3273461220176399304}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -53,7 +53,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -5334,7 +5334,7 @@ ParticleSystem:
   m_GameObject: {fileID: 6980737007799490372}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5344,7 +5344,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -10207,6 +10207,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6153881327251846189, guid: 9373055eaa0b09343a5a4493198df35f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279337209529003518, guid: 9373055eaa0b09343a5a4493198df35f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2906094308397003592, guid: 9373055eaa0b09343a5a4493198df35f,
         type: 3}
       propertyPath: bodyParts.Array.size
@@ -10232,16 +10242,6 @@ PrefabInstance:
       propertyPath: bodyParts.Array.data[1]
       value: 
       objectReference: {fileID: 4958762446925592423}
-    - target: {fileID: 6153881327251846189, guid: 9373055eaa0b09343a5a4493198df35f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4279337209529003518, guid: 9373055eaa0b09343a5a4493198df35f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9373055eaa0b09343a5a4493198df35f, type: 3}
 --- !u!4 &5493368588910431337 stripped

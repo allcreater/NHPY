@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 6047550519971425416}
   - component: {fileID: 6211423825093978997}
   - component: {fileID: 2309128036543765792}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tree_02L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7207266938034652906
 Transform:
@@ -103,12 +103,12 @@ GameObject:
   - component: {fileID: 6738164038490922974}
   - component: {fileID: 8245144866494711924}
   - component: {fileID: 173129234635130210}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1484172234881814340
 Transform:
@@ -196,12 +196,12 @@ GameObject:
   - component: {fileID: 1470988227858244152}
   - component: {fileID: 2637343207837039361}
   - component: {fileID: 1603274180846059109}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tree_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5104527418737088971
 Transform:
@@ -260,7 +260,7 @@ MeshRenderer:
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

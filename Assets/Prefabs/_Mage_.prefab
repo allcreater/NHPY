@@ -162,7 +162,7 @@ MonoBehaviour:
   - prefab: {fileID: 591841168, guid: 7cd7739d8cf834b46a74853640dd8f11, type: 3}
     probabilityWeight: 0.04
   - prefab: {fileID: 1029974633, guid: 4b3e1883d2230d24593393b109f3ded6, type: 3}
-    probabilityWeight: 0.08
+    probabilityWeight: 0.06
 --- !u!114 &7995047965667228589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +316,7 @@ ParticleSystem:
   m_GameObject: {fileID: 3352849771156319530}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -326,7 +326,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -1882,7 +1882,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 6
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1897,17 +1897,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.47372192
+          time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.87668884
-          value: 0.9919355
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1968,8 +1959,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 0.008064032
+          time: 0.87668884
+          value: 0.9919355
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -5342,7 +5333,7 @@ ParticleSystem:
   m_GameObject: {fileID: 8233767300503894841}
   serializedVersion: 6
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5352,7 +5343,7 @@ ParticleSystem:
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -5416,7 +5407,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6931,6 +6922,15 @@ ParticleSystem:
           weightedMode: 0
           inWeight: 0.25971973
           outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: -0.66934204
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -6976,23 +6976,41 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.8562543
-          value: -0.0000000018626451
-          inSlope: 0.026294362
-          outSlope: 0.026294362
+          time: 0.5003185
+          value: 0.0000073835254
+          inSlope: 0.03799187
+          outSlope: 0.03799187
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.14904115
+          inWeight: 0.33333334
           outWeight: 1
         - serializedVersion: 3
-          time: 0.99359936
-          value: -0.0000000018626451
+          time: 0.6258228
+          value: 0.032268383
           inSlope: -8.54211
           outSlope: -8.54211
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.22263972
           outWeight: 0.1286817
+        - serializedVersion: 3
+          time: 0.80853856
+          value: -0.46045363
+          inSlope: -2.061558
+          outSlope: -2.061558
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.5034002
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.9972534
+          value: -1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4

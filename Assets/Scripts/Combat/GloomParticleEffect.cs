@@ -36,7 +36,7 @@ public class GloomParticleEffect : MonoBehaviour
             var dirToTarget = targetPos - particles[i].position;
             particles[i].velocity += (dirToTarget) * homingSpeed;
 
-            if (dirToTarget.magnitude < 3.0f)
+            if (dirToTarget.magnitude < 2.0f)
                 particles[i].remainingLifetime -= 0.1f;
         }
 

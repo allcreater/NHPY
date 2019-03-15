@@ -4795,32 +4795,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cc032f1b53a834585fab0af09c2b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashRadius: 0
+  splashRadius: 0.5
   attenuationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: -1
+      inSlope: 0.018742159
+      outSlope: 0.018742159
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.1407767
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1
-      outSlope: 0
+      inSlope: -0.031357825
+      outSlope: -0.031357825
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.08414239
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  hpDamage: 1
+  hpDamage: 1.2
   mpDamage: 0
   staminaDamage: 0
 --- !u!82 &5456554841542811873
@@ -4844,7 +4844,7 @@ AudioSource:
   Priority: 125
   DopplerLevel: 1
   MinDistance: 0.048751354
-  MaxDistance: 100
+  MaxDistance: 14
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -5018,7 +5018,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.18039216, g: 0, b: 1, a: 1}
   m_Intensity: 0
-  m_Range: 6
+  m_Range: 1.8
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:

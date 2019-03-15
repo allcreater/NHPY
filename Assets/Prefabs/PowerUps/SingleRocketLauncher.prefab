@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882718020890679672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.615, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4669763212130536926}
@@ -70,7 +70,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966418297755815160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.953, z: 0}
+  m_LocalPosition: {x: 0, y: 0.525, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8971729358763686611}
@@ -86,9 +86,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.81960785, g: 0, b: 0.5858955, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.4642725, a: 1}
   m_Intensity: 3
-  m_Range: 2.8
+  m_Range: 0.8
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -146,9 +146,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8971729358763686611}
   - component: {fileID: 1214905219305337566}
-  - component: {fileID: 4892707952896262840}
   - component: {fileID: 1414123628227500509}
   - component: {fileID: 6986694890545233624}
+  - component: {fileID: 2770321089162821743}
   m_Layer: 11
   m_Name: SingleRocketLauncher
   m_TagString: Untagged
@@ -189,20 +189,6 @@ MonoBehaviour:
     weaponPrefab: {fileID: 624314362935776253, guid: 759703f792363044d8f94c74aca24fd1,
       type: 3}
     category: MegaWeapons
---- !u!136 &4892707952896262840
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7216971688707391446}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 3.03
-  m_Height: 5.3439727
-  m_Direction: 2
-  m_Center: {x: 0, y: 1.45, z: 0}
 --- !u!65 &1414123628227500509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -214,8 +200,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 1, z: 0.05}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 0.05, y: 0.2, z: 0.05}
+  m_Center: {x: 0, y: 0.51, z: 0}
 --- !u!54 &6986694890545233624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -232,6 +218,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 2
+--- !u!135 &2770321089162821743
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216971688707391446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &4669763212130670428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -269,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: 0.286
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0589a3144af07814abb61e6e260681a0, type: 3}
       propertyPath: m_LocalRotation.x
