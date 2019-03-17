@@ -6,6 +6,7 @@ public class GloomAttackReceiver : MonoBehaviour
 {
     public float damageThreshold;
     public float maxReceiveRadius = 20.0f;
+    public float minRadius = 2.0f;
     public LayerMask layerMask;
     public string objectsTag = "Enemy";
 
