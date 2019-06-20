@@ -14,25 +14,22 @@ public class ShootToParams
 {
     public Vector3 targetPosition { get; }
     public Transform target { get; }
-    public IReadOnlyList<string> activeWeapons => activeWeaponsList;
+    public WeaponsController weaponsController { get; }
 
-    private List<string> activeWeaponsList;
-
-    public void SetWeaponUsed(string weaponType)
+    public ShootToParams(Vector3 targetPos, Transform target, WeaponsController weaponsController = null)
     {
-        if (!activeWeaponsList.Remove(weaponType))
-            throw new System.InvalidOperationException("weapon type not exisis");
-    }
-
-    public ShootToParams(Vector3 targetPos, Transform target, params string[] activeWeapons)
-    {
-        targetPosition = targetPos;
-        activeWeaponsList = activeWeapons.ToList();
+        this.targetPosition = targetPos;
         this.target = target;
+        this.weaponsController = weaponsController;
     }
 }
 
-public class Shooting : MonoBehaviour
+public interface IShootable
+{
+    bool ShootTo(ShootToParams shootParameters);
+}
+
+public class Shooting : MonoBehaviour, IShootable
 {
     public GameObject bulletPrototype;
     public float bulletSpeed = 10.0f;
@@ -41,9 +38,8 @@ public class Shooting : MonoBehaviour
     public float bullets = 1;
 
     public bool requireAim = false;
+    public bool removeWhenNoAmmo = true;
     public bool useBallisticTrajectory = false;
-
-    public string[] weaponType;
 
     [Header("Shooting bursts")]
     public float burstReloadTime = 0.0f;
@@ -58,6 +54,8 @@ public class Shooting : MonoBehaviour
     private float reloadingTimer = 0.0f;
     private Vector3 m_prevPos, m_velocity;
     private int shootsUntilReload;
+
+    public bool ready => Mathf.Approximately(reloadingTimer, 0.0f) && (removeWhenNoAmmo || bullets > 0);
 
     private void Awake()
     {
@@ -113,51 +111,47 @@ public class Shooting : MonoBehaviour
     }
    
 
-    public void ShootTo(ShootToParams shootParameters)
+    public bool ShootTo(ShootToParams shootParameters)
     {
-        var intersection = weaponType.Intersect(shootParameters.activeWeapons).ToList();
-        if (intersection.Count == 0)
-            return;
+        if (requireAim && !shootParameters.target)
+            return false;
 
-        if (!shootParameters.target && requireAim)
-            return;
+        //Reloading section
+        if (!ready)
+            return false;
 
-        //Debug.DrawRay(transform.position, direction, Color.green, 0.1f);
-
-        if (Mathf.Approximately(reloadingTimer, 0.0f))
+        if (burstSize > 0 && --shootsUntilReload <= 0)
         {
-            if (burstSize > 0 && --shootsUntilReload <= 0)
-            {
-                shootsUntilReload = burstSize;
-                reloadingTimer = burstReloadTime;
-            }
-            else
-                reloadingTimer = reloadTime;
-
-
-            var bullet = GameObject.Instantiate(bulletPrototype, transform.position, transform.rotation);
-
-            Rigidbody rigidBody = bullet.GetComponent<Rigidbody>();
-            if (rigidBody)
-            {
-                var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
-                rigidBody.velocity = velocity + m_velocity;
-            }
-
-            //TODO: remove
-            var homingMissile = bullet.GetComponent<HomingMissile>();
-            if (homingMissile)
-                homingMissile.target = shootParameters.target;
-
-            if (bullets > 0 && --bullets == 0)
-                gameObject.SetActive(false);
-
-            foreach (var wt in intersection)
-                shootParameters.SetWeaponUsed(wt);
-
-            if (audioSource)
-                audioSource.PlayOneShot(audioSource.clip);
+            shootsUntilReload = burstSize;
+            reloadingTimer = burstReloadTime;
         }
+        else
+            reloadingTimer = reloadTime;
+
+
+        //Shooting
+        var bullet = GameObject.Instantiate(bulletPrototype, transform.position, transform.rotation);
+
+        Rigidbody rigidBody = bullet.GetComponent<Rigidbody>();
+        if (rigidBody)
+        {
+            var velocity = trajectoryCalculator(shootParameters.targetPosition + Random.insideUnitSphere * targetDeviationRange, 10.0f);
+            rigidBody.velocity = velocity + m_velocity;
+        }
+
+        //TODO: remake!
+        var homingMissile = bullet.GetComponent<HomingMissile>();
+        if (homingMissile)
+            homingMissile.target = shootParameters.target;
+
+
+        if (bullets > 0 && --bullets == 0 && removeWhenNoAmmo)
+            shootParameters.weaponsController?.RemoveWeapon(gameObject);
+
+        if (audioSource)
+            audioSource.PlayOneShot(audioSource.clip);
+
+        return true;
     }
 
     void FixedUpdate()

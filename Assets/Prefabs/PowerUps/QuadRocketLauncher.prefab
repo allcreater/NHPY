@@ -52,7 +52,7 @@ MonoBehaviour:
   weapon:
     weaponPrefab: {fileID: 8754902770100498953, guid: c9fc6c5a34fa8184aa36fae691362605,
       type: 3}
-    category: Launchers
+    category: RocketLaunchers_Light
 --- !u!136 &5435802165798106718
 CapsuleCollider:
   m_ObjectHideFlags: 0

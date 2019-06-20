@@ -65,7 +65,7 @@ MonoBehaviour:
   weapon:
     weaponPrefab: {fileID: 1299557394861990, guid: b688161fa5d8cfe46b82e787ebff0f83,
       type: 3}
-    category: Bags
+    category: Alternate
 --- !u!65 &4803112847796433426
 BoxCollider:
   m_ObjectHideFlags: 0
