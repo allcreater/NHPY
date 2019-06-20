@@ -150,9 +150,8 @@ MonoBehaviour:
   reloadTime: 2
   bullets: 20
   requireAim: 1
+  removeWhenNoAmmo: 0
   useBallisticTrajectory: 0
-  weaponType:
-  - Alternate#1
   burstReloadTime: 0
   burstSize: 0
   clips:
