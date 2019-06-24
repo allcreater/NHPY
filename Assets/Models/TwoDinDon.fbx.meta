@@ -6,16 +6,26 @@ ModelImporter:
     100000: Cube.002
     100002: Cube.003
     100004: //RootNode
+    100006: Din-Don
+    100008: Din-don
     400000: Cube.002
     400002: Cube.003
     400004: //RootNode
+    400006: Din-Don
+    400008: Din-don
     2100000: DinDon
     2300000: Cube.002
     2300002: Cube.003
+    2300004: Din-Don
+    2300006: Din-don
     3300000: Cube.002
     3300002: Cube.003
+    3300004: Din-Don
+    3300006: Din-don
     4300000: Cube.003
     4300002: Cube.002
+    4300004: Din-don
+    4300006: Din-Don
   externalObjects:
   - first:
       type: UnityEngine:Material

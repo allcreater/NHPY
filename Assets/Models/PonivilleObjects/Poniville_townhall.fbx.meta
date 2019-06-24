@@ -6,9 +6,39 @@ ModelImporter:
     100000: //RootNode
     100002: Floor_collider
     100004: Townhall
+    100006: TownhallCentr
+    100008: TownhallLow
+    100010: TownhalTop
+    100012: TownhalTopFlore
+    100014: Bone
+    100016: Bone.001
+    100018: Bone.001_end
+    100020: Rubilnik
+    100022: Townhall.001
+    100024: Townhall.002
+    100026: Townhall.003
+    100028: Townhall.004
+    100030: Townhall.005
+    100032: Townhall.007
+    100034: Townhall.008
     400000: //RootNode
     400002: Floor_collider
     400004: Townhall
+    400006: TownhallCentr
+    400008: TownhallLow
+    400010: TownhalTop
+    400012: TownhalTopFlore
+    400014: Bone
+    400016: Bone.001
+    400018: Bone.001_end
+    400020: Rubilnik
+    400022: Townhall.001
+    400024: Townhall.002
+    400026: Townhall.003
+    400028: Townhall.004
+    400030: Townhall.005
+    400032: Townhall.007
+    400034: Townhall.008
     2100000: Townhall_Floror
     2100002: DarkWood
     2100004: MediumWood
@@ -20,14 +50,49 @@ ModelImporter:
     2100016: RedWood
     2100018: LightRedWood
     2100020: No Name
+    2100022: GoldWood
+    2100024: RealGlass
     2300000: //RootNode
     2300002: Floor_collider
     2300004: Townhall
+    2300006: TownhallCentr
+    2300008: TownhallLow
+    2300010: TownhalTop
+    2300012: TownhalTopFlore
+    2300014: Townhall.001
+    2300016: Townhall.002
+    2300018: Townhall.003
+    2300020: Townhall.004
+    2300022: Townhall.005
+    2300024: Townhall.007
+    2300026: Townhall.008
     3300000: //RootNode
     3300002: Floor_collider
     3300004: Townhall
+    3300006: TownhallCentr
+    3300008: TownhallLow
+    3300010: TownhalTop
+    3300012: TownhalTopFlore
+    3300014: Townhall.001
+    3300016: Townhall.002
+    3300018: Townhall.003
+    3300020: Townhall.004
+    3300022: Townhall.005
+    3300024: Townhall.007
+    3300026: Townhall.008
     4300000: Townhall
     4300002: Floor_collider
+    4300004: TownhallLow
+    4300006: TownhalTop
+    4300008: TownhallCentr
+    4300010: TownhalTopFlore
+    4300012: Townhall.005
+    4300014: Townhall.008
+    4300016: Townhall.007
+    4300018: Townhall.004
+    4300020: Townhall.003
+    4300022: Townhall.002
+    4300024: Townhall.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -64,6 +129,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: PinkWood
     second: {fileID: 2100000, guid: b4c6840fd3617044da4f01049811bdf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RealGlass
+    second: {fileID: 2100000, guid: ecf0b593cf314704c8600b4f81b1ba55, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -112,6 +182,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -136,6 +207,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

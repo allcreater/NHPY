@@ -19,7 +19,7 @@ public class GloomParticleEffect : MonoBehaviour
 
     public void GloomAttackedBy(GloomAttack attacker)
     {
-        system.Emit(new ParticleSystem.EmitParams() { position = attacker.transform.position}, 1);
+        system.Emit(new ParticleSystem.EmitParams() { position = attacker.transform.position, velocity = Vector3.zero}, 1);
     }
 
     private void LateUpdate()
@@ -31,13 +31,21 @@ public class GloomParticleEffect : MonoBehaviour
 
         // Change only the particles that are alive
         var targetPos = transform.position;
+
+        Color32 beginColor = Color.black, endColor = Color.white;
+        var targetVelocity = gameObject.GetVelocity();
+
         for (int i = 0; i < numParticlesAlive; ++i)
         {
-            var dirToTarget = targetPos - particles[i].position;
-            particles[i].velocity += (dirToTarget) * homingSpeed;
+            //var dirToTarget = targetPos - particles[i].position;
+            //particles[i].velocity += (dirToTarget) * homingSpeed;
 
-            if (dirToTarget.magnitude < 3.0f)
-                particles[i].remainingLifetime -= 0.1f;
+            //if (dirToTarget.magnitude < 0.7f)
+            //    particles[i].remainingLifetime -= 0.1f;
+
+            var newPos = Vector3.Lerp(particles[i].position, targetPos, Time.deltaTime * 4);
+            particles[i].velocity = (newPos - particles[i].position) / Time.deltaTime;
+            particles[i].color = Color32.Lerp(beginColor, endColor, (particles[i].velocity - targetVelocity).magnitude / 20.0f);
         }
 
         // Apply the particle changes to the particle system

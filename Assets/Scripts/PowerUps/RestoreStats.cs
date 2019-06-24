@@ -4,41 +4,31 @@ using UnityEngine.Events;
 
 namespace TouchableObject
 {
-    public class RestoreStats : MonoBehaviour
+    public class RestoreStats : GenericPowerUp
     {
-        public string pickerTag;
         public float restoredHitPoints = 1.0f;
         public float restoredManaPoints = 0.0f;
         public float restoredStaminaPoints = 0.0f;
 
-        //private AudioSource audioSource;
 
-        //private void Awake()
-        //{
-        //    audioSource = GetComponent<AudioSource>();
-        //}
-
-
-        private void OnTriggerStay(Collider other)
+        protected override bool TryActivate(Collider other)
         {
-            if (other.tag != pickerTag)
-                return;
-
             var playerStats = other.GetComponent<PlayerStats>();
-            if (playerStats)
-            {
-                bool restoresHP = playerStats.hitPoints < playerStats.maxHitPoints && !Mathf.Approximately(restoredHitPoints, 0);
-                bool restoresMP = playerStats.manaPoints < playerStats.maxManaPoints && !Mathf.Approximately(restoredManaPoints, 0);
-                bool restoresSP = playerStats.stamina < playerStats.maxStamina && !Mathf.Approximately(restoredStaminaPoints, 0);
+            if (!playerStats)
+                return false;
 
-                if (!restoresHP && !restoresMP && !restoresSP)
-                    return;
+            bool restoresHP = playerStats.hitPoints < playerStats.maxHitPoints && !Mathf.Approximately(restoredHitPoints, 0);
+            bool restoresMP = playerStats.manaPoints < playerStats.maxManaPoints && !Mathf.Approximately(restoredManaPoints, 0);
+            bool restoresSP = playerStats.stamina < playerStats.maxStamina && !Mathf.Approximately(restoredStaminaPoints, 0);
 
-                playerStats.hitPoints += restoredHitPoints;
-                playerStats.manaPoints += restoredManaPoints;
-                playerStats.stamina += restoredStaminaPoints;
-                GameObject.Destroy(gameObject);
-            }
+            if (!restoresHP && !restoresMP && !restoresSP)
+                return false;
+
+            playerStats.hitPoints += restoredHitPoints;
+            playerStats.manaPoints += restoredManaPoints;
+            playerStats.stamina += restoredStaminaPoints;
+
+            return true;
         }
 
     }

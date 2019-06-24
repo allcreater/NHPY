@@ -8,28 +8,22 @@ public class Projectile : MonoBehaviour
 {
     public string[] tags;
     public GameObject hitEffect;
+
     public float startDelay = 0.0f;
     public float explodeAfterMin = 0.0f;
     public float explodeAfterMax = 0.0f;
 
-    private float getExplode()
-    {
-        return Random.Range(explodeAfterMin, explodeAfterMax);
-    }
+    private float explosionTime => Random.Range(explodeAfterMin, explodeAfterMax);
 
     private Coroutine delayedEffect;
 
     // Use this for initialization
     void Start ()
     {
-        var explode = getExplode();
-        if (explode > 0.0f)
-        {
-            StartCoroutine(ExecuteAfterTime(explode, GetComponent<Collider>(), hitEffect));
-        }
+        var delay = explosionTime;
+        if (delay > 0.0f)
+            StartCoroutine(ExecuteAfterTime(delay, GetComponent<Collider>(), hitEffect));
     }
-
-   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +40,7 @@ public class Projectile : MonoBehaviour
             yield return new WaitForSeconds(delay);
 
         var effectObject = GameObject.Instantiate(hitEffect, transform.position, transform.rotation, null);
-        effectObject.SendMessage("CollidedWith", other, SendMessageOptions.DontRequireReceiver);
+        effectObject.GetComponent<ProjectileHit>()?.OnCollidedWith(other, tags);
 
         GameObject.Destroy(gameObject);
     }

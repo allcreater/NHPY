@@ -11,13 +11,13 @@ public struct PrefabWithProbability
 
 public class EnemyManager : MonoBehaviour
 {
-    private float x;
-    private float y;
-    private float z;
-    Vector3 posSpawnPoint;
+    public ScoreManager scoreManager;
+    public Preferences.GameSettings gameSettings;
 
+    public float spawnPointDeviation = 3.0f;
+
+    public Transform playerTransform;
     public PrefabWithProbability[] enemyPrototypes;
-    public Transform spawnPointsCollection;
     public int desiredNumberOfNpcs = 30;
     public float spawnInterval = 5.0f;
 
@@ -26,61 +26,75 @@ public class EnemyManager : MonoBehaviour
     [Header("game difficulty influence")]
     public float minHitPointsFactor = 0.5f;
     public float maxHitPointsFactor = 2.0f;
-    private float hpFactor => Mathf.Lerp(minHitPointsFactor, maxHitPointsFactor, Preferences.GameSettings.instance.difficulty);
+    private float hpFactor => Mathf.Lerp(minHitPointsFactor, maxHitPointsFactor, gameSettings.difficulty);
 
     private HashSet<Enemy> knownNpc = new HashSet<Enemy>();
     private float timeSinceLastSpawn;
 
-    private Transform SelectSpawnPoint() => spawnPointsCollection.Find($"Spawnpoint #{Random.Range(0, spawnPointsCollection.childCount)}");
+    private List<SpawnPoint> knownSpawnPoints = new List<SpawnPoint>();
 
-    private GameObject SelectEnemyPrefab() => MathExtension.RandomWeightedSelect(enemyPrototypes.Select(x => (x.prefab, x.probabilityWeight)));
+    private void UpdateSpawnPointList()
+    {
+        GetComponentsInChildren(knownSpawnPoints);
+    }
+
+    //TODO: optimization ?
+    private SpawnPoint SelectSpawnPoint(Vector3 relativePosition) => MathExtension.RandomWeightedSelect(knownSpawnPoints.Select(x => (x, x.SpawnProbability(relativePosition))));
+    private static GameObject SelectPrefab(PrefabWithProbability[] prototypes) => MathExtension.RandomWeightedSelect(prototypes.Select(x => (x.prefab, x.probabilityWeight))); //TODO: implicit cast PrefabWithProbability -> (a, b)
 
     public void RegisterNpc(Enemy npc) => knownNpc.Add(npc);
     public void UnregisterNpc(Enemy npc)
-    
-   
     {
         knownNpc.Remove(npc);
         deadNpcsCounter++;
 
         if (npc.GetComponent<PlayerStats>().hitPoints <= 0.0f)
-            ScoreManager.instance.scores++;
+            scoreManager.scores++; //TODO: more interesting estimating
     }
 
     // Start is called before the first frame update
     private void Start()
     {
+        UpdateSpawnPointList();
 
-        
         Debug.Log($"Manager {gameObject.name}: HP factor is {hpFactor}");
     }
 
-    private void SpawnNpc(GameObject prefab, Transform spawnPoint)
+    public void SpawnNpc(GameObject prefab, Vector3 position, Quaternion rotation)
     {
-        x = Random.Range(-3, 3);
-        y = 0;
-        z = Random.Range(-3, 3);
-        posSpawnPoint = new Vector3(x, y, z);
-        spawnPoint.position = spawnPoint.position + posSpawnPoint;
         if (prefab is null)
-            return;
+            throw new System.ArgumentNullException(nameof(prefab));
 
-        var instance = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation, spawnPointsCollection);
+        var instance = Instantiate(prefab, position, rotation, transform); //TODO: probably no need to set self as parent
         timeSinceLastSpawn = 0.0f;
 
-        //TODO: remove?
+        //TODO: seems it should be responsibility of another object?
         var playerStats = instance.GetComponent<PlayerStats>();
         if (playerStats)
             playerStats.hitPoints = (playerStats.maxHitPoints *= hpFactor);
 
-        Debug.Log($"New NPC spawned! {knownNpc.Count}/{desiredNumberOfNpcs}");
+        Debug.Log($"New NPC spawned! {knownNpc.Count+1}/{desiredNumberOfNpcs}");
     }
 
-    // Update is called once per frame
+    public void AutoSpawn()
+    {
+        var spawnPoint = SelectSpawnPoint(playerTransform.position);
+        var prefabs = spawnPoint.overridePrefabs != null && spawnPoint.overridePrefabs.Length > 0 ? spawnPoint.overridePrefabs : enemyPrototypes;
+        if (prefabs is null || prefabs.Length < 0)
+            return;
+
+        var prefab = SelectPrefab(prefabs);
+        if (!prefab)
+            return;
+
+        spawnPoint.remainingSpawns--;
+        SpawnNpc(prefab, spawnPoint.spawnPosition, spawnPoint.transform.rotation);
+    }
+
     private void Update()
     {
         if (knownNpc.Count < desiredNumberOfNpcs && timeSinceLastSpawn >= spawnInterval)
-            SpawnNpc(SelectEnemyPrefab(), SelectSpawnPoint());
+            AutoSpawn();
 
         timeSinceLastSpawn += Time.deltaTime;
     }

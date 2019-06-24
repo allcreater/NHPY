@@ -49,7 +49,8 @@ sysinfo.txt
 /Assets/SplineMesh/Scripts/Editor/SplineExtrusionEditor.cs
 
 #Lightmap
-/Assets/Scenes/Poniville/LightingData.*
-/Assets/Scenes/Poniville/Lightmap*
+/Assets/Scenes/*/LightingData.*
+/Assets/Scenes/*/Lightmap*
 
 # Other stuff
+

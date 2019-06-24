@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3637197113526404755}
   - component: {fileID: 7244375911121496810}
   - component: {fileID: 4365083915933046894}
-  m_Layer: 0
+  - component: {fileID: 2666957760128215251}
+  m_Layer: 13
   m_Name: Tree_04L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3637197113526404755
 Transform:
@@ -77,6 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &2666957760128215251
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155278641286555673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.35
+  m_Center: {x: -0.16117156, y: 4.113266, z: 0.36696613}
 --- !u!1 &5546579516206624865
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,12 +104,12 @@ GameObject:
   - component: {fileID: 9096009984869274704}
   - component: {fileID: 2661979412929708277}
   - component: {fileID: 7570942184389244117}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tree_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4699608511088209233
 Transform:
@@ -104,9 +118,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5546579516206624865}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 134.1001, y: 0.00000037693172, z: 183.08562}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3637197113526404755}
   m_Father: {fileID: 0}
@@ -153,7 +167,7 @@ MeshRenderer:
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -189,7 +203,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.040290758
-  m_Height: 0.14467661
-  m_Direction: 2
-  m_Center: {x: 0.006588211, y: -0.000016317368, z: 0.0638313}
+  m_Radius: 0.38
+  m_Height: 3.99
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.56, z: 0}

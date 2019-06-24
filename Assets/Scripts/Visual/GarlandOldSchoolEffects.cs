@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 [RequireComponent(typeof(Garland))]
 public class GarlandOldSchoolEffects : MonoBehaviour
 {

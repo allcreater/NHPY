@@ -172,7 +172,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -288,7 +288,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4786,6 +4786,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cc032f1b53a834585fab0af09c2b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashRadius: 0
+  attenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   hpDamage: 1
   mpDamage: 0
   staminaDamage: 0
@@ -4803,11 +4828,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1095096490874756, guid: dac8ec95eb402314eb8b067fa9482b0d, type: 3}
-  numberOfObjects: 60
-  spawnOffset: {x: 0, y: 2, z: 0}
+  numberOfObjects: 50
+  spawnOffset: {x: 0, y: 0.7, z: 0}
   explodeDelay: 1
-  scatteringSpeed: 4
-  verticalSpeed: 30
+  scatteringSpeed: 1.3
+  verticalSpeed: 10
 --- !u!82 &1551235199848845762
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4817,10 +4842,11 @@ AudioSource:
   m_GameObject: {fileID: 5644134204134359558}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a0090781a48652e4d92fe4c8e936437d,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4c396633d1fa4864388d2d7e9700fa42, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0

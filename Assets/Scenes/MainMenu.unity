@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -892,49 +892,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752084933}
   m_CullTransparentMesh: 0
---- !u!1 &822135660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 822135661}
-  - component: {fileID: 822135662}
-  m_Layer: 0
-  m_Name: GameSettings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &822135661
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822135660}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 474.4113, y: -356.28122, z: 476.74417}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &822135662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822135660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b6367aeea706e40b11e68121e0d22d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &822464107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,7 +2429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bb4c80518dcdc4484b190fbb918559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneName: Poniville
 --- !u!1 &1478458727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,14 +3202,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1463467382}
-        m_MethodName: NewGame
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Poniville
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3438,7 +3394,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3446,13 +3402,17 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "<b>\u0410\u0432\u0442\u043E\u0440\u044B</b>\n\u0410\u043D\u0442\u043E\u043D
     allcreater \u0421\u0435\u043C\u0435\u043D\u043E\u0432 - \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435\n\u0410\u043D\u0434\u0440\u0435\u0439
-    blazerdom \u0411\u0430\u043A\u043B\u0430\u043D\u043E\u0432 - \u043C\u043E\u0434\u0435\u043B\u043B\u0438\u043D\u0433,
+    blazerdom \u0411\u0430\u043A\u043B\u0430\u043D\u043E\u0432 - 3d \u0430\u0440\u0442,
     \u0433\u0435\u0439\u043C\u0434\u0438\u0437\u0430\u0439\u043D\n\u041E\u043B\u044C\u0433\u0430131186
-    - \u0430\u0440\u0442\n\n<b>\u0421\u0434\u0435\u043B\u0430\u043D\u043E \u0434\u043B\u044F
-    \u043A\u043E\u043D\u043A\u0443\u0440\u0441\u0430</b>\nhttps://tabun.everypony.ru/blog/OKI/183886.html\n\n\n\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0435
-    \u0440\u0435\u0441\u0443\u0440\u0441\u044B:</b>\nhttps://www.deviantart.com/ikillyou121/art/Smiley-Derpy-Hooves-Vector-377582698\r\n\r\n<b>\u041C\u0443\u0437\u044B\u043A\u0430:\r</b>\nAurelleah
-    - Daybreaker\r\nJyc Row - -FiE- Main Theme (Menu Screen)\r\nSkelter - Sombra\n\n<b>\u041F\u043E
-    \u043C\u043E\u0442\u0438\u0432\u0430\u043C My Little Pony: Friendship is Magic</b>"
+    - 2d \u0430\u0440\u0442\n\n<b>\u0421\u0434\u0435\u043B\u0430\u043D\u043E \u0434\u043B\u044F
+    \u043A\u043E\u043D\u043A\u0443\u0440\u0441\u0430</b>\n<color=blue>https://tabun.everypony.ru/blog/OKI/183886.html</color>\n\u043B\u044E\u0431\u0438\u0442\u0435\u043B\u044C\u0441\u043A\u0438\u0445
+    \u0440\u0430\u0431\u043E\u0442 \u043F\u043E \u043C\u043E\u0442\u0438\u0432\u0430\u043C
+    <i>My Little Pony: Friendship is Magic</i>\n\n\n<b>\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u044B\u0435
+    \u0440\u0435\u0441\u0443\u0440\u0441\u044B:</b>\n<color=blue>\"Smiley Derpy Hooves\"
+    \xA9 ikillyou121\n\"Pony Warning Label\" \xA9 AxemGR</color>\n\n<b>\u041C\u0443\u0437\u044B\u043A\u0430:\r</b><color=blue>\n\"Daybreaker\"
+    \xA9 Aurelleah\r\n\"[FiE] Main Theme (Menu Screen)\"\r \xA9 Jyc Row \n\"Sombra\"
+    \xA9 Skelter</color>\n\n\u041F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0438
+    \u0432 readme.md\n\n<b>\u0418\u0441\u0445\u043E\u0434\u043D\u044B\u0439 \u043A\u043E\u0434:</b>\n<color=blue>https://github.com/allcreater/NHPY</color>"
 --- !u!222 &1922658843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3629,6 +3589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficultySlider: {fileID: 528785494}
   lightingQualitySelector: {fileID: 1257297342}
+  gameSettings: {fileID: 11400000, guid: e9bdd5266719dd045bc2511d8c4ad7ea, type: 2}
 --- !u!1 &2059280110
 GameObject:
   m_ObjectHideFlags: 0
